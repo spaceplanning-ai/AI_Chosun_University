@@ -1,0 +1,180 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "couple-emotional",
+  "trace": {
+    "refinementId": "reduceWalking",
+    "objective": {
+      "kind": "metric",
+      "metric": "walkingLoad",
+      "direction": "decrease"
+    },
+    "constraintDelta": {
+      "walkingTolerance": -32,
+      "compactnessDemand": 14
+    },
+    "before": {
+      "walkingLoad": 40.9,
+      "travelMinutes": 388,
+      "indoorRatio": 50,
+      "costLevel": 28.3,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 71.1
+    },
+    "after": {
+      "walkingLoad": 34.9,
+      "travelMinutes": 192,
+      "indoorRatio": 55.6,
+      "costLevel": 31.9,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 73
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-purple-island",
+        "attractionId": "purple-island",
+        "contribution": 72,
+        "projectedGain": 8
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 58,
+        "projectedGain": 6.4
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 54,
+        "projectedGain": 6
+      },
+      {
+        "stopId": "stop-mokpo-modern",
+        "attractionId": "mokpo-modern",
+        "contribution": 50,
+        "projectedGain": 5.6
+      },
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 38,
+        "projectedGain": 4.2
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 30,
+        "projectedGain": 3.3
+      },
+      {
+        "stopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangju-art-museum",
+        "contribution": 26,
+        "projectedGain": 2.9
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 24,
+        "projectedGain": 2.7
+      },
+      {
+        "stopId": "stop-mokpo-cablecar",
+        "attractionId": "mokpo-cablecar",
+        "contribution": 16,
+        "projectedGain": 1.8
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-purple-island",
+        "removedAttractionId": "purple-island",
+        "addedAttractionId": "yeosu-cablecar",
+        "similarity": 85,
+        "metricGain": 6,
+        "reasons": [
+          "신안 퍼플섬(반월·박지도)을(를) 여수해상케이블카(으)로 교체했습니다.",
+          "관광가치 유사도 85점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 6.0만큼 감소했습니다.",
+          "보행부담 72점 → 18점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "gwangju-museum",
+        "reason": "관광가치 유사도 6.7점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 6.7,
+        "metricGain": 4.7
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "gaudo",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 1.3 / 유사도 72.5).",
+        "similarity": 72.5,
+        "metricGain": 1.3
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "suncheonbay-garden",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 0.7 / 유사도 55).",
+        "similarity": 55,
+        "metricGain": 0.7
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "gwanbangjerim",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 5.6 / 유사도 42.2).",
+        "similarity": 42.2,
+        "metricGain": 5.6
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "metasequoia",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 4.9 / 유사도 42.7).",
+        "similarity": 42.7,
+        "metricGain": 4.9
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "juknokwon",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 1.1 / 유사도 46).",
+        "similarity": 46,
+        "metricGain": 1.1
+      },
+      {
+        "forStopId": "stop-purple-island",
+        "attractionId": "gwangjuho",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 4.5 / 유사도 29).",
+        "similarity": 29,
+        "metricGain": 4.5
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-daein-market",
+      "stop-acc",
+      "stop-yangnim",
+      "stop-gwangju-art-museum",
+      "stop-mokpo-modern",
+      "stop-mokpo-cablecar",
+      "stop-odongdo"
+    ],
+    "changedStopIds": [
+      "stop-purple-island"
+    ],
+    "changeRatio": 11.1,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.552599999999984
+  }
+}

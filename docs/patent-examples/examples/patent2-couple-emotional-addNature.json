@@ -1,0 +1,210 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "couple-emotional",
+  "trace": {
+    "refinementId": "addNature",
+    "objective": {
+      "kind": "categoryShare",
+      "category": "nature",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "interestBoost": {
+        "nature": 0.3,
+        "rest": 0.05
+      }
+    },
+    "before": {
+      "walkingLoad": 40.9,
+      "travelMinutes": 388,
+      "indoorRatio": 50,
+      "costLevel": 28.3,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 71.1
+    },
+    "after": {
+      "walkingLoad": 40.2,
+      "travelMinutes": 413,
+      "indoorRatio": 38.9,
+      "costLevel": 25,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 64.2
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangju-art-museum",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-mokpo-cablecar",
+        "attractionId": "mokpo-cablecar",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-mokpo-modern",
+        "attractionId": "mokpo-modern",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-purple-island",
+        "attractionId": "purple-island",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-acc",
+        "removedAttractionId": "acc",
+        "addedAttractionId": "gwangjuho",
+        "similarity": 37.5,
+        "metricGain": 11.1,
+        "reasons": [
+          "국립아시아문화전당을(를) 광주호 호수생태원(으)로 교체했습니다.",
+          "관광가치 유사도 37.5점으로 원래 일정의 성격을 유지합니다.",
+          "해당 관광유형의 비중이 11.1%p 늘었습니다.",
+          "보행부담 38점 → 32점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "mudeungsan",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 50.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 69.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 29.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 35.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "boseong-tea",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gaudo",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 19.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "unjusa",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 22.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwanbangjerim",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 11.1 / 유사도 31.7).",
+        "similarity": 31.7,
+        "metricGain": 11.1
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "metasequoia",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 11.1 / 유사도 25.8).",
+        "similarity": 25.8,
+        "metricGain": 11.1
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-daein-market",
+      "stop-yangnim",
+      "stop-gwangju-art-museum",
+      "stop-mokpo-modern",
+      "stop-mokpo-cablecar",
+      "stop-purple-island",
+      "stop-odongdo"
+    ],
+    "changedStopIds": [
+      "stop-acc"
+    ],
+    "changeRatio": 11.1,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.5036999999997533
+  }
+}

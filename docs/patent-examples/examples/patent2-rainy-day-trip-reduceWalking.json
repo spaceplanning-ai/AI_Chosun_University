@@ -1,0 +1,159 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "rainy-day-trip",
+  "trace": {
+    "refinementId": "reduceWalking",
+    "objective": {
+      "kind": "metric",
+      "metric": "walkingLoad",
+      "direction": "decrease"
+    },
+    "constraintDelta": {
+      "walkingTolerance": -32,
+      "compactnessDemand": 14
+    },
+    "before": {
+      "walkingLoad": 37,
+      "travelMinutes": 93,
+      "indoorRatio": 50,
+      "costLevel": 16.8,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 66.8
+    },
+    "after": {
+      "walkingLoad": 29,
+      "travelMinutes": 97,
+      "indoorRatio": 62.5,
+      "costLevel": 17.5,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 65.3
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 58,
+        "projectedGain": 14.5
+      },
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 38,
+        "projectedGain": 9.5
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 30,
+        "projectedGain": 7.5
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 22,
+        "projectedGain": 5.5
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-yangnim",
+        "removedAttractionId": "yangnim",
+        "addedAttractionId": "gwangju-art-museum",
+        "similarity": 62.5,
+        "metricGain": 8,
+        "reasons": [
+          "양림동 근대역사문화마을을(를) 광주시립미술관(으)로 교체했습니다.",
+          "관광가치 유사도 62.5점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 8.0만큼 감소했습니다.",
+          "보행부담 58점 → 26점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "juknokwon",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 35.3,
+        "metricGain": -1
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차 소요시간이 599분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 25,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차 소요시간이 579분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "mokpo-modern",
+        "reason": "1일차 소요시간이 569분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 71.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "mokpo-cablecar",
+        "reason": "1일차 소요시간이 546분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 29.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "songjeong-market",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 8.5 / 유사도 60.3).",
+        "similarity": 60.3,
+        "metricGain": 8.5
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangju-museum",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 7 / 유사도 52.5).",
+        "similarity": 52.5,
+        "metricGain": 7
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "metasequoia",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 7.5 / 유사도 38).",
+        "similarity": 38,
+        "metricGain": 7.5
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "unjusa",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 3.5 / 유사도 34).",
+        "similarity": 34,
+        "metricGain": 3.5
+      }
+    ],
+    "keptStopIds": [
+      "stop-daein-market",
+      "stop-acc",
+      "stop-gwanbangjerim"
+    ],
+    "changedStopIds": [
+      "stop-yangnim"
+    ],
+    "changeRatio": 25,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.3850999999999658
+  }
+}

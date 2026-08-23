@@ -1,0 +1,183 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "family-with-child",
+  "trace": {
+    "refinementId": "moreJeonnam",
+    "objective": {
+      "kind": "regionShare",
+      "region": "jeonnam",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "regionBias": {
+        "jeonnam": 26,
+        "gwangju": -10
+      },
+      "compactnessDemand": -12
+    },
+    "before": {
+      "walkingLoad": 36.3,
+      "travelMinutes": 267,
+      "indoorRatio": 16.7,
+      "costLevel": 28.7,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 1,
+        "jeonnam": 5
+      },
+      "averageTrust": 100,
+      "linkageScore": 61.4
+    },
+    "after": {
+      "walkingLoad": 43,
+      "travelMinutes": 266,
+      "indoorRatio": 8.3,
+      "costLevel": 30.3,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 0,
+        "jeonnam": 6
+      },
+      "averageTrust": 100,
+      "linkageScore": 9
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-suncheonbay-garden",
+        "attractionId": "suncheonbay-garden",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-yeosu-cablecar",
+        "attractionId": "yeosu-cablecar",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-daein-market",
+        "removedAttractionId": "daein-market",
+        "addedAttractionId": "suncheonbay-wetland",
+        "similarity": 27,
+        "metricGain": 16.7,
+        "reasons": [
+          "대인예술시장을(를) 순천만습지(으)로 교체했습니다.",
+          "관광가치 유사도 27점으로 원래 일정의 성격을 유지합니다.",
+          "해당 지역의 비중이 16.7%p 늘었습니다.",
+          "보행부담 30점 → 70점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "acc",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 61.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "yangnim",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 55.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "songjeong-market",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 79.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 30.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "juknokwon",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "mokpo-cablecar",
+        "reason": "1일차 소요시간이 442분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 42,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "purple-island",
+        "reason": "1일차에서 순천만국가정원의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 37,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 12점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 12,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "boseong-tea",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 16.7 / 유사도 25.2).",
+        "similarity": 25.2,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gaudo",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 16.7 / 유사도 24.2).",
+        "similarity": 24.2,
+        "metricGain": 16.7
+      }
+    ],
+    "keptStopIds": [
+      "stop-suncheonbay-garden",
+      "stop-odongdo",
+      "stop-yeosu-cablecar",
+      "stop-gwanbangjerim",
+      "stop-metasequoia"
+    ],
+    "changedStopIds": [
+      "stop-daein-market"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.5634000000000015
+  }
+}

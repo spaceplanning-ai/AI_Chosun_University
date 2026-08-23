@@ -1,0 +1,147 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "parents-one-night",
+  "trace": {
+    "refinementId": "addNature",
+    "objective": {
+      "kind": "categoryShare",
+      "category": "nature",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "interestBoost": {
+        "nature": 0.3,
+        "rest": 0.05
+      }
+    },
+    "before": {
+      "walkingLoad": 33.3,
+      "travelMinutes": 120,
+      "indoorRatio": 41.7,
+      "costLevel": 20.3,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 4,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 59.1
+    },
+    "after": {
+      "walkingLoad": 32.3,
+      "travelMinutes": 159,
+      "indoorRatio": 25,
+      "costLevel": 15.3,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 4,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 49.6
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-acc",
+        "removedAttractionId": "acc",
+        "addedAttractionId": "gwangjuho",
+        "similarity": 37.5,
+        "metricGain": 16.7,
+        "reasons": [
+          "국립아시아문화전당을(를) 광주호 호수생태원(으)로 교체했습니다.",
+          "관광가치 유사도 37.5점으로 원래 일정의 성격을 유지합니다.",
+          "해당 관광유형의 비중이 16.7%p 늘었습니다.",
+          "보행부담 38점 → 32점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 69.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 65.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "odongdo",
+        "reason": "2일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.9,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "mokpo-modern",
+        "reason": "2일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 54.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 16.7
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-gwanbangjerim",
+      "stop-metasequoia",
+      "stop-daein-market",
+      "stop-yangnim"
+    ],
+    "changedStopIds": [
+      "stop-acc"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.8703000000000429
+  }
+}

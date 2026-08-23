@@ -1,0 +1,570 @@
+/**
+ * Layer 2 — Semantic tokens (시맨틱 토큰)
+ *
+ * 컴포넌트가 참조하는 유일한 토큰 계층. "무슨 색인가"가 아니라 "무슨 역할인가"로 이름짓는다.
+ * 아래 4개의 컨텍스트 축이 이 계층만 갈아끼우므로, 컴포넌트 코드는 모드/테마를 전혀 알지 못한다.
+ *
+ *   data-theme    = light | exhibition     밝은 미색 배경 / 어두운 전시용 배경 (제안서 11.2)
+ *   data-ui-mode  = standard | large       일반 모드 / 큰 글씨·큰 버튼 모드 (RFP 접근성 요구)
+ *   data-contrast = normal | high          고대비 테마 (제안서 16장 C안)
+ *   data-surface  = kiosk | mobile         세로형 키오스크 / QR 모바일 결과 페이지
+ */
+
+/* ══════════════════════════════════════════════════════════════════
+   색상 역할 — 기본 테마 (light)
+   ══════════════════════════════════════════════════════════════════ */
+:root,
+:root[data-theme='light'] {
+  /*
+    배경은 흰색 계열 무채색으로 통일한다. 아이보리의 노란기는 지정 팔레트와 어울리지 않는다.
+
+    다만 바닥까지 순백으로 두면 흰 카드가 바닥에 잠겨 «판이 떠 있다»는 것이 보이지 않는다.
+    그래서 바닥만 한 단계 내린다. 눈에 띄는 색이 아니라, 카드의 흰색이 흰색으로 읽히게 하는 정도다.
+    대비 계산도 이 값을 바닥으로 삼는다 — 아래 `--gradient-stage` 의 가장 어두운 단이 여기다.
+  */
+  --surface-page: var(--np-mono-50);
+  --surface-page-subtle: var(--np-mono-100);
+  --surface-card: var(--np-mono-0);
+  --surface-raised: var(--np-mono-0);
+  --surface-sunken: var(--np-mono-100);
+  --surface-inverse: var(--np-brand-ink);
+
+  --line-subtle: var(--np-mono-200);
+  --line-default: var(--np-mono-300);
+  --line-strong: var(--np-brand-disabled);
+
+  /* 발주처 지정 — 메인/서브 글자색. */
+  --content-primary: var(--np-brand-ink);
+  --content-secondary: var(--np-brand-ink-sub);
+  /*
+    지정색은 두 단계(메인·서브)뿐인데 화면에는 그보다 옅은 글자 자리가 있다.
+    임의로 더 옅게 만들면 대비 기준을 넘기지 못하므로, 흐린 글자는 서브색과 비활성색 사이에서
+    3:1 을 넘기는 무채색 단계로 잡고 `npm run contrast` 로 확인한다.
+  */
+  /*
+    지정색은 메인·서브 두 단계뿐인데 화면에는 그보다 옅은 글자 자리가 있다.
+    같은 램프에서 한 단계씩 내려 쓰되, 함몰면(#f2f4f6)에서도 기준을 넘는 곳까지 내린다 —
+    카드(흰색)만 보고 고르면 함몰면에서 미달한다.
+  */
+  --content-muted: var(--np-mono-700);
+  --content-subtle: var(--np-mono-600);
+  --content-inverse: var(--np-mono-0);
+
+  /* 발주처 지정 — 버튼·포인트 색. */
+  --brand-solid: var(--np-brand-blue);
+  --brand-hover: var(--np-brand-blue-dark);
+  --brand-soft: var(--np-brand-blue-soft);
+  --brand-on-solid: var(--np-mono-0);
+  --brand-ring: var(--np-brand-blue);
+  /*
+    지정 파랑 위의 흰 글자는 3.71:1 이다. WCAG 는 큰 글자(24px 또는 굵은 18.7px 이상)에 3:1,
+    작은 글자에 4.5:1 을 요구하므로, 지정색은 **큰 버튼·선택 표시**에 쓰고
+    작은 글자가 얹히는 자리에는 같은 색을 어둡게 내린 단계를 쓴다. 색상은 그대로 유지된다.
+  */
+  --brand-strong: var(--np-brand-blue-dark);
+  /** 밝은 면 위에 파란 «글자»로 쓸 때. 지정색 그대로는 흰 카드에서 3.71:1 로 모자란다. */
+  --brand-text: var(--np-brand-blue-dark);
+
+  /* 비활성 상태는 지정색 하나로 통일한다. */
+  --content-disabled: var(--np-brand-disabled);
+
+  /**
+   * 역할색은 "채움"과 "글자" 두 가지로 동시에 쓰인다.
+   * 밝은 테마에서는 흰 카드 위 글자로도 읽혀야 하므로, 눈에 예뻐 보이는 500·600 단계가 아니라
+   * WCAG 4.5:1 을 넘기는 어두운 단계를 쓴다. 채움으로 쓸 때는 밝은 글자를 얹는다.
+   * 실제 대비율은 `npm run contrast` 로 측정하며 테스트가 회귀를 막는다.
+   */
+  /* 포인트 색은 하나로 둔다. 버튼과 강조가 서로 다른 색이면 무엇이 «누르는 것»인지 흐려진다. */
+  --accent-solid: var(--np-brand-blue);
+  --accent-hover: var(--np-brand-blue-dark);
+  --accent-soft: var(--np-brand-blue-soft);
+  --accent-on-solid: var(--np-mono-0);
+  --accent-strong: var(--np-brand-blue-dark);
+  --accent-text: var(--np-brand-blue-dark);
+
+  /**
+   * 지역 구분색.
+   *
+   * 원래 광주=청록 / 전남=녹색이었으나, 두 색의 색상환 거리가 가까워
+   * 정상 시각에서도 ΔE 5.5(기준 15)로 구분되지 않았다. 지도 노드처럼 색만으로
+   * 지역을 나타내는 자리에서는 정보가 전달되지 않는 상태였다.
+   * 제안서 11.2의 보조색상(녹색·하늘색)을 그대로 쓰되 하늘색을 광주에 배정해 ΔE 18.0 을 확보했다.
+   *
+   * 글자용(-)과 마크용(-mark)을 나눈 이유는 요구 조건이 다르기 때문이다.
+   * 글자는 옅은 배경 위 4.5:1 이 필요해 어두워야 하고,
+   * 마크는 도형으로 구분되어야 해서 밝고 채도가 높아야 한다. 같은 색상 계열이라 정체성은 유지된다.
+   */
+  --region-gwangju: var(--np-sky-700);
+  --region-gwangju-soft: var(--np-sky-100);
+  --region-gwangju-mark: var(--np-sky-600);
+  --region-jeonnam: var(--np-green-700);
+  --region-jeonnam-soft: var(--np-green-100);
+  --region-jeonnam-mark: var(--np-green-500);
+
+  --status-positive: var(--np-green-700);
+  --status-positive-soft: var(--np-green-100);
+  --status-caution: var(--np-amber-800);
+  --status-caution-soft: var(--np-amber-100);
+  --status-excluded: var(--np-coral-700);
+  --status-excluded-soft: var(--np-coral-100);
+  --status-critical: var(--np-red-700);
+  --status-critical-soft: var(--np-red-100);
+
+  /*
+   * 상태 «채움»색 — 막대·그래프처럼 글자 없이 색만 놓이는 자리에 쓴다.
+   *
+   * 위의 글자용 값은 흰 바탕에서 4.5:1 을 넘겨야 해서 가장 어두운 단계다.
+   * 그 값을 막대에 그대로 칠하면 주의색이 갈색(#7a4a05)으로, 좋음색이
+   * 거의 검은 초록으로 보여 무슨 뜻인지 알아볼 수 없다.
+   * 그래서 색은 알아보되 3:1 은 넘는 한 단계 밝은 쪽을 따로 둔다.
+   * 지역색이 `--region-*-mark` 를 따로 갖는 것과 같은 이유다.
+   */
+  --status-positive-mark: var(--np-green-600);
+  --status-caution-mark: var(--np-amber-700);
+  --status-excluded-mark: var(--np-coral-600);
+  --status-critical-mark: var(--np-red-600);
+  --status-neutral: var(--np-ink-700);
+  --status-neutral-soft: var(--np-ink-100);
+
+  --focus-ring: var(--np-sky-600);
+  --scrim: rgb(5 11 22 / 0.5);
+
+  --elevation-card: 0 1px 2px rgb(22 32 46 / 0.06), 0 8px 24px -12px rgb(22 32 46 / 0.18);
+  --elevation-raised: 0 2px 4px rgb(22 32 46 / 0.08), 0 20px 48px -20px rgb(22 32 46 / 0.28);
+  --elevation-overlay: 0 32px 80px -24px rgb(22 32 46 / 0.4);
+  --elevation-accent-glow: none;
+
+  --gradient-prism: linear-gradient(
+    135deg,
+    var(--np-teal-500) 0%,
+    var(--np-sky-500) 38%,
+    var(--np-green-500) 72%,
+    var(--np-amber-500) 100%
+  );
+  /* 흰 배경은 흰 배경이어야 한다. 미묘한 그라디언트를 깔면 카드와 배경의 경계가 흐려진다. */
+  /*
+    바닥의 결.
+    위에서 빛이 들어오는 것처럼 아주 얕게 밝기를 준다. 단은 순백과 바닥색 사이에서만 움직이므로
+    글자 대비는 `--surface-page` 로 잰 값보다 나빠지지 않는다.
+  */
+  --gradient-stage: radial-gradient(
+    120% 80% at 50% 0%,
+    var(--np-mono-0) 0%,
+    var(--np-mono-50) 60%,
+    var(--np-mono-50) 100%
+  );
+
+  /* 대기화면 배경 아트 위에 깔아 글자쪽을 지키는 가림막.
+     아트는 오른쪽에서 드러나고, 본문이 놓이는 왼쪽은 배경색으로 다시 덮는다. */
+  --gradient-attract-scrim: linear-gradient(
+    100deg,
+    var(--surface-page) 0%,
+    var(--surface-page) 40%,
+    color-mix(in oklab, var(--surface-page) 90%, transparent) 62%,
+    transparent 88%
+  );
+
+  /* 밝은 면 위에서는 파란 도형이 배경을 짙게 눈누르므로 같은 불투명도에서 더 강하게 보인다. */
+  --attract-art-opacity: 0.09;
+
+  /* ── 지도 — 행정구역 안내 ─────────────────────────────────────
+     한 가지 색을 단계로만 나눈다. 구마다 다른 색을 주면 색 자체가
+     의미를 갖는 것처럼 읽힐다. 여기서 진하기는 「관광자원이 몇 곳인가」만 뜻한다. */
+  /* 안내도는 무채색 단계로만 자원 수를 나타낸다. 색은 선택 표시 한 곳에만 쓴다. */
+  /*
+    가장 옅은 단계라도 **배경보다는 확실히 진해야** 한다.
+    흰 배경에 mono-100 을 두었더니 자원 0곳인 구가 면이 아니라 구멍처럼 보였다.
+    「자원이 없다」는 뜻이지 「거기에 구가 없다」는 뜻이 아니다.
+  */
+  --map-district-0: var(--np-brand-blue-tint-100);
+  --map-district-1: var(--np-brand-blue-tint-200);
+  --map-district-2: var(--np-brand-blue-tint-300);
+  --map-district-3: var(--np-brand-blue-tint-400);
+  /*
+    네 단계가 모두 옅은 파랑이라 글자는 줄곧 어두운 지정색을 쓴다.
+    예전에는 진한 회색 단계가 있어 중간에 글자를 흰색으로 뒤집었는데,
+    이제 뒤집을 곳이 없다 — 뒤집으면 옅은 면 위 흰 글자가 되어 읽히지 않는다.
+  */
+  --map-ink-0: var(--np-brand-ink);
+  --map-ink-1: var(--np-brand-ink);
+  --map-ink-2: var(--np-brand-ink);
+  --map-ink-3: var(--np-brand-ink);
+  /* 선택색은 오른쪽 목록의 선택 상태와 반드시 같아야 한다.
+     둘이 다르면 관람객은 서로 다른 것을 가리킨다고 읽는다. 그래서 강조색 토큰을 그대로 따른다. */
+  /* 선택색은 지도와 오른쪽 목록이 **같은 토큰**을 쓴다. 둘이 다르면 서로 다른 것을 가리킨다고 읽힌다.
+     밝은 면에서는 강조색(어두운 호박)이 옅은 하늘색 지도 위에 탁하게 얹혀, 같은 계열의 진한 파랑을 쓴다. */
+  --map-selected-surface: var(--np-brand-blue);
+  --map-selected-on: var(--np-mono-0);
+  --map-district-line: var(--np-mono-0);
+  --map-district-edge: var(--np-brand-blue-dark);
+  /* 입체 두께의 옆면. 윗면보다 어두워야 «위에서 비스듬히 본 판»으로 읽힌다. */
+  --map-side: var(--np-mono-400);
+  --map-side-selected: var(--np-brand-blue-dark);
+  --map-outline: var(--np-mono-400);
+  /* 경로 지도의 바닥판. 안내도와 같은 무채색 계열을 쓴다. */
+  --route-plate: var(--np-mono-50);
+  --route-plate-line: var(--np-mono-200);
+  /*
+    입체의 면 나누기. 빛은 왼쪽 위에서 온다 — 회화·지도 음영·운영체제 UI가 모두 따르는 관례이고,
+    사람이 볼록/오목을 판단할 때 가정하는 방향이기도 하다.
+    윗면이 가장 밝고, 옆면은 한 단계 어둡다. 그림자는 도형 아래에 깔린다.
+  */
+  --map-wall-tint: color-mix(in oklab, var(--np-mono-900) 26%, transparent);
+  --map-wall-tint-selected: color-mix(in oklab, var(--np-mono-950) 30%, transparent);
+  --map-ground-shadow: color-mix(in oklab, var(--np-mono-900) 14%, transparent);
+  --map-grid: color-mix(in oklab, var(--np-mono-300) 45%, transparent);
+  --map-label-surface: var(--np-white);
+  --map-label-line: var(--np-ink-300);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   색상 역할 — 전시 테마 (exhibition / 어두운 전시장 배경)
+   ══════════════════════════════════════════════════════════════════ */
+:root[data-theme='exhibition'] {
+  --surface-page: var(--np-navy-950);
+  --surface-page-subtle: var(--np-navy-900);
+  --surface-card: var(--np-navy-850);
+  --surface-raised: var(--np-navy-800);
+  --surface-sunken: var(--np-navy-950);
+  --surface-inverse: var(--np-ivory-100);
+
+  --line-subtle: color-mix(in oklab, var(--np-ink-100) 12%, transparent);
+  --line-default: color-mix(in oklab, var(--np-ink-100) 20%, transparent);
+  --line-strong: color-mix(in oklab, var(--np-ink-100) 34%, transparent);
+
+  --content-primary: var(--np-ink-100);
+  --content-secondary: var(--np-ink-200);
+  --content-muted: var(--np-ink-300);
+  --content-subtle: var(--np-ink-400);
+  --content-inverse: var(--np-navy-950);
+
+  --brand-solid: var(--np-teal-400);
+  --brand-hover: var(--np-teal-300);
+  --brand-soft: color-mix(in oklab, var(--np-teal-500) 18%, var(--np-navy-900));
+  --brand-on-solid: var(--np-navy-950);
+  /* 전시 테마는 기존 값이 이미 기준을 넘긴다. 역할만 맞춰 둔다. */
+  --brand-strong: var(--brand-solid);
+  --brand-text: var(--brand-solid);
+  --brand-ring: var(--np-teal-300);
+
+  --accent-solid: var(--np-amber-500);
+  --accent-hover: var(--np-amber-400);
+  --accent-soft: color-mix(in oklab, var(--np-amber-500) 18%, var(--np-navy-900));
+  --accent-on-solid: var(--np-navy-950);
+  --accent-strong: var(--accent-solid);
+  --accent-text: var(--accent-solid);
+
+  /* 전시 테마의 글자색은 마크색보다 밝아야 한다 — 어두운 옅은 배경 위에서 4.5:1 을 넘겨야 하기 때문. */
+  --region-gwangju: var(--np-sky-300);
+  --region-gwangju-soft: color-mix(in oklab, var(--np-sky-500) 20%, var(--np-navy-900));
+  --region-gwangju-mark: var(--np-sky-450);
+  --region-jeonnam: var(--np-green-300);
+  --region-jeonnam-soft: color-mix(in oklab, var(--np-green-500) 20%, var(--np-navy-900));
+  --region-jeonnam-mark: var(--np-green-450);
+
+  --status-positive: var(--np-green-400);
+  --status-positive-soft: color-mix(in oklab, var(--np-green-500) 20%, var(--np-navy-900));
+  --status-caution: var(--np-amber-400);
+  --status-caution-soft: color-mix(in oklab, var(--np-amber-500) 20%, var(--np-navy-900));
+  --status-excluded: var(--np-coral-300);
+  --status-excluded-soft: color-mix(in oklab, var(--np-coral-500) 22%, var(--np-navy-900));
+  --status-critical: var(--np-red-300);
+  --status-critical-soft: color-mix(in oklab, var(--np-red-500) 22%, var(--np-navy-900));
+
+  /* 어두운 바탕에서는 글자용 값이 이미 밝아 막대로도 그대로 읽힌다. */
+  --status-positive-mark: var(--np-green-400);
+  --status-caution-mark: var(--np-amber-400);
+  --status-excluded-mark: var(--np-coral-300);
+  --status-critical-mark: var(--np-red-300);
+  --status-neutral: var(--np-ink-400);
+  --status-neutral-soft: color-mix(in oklab, var(--np-ink-400) 16%, var(--np-navy-900));
+
+  --focus-ring: var(--np-teal-300);
+  --scrim: rgb(2 5 11 / 0.72);
+
+  --elevation-card: 0 1px 0 color-mix(in oklab, var(--np-ink-100) 8%, transparent) inset,
+    0 18px 40px -24px rgb(0 0 0 / 0.8);
+  --elevation-raised: 0 1px 0 color-mix(in oklab, var(--np-ink-100) 10%, transparent) inset,
+    0 32px 64px -28px rgb(0 0 0 / 0.85);
+  --elevation-overlay: 0 40px 96px -28px rgb(0 0 0 / 0.9);
+  --elevation-accent-glow: 0 0 0 1px color-mix(in oklab, var(--np-amber-500) 40%, transparent),
+    0 0 48px -12px color-mix(in oklab, var(--np-amber-500) 60%, transparent);
+
+  --gradient-stage: radial-gradient(
+    130% 95% at 50% -10%,
+    var(--np-navy-800) 0%,
+    var(--np-navy-900) 45%,
+    var(--np-navy-950) 100%
+  );
+
+  /* 전시 테마는 배경이 어두워 아트가 더 강하게 드러난다. 가림막을 조금 더 긊게 든다. */
+  --gradient-attract-scrim: linear-gradient(
+    100deg,
+    var(--surface-page) 0%,
+    var(--surface-page) 40%,
+    color-mix(in oklab, var(--surface-page) 90%, transparent) 62%,
+    transparent 88%
+  );
+
+  /* 어두운 면 위에서는 같은 도형이 훨씬 약하게 읽히므로 좀 더 올린다. */
+  --attract-art-opacity: 0.16;
+
+  /* 전시 테마는 배경이 어두워 단계를 반대로 세운다. 자원이 많을수록 밝아진다. */
+  /* navy-800 은 페이지 배경과 너무 가까워 「자원 0곳」 구가 구멍처럼 보였다. */
+  /* 어두운 면에서는 반대로 검정 → 흰색으로 올라간다. 자원이 많을수록 밝다. */
+  --map-district-0: var(--np-mono-900);
+  --map-district-1: var(--np-mono-700);
+  --map-district-2: var(--np-mono-400);
+  --map-district-3: var(--np-mono-200);
+  --map-ink-0: var(--np-mono-0);
+  --map-ink-1: var(--np-mono-0);
+  --map-ink-2: var(--np-mono-950);
+  --map-ink-3: var(--np-mono-950);
+  /* 어두운 면에서는 파랑 계열끼리 묻히므로 강조색을 그대로 쓴다. */
+  --map-selected-surface: var(--np-brand-blue);
+  --map-selected-on: var(--np-mono-0);
+  --map-district-line: var(--np-mono-950);
+  --map-district-edge: var(--np-mono-0);
+  --map-side: var(--np-mono-950);
+  --map-side-selected: var(--np-brand-blue-dark);
+  --map-outline: var(--np-mono-700);
+  --route-plate: var(--np-navy-900);
+  --route-plate-line: var(--np-mono-800);
+  --map-wall-tint: color-mix(in oklab, var(--np-mono-950) 45%, transparent);
+  --map-wall-tint-selected: color-mix(in oklab, var(--np-mono-950) 45%, transparent);
+  --map-ground-shadow: color-mix(in oklab, var(--np-mono-950) 55%, transparent);
+  --map-grid: color-mix(in oklab, var(--np-mono-600) 60%, transparent);
+  --map-label-surface: var(--np-navy-900);
+  --map-label-line: var(--np-ink-700);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   고대비 보정 — 테마 위에 덧씌운다 (C안 "고대비 테마")
+   ══════════════════════════════════════════════════════════════════ */
+:root[data-contrast='high'] {
+  /*
+    고대비 모드는 **어떤 항목에서도 일반 모드보다 낮아지면 안 된다.**
+    지정 글자색(#191f28)이 이미 흰 배경에서 16.56:1 이라, 예전처럼 ink-900 으로 두면
+    오히려 대비가 내려가 «고대비를 켰는데 더 흐려지는» 상태가 된다. 그래서 순검정으로 끝까지 민다.
+    이 불변식은 테스트가 지킨다.
+  */
+  --content-primary: var(--np-mono-950);
+  --content-secondary: var(--np-mono-950);
+  --content-muted: var(--np-mono-800);
+  --content-subtle: var(--np-mono-700);
+  --line-subtle: var(--np-mono-600);
+  --line-default: var(--np-mono-800);
+  --line-strong: var(--np-mono-950);
+  --surface-card: var(--np-mono-0);
+  --surface-page: var(--np-mono-0);
+  --surface-sunken: var(--np-mono-0);
+  --brand-soft: var(--np-mono-0);
+  --accent-soft: var(--np-mono-0);
+  /* 채움 위 흰 글자도 한 단계 더 어둡게 받쳐 4.5:1 을 넉넉히 넘긴다. */
+  --brand-solid: var(--np-brand-blue-dark);
+  --accent-solid: var(--np-brand-blue-dark);
+  --brand-strong: var(--np-brand-blue-dark);
+  --accent-strong: var(--np-brand-blue-dark);
+  --brand-text: var(--np-brand-blue-dark);
+  --accent-text: var(--np-brand-blue-dark);
+  --map-selected-surface: var(--np-brand-blue-dark);
+  --outline-width: 3px;
+}
+
+/*
+  위의 고대비 블록은 테마를 가리지 않고 적용된다(밝은 면 기준으로 쓰여 있다).
+  전시 테마는 배경이 반대이므로 **거기서 바꾼 값을 하나도 빠짐없이 되돌려야** 한다.
+  하나라도 빠뜨리면 검은 배경에 흰 면이 남아 대비가 1:1 이 되는 자리가 생긴다.
+*/
+:root[data-theme='exhibition'][data-contrast='high'] {
+  --content-primary: var(--np-white);
+  --content-secondary: var(--np-white);
+  --content-muted: var(--np-ink-200);
+  --content-subtle: var(--np-ink-200);
+  --line-subtle: var(--np-ink-300);
+  --line-default: var(--np-ink-200);
+  --line-strong: var(--np-white);
+  --surface-card: #000205;
+  --surface-page: #000000;
+  --surface-raised: #05101f;
+  --surface-sunken: #000205;
+  --brand-soft: #000205;
+  --accent-soft: #000205;
+  /* 채움색은 어두운 배경에서 밝아야 한다. 밝은 테마용 진한 파랑을 그대로 두면 글자가 묻힌다. */
+  --brand-solid: var(--np-teal-300);
+  --brand-strong: var(--np-teal-300);
+  --brand-text: var(--np-teal-300);
+  --accent-solid: var(--np-amber-400);
+  --accent-strong: var(--np-amber-400);
+  --accent-text: var(--np-amber-400);
+  --map-selected-surface: var(--np-amber-400);
+  --map-selected-on: var(--np-mono-950);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   치수 역할 — 표준 키오스크 (기본)
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --font-display: var(--np-size-display);
+  --font-title: var(--np-size-title);
+  --font-heading: var(--np-size-heading);
+  --font-subhead: var(--np-size-subhead);
+  --font-body: var(--np-size-body);
+  --font-label: var(--np-size-label);
+  --font-caption: var(--np-size-caption);
+  --font-micro: var(--np-size-micro);
+
+  --gap-2xs: var(--np-space-2xs);
+  --gap-xs: var(--np-space-xs);
+  --gap-sm: var(--np-space-sm);
+  --gap-md: var(--np-space-md);
+  --gap-lg: var(--np-space-lg);
+  --gap-xl: var(--np-space-xl);
+  --gap-2xl: var(--np-space-2xl);
+
+  --control-sm: var(--np-control-sm);
+  --control-md: var(--np-control-md);
+  --control-lg: var(--np-control-lg);
+
+  --shape-control: var(--np-radius-md);
+  --shape-card: var(--np-radius-lg);
+  --shape-panel: var(--np-radius-xl);
+  --shape-pill: var(--np-radius-pill);
+
+  --outline-width: 1px;
+  --stage-max-width: 1080px;
+
+  /*
+   * 여행조건 선택지 한 칸의 최소 높이.
+   *
+   * 단계마다 선택지가 4~8개라 높이를 늘려 채우면 단계마다 크기가 달라진다.
+   * 그래서 칸 크기는 고정하고, 남는 높이는 위아래로 갈라 블록을 가운데 둔다.
+   * 가장 많은 8개(4줄)일 때도 화면에 들어오는 값으로 잡았다.
+   */
+  --option-height-min: 8.5rem;
+}
+
+/* ── 세로형 키오스크 밀도 ────────────────────────────────────────
+   화면이 크고 멀리서 보는 자리다. 같은 값을 써도 작은 화면과 같은 인상이 되지 않는다.
+   색은 건드리지 않는다 — 지정 팔레트가 그대로 유지되어야 한다. */
+:root[data-surface='kiosk'] {
+  --shape-control: var(--np-radius-lg);
+  --shape-card: var(--np-radius-2xl);
+  --shape-panel: var(--np-radius-3xl);
+
+  /*
+    카드를 테두리가 아니라 그림자로 띄운다.
+    선으로 가둔 카드는 «칸»으로 보이고, 떠 있는 카드는 «물건»으로 보인다.
+    선을 아주 옅게만 남기는 이유는 고대비 모드에서 다시 진해져야 하기 때문이다.
+  */
+  --line-subtle: var(--np-mono-100);
+
+  /*
+    그림자는 넓고 옅게. 좁고 진한 그림자는 화면이 클수록 검은 테처럼 보인다.
+    두 단으로 나눠 접지선(1px)과 번짐을 따로 준다.
+  */
+  --elevation-card: 0 1px 2px rgb(25 31 40 / 0.04), 0 18px 40px -20px rgb(25 31 40 / 0.16);
+  --elevation-raised: 0 2px 6px rgb(25 31 40 / 0.06), 0 40px 80px -32px rgb(25 31 40 / 0.24);
+}
+
+/* ── 큰 글씨·큰 버튼 모드: 글자 확대 + 터치 타깃 확대 + 테두리 강화 ── */
+:root[data-ui-mode='large'] {
+  --font-display: var(--np-size-large-display);
+  --font-title: var(--np-size-large-title);
+  --font-heading: var(--np-size-large-heading);
+  --font-subhead: var(--np-size-large-subhead);
+  --font-body: var(--np-size-large-body);
+  --font-label: var(--np-size-large-label);
+  --font-caption: var(--np-size-large-caption);
+  --font-micro: var(--np-size-large-micro);
+
+  --gap-2xs: var(--np-space-large-2xs);
+  --gap-xs: var(--np-space-large-xs);
+  --gap-sm: var(--np-space-large-sm);
+  --gap-md: var(--np-space-large-md);
+  --gap-lg: var(--np-space-large-lg);
+  --gap-xl: var(--np-space-large-xl);
+  --gap-2xl: var(--np-space-large-2xl);
+
+  --control-sm: var(--np-control-large-sm);
+  --control-md: var(--np-control-large-md);
+  --control-lg: var(--np-control-large-lg);
+
+  /* 큰 글씨 모드는 글자가 커진 만큼 칸도 키운다. 안 그러면 두 줄로 접힌다. */
+  --option-height-min: 10rem;
+
+  --outline-width: 2px;
+}
+
+/* ── 모바일(QR 결과 페이지) 밀도 ─────────────────────────────────── */
+:root[data-surface='mobile'] {
+  --font-display: var(--np-size-mobile-display);
+  --font-title: var(--np-size-mobile-title);
+  --font-heading: var(--np-size-mobile-heading);
+  --font-subhead: var(--np-size-mobile-subhead);
+  --font-body: var(--np-size-mobile-body);
+  --font-label: var(--np-size-mobile-label);
+  --font-caption: var(--np-size-mobile-caption);
+  --font-micro: var(--np-size-mobile-micro);
+
+  --gap-2xs: var(--np-space-mobile-2xs);
+  --gap-xs: var(--np-space-mobile-xs);
+  --gap-sm: var(--np-space-mobile-sm);
+  --gap-md: var(--np-space-mobile-md);
+  --gap-lg: var(--np-space-mobile-lg);
+  --gap-xl: var(--np-space-mobile-xl);
+  --gap-2xl: var(--np-space-mobile-2xl);
+
+  --control-sm: var(--np-control-mobile-sm);
+  --control-md: var(--np-control-mobile-md);
+  --control-lg: var(--np-control-mobile-lg);
+
+  --shape-control: var(--np-radius-sm);
+  --shape-card: var(--np-radius-md);
+  --shape-panel: var(--np-radius-lg);
+  --stage-max-width: 640px;
+}
+
+/* ── 모바일 + 큰 글씨: 모바일 밀도를 배율로 끌어올린다 ───────────── */
+:root[data-surface='mobile'][data-ui-mode='large'] {
+  --font-display: calc(var(--np-size-mobile-display) * 1.22);
+  --font-title: calc(var(--np-size-mobile-title) * 1.22);
+  --font-heading: calc(var(--np-size-mobile-heading) * 1.22);
+  --font-subhead: calc(var(--np-size-mobile-subhead) * 1.22);
+  --font-body: calc(var(--np-size-mobile-body) * 1.22);
+  --font-label: calc(var(--np-size-mobile-label) * 1.22);
+  --font-caption: calc(var(--np-size-mobile-caption) * 1.22);
+  --font-micro: calc(var(--np-size-mobile-micro) * 1.22);
+
+  --control-sm: calc(var(--np-control-mobile-sm) * 1.22);
+  --control-md: calc(var(--np-control-mobile-md) * 1.22);
+  --control-lg: calc(var(--np-control-mobile-lg) * 1.22);
+
+  --outline-width: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   모션 역할 — 전시 연출용. prefers-reduced-motion에서 일괄 0으로 붕괴.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --motion-instant: 90ms;
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-slow: 560ms;
+  --motion-scene: 900ms;
+  --motion-ambient: 14000ms;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 1ms;
+    --motion-fast: 1ms;
+    --motion-normal: 1ms;
+    --motion-slow: 1ms;
+    --motion-scene: 1ms;
+    --motion-ambient: 1ms;
+  }
+}

@@ -1,0 +1,274 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "parents-one-night",
+  "trace": {
+    "refinementId": "moreJeonnam",
+    "objective": {
+      "kind": "regionShare",
+      "region": "jeonnam",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "regionBias": {
+        "jeonnam": 26,
+        "gwangju": -10
+      },
+      "compactnessDemand": -12
+    },
+    "before": {
+      "walkingLoad": 33.3,
+      "travelMinutes": 120,
+      "indoorRatio": 41.7,
+      "costLevel": 20.3,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 4,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 59.1
+    },
+    "after": {
+      "walkingLoad": 31,
+      "travelMinutes": 168,
+      "indoorRatio": 33.3,
+      "costLevel": 20.7,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 3
+      },
+      "averageTrust": 100,
+      "linkageScore": 67.2
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-yangnim",
+        "removedAttractionId": "yangnim",
+        "addedAttractionId": "unjusa",
+        "similarity": 34,
+        "metricGain": 16.7,
+        "reasons": [
+          "양림동 근대역사문화마을을(를) 화순 운주사(으)로 교체했습니다.",
+          "관광가치 유사도 34점으로 원래 일정의 성격을 유지합니다.",
+          "해당 지역의 비중이 16.7%p 늘었습니다.",
+          "보행부담 58점 → 44점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 37.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 69.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 65.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "odongdo",
+        "reason": "2일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.9,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "mokpo-modern",
+        "reason": "2일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 54.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 30.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 36,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 54.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "odongdo",
+        "reason": "2일차 소요시간이 477분으로 하루 활동 가능시간 375분을 초과합니다.",
+        "similarity": 21.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "mokpo-modern",
+        "reason": "2일차 소요시간이 441분으로 하루 활동 가능시간 375분을 초과합니다.",
+        "similarity": 44,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 12점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 12,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 39.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 45.4,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 65,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "odongdo",
+        "reason": "1일차에서 담양 메타세쿼이아 가로수길의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 29.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "mokpo-modern",
+        "reason": "1일차 소요시간이 474분으로 하루 활동 가능시간 375분을 초과합니다.",
+        "similarity": 50.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 13.3점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 13.3,
+        "metricGain": 16.7
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 43.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 52.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 62.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "odongdo",
+        "reason": "2일차 소요시간이 447분으로 하루 활동 가능시간 375분을 초과합니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "mokpo-modern",
+        "reason": "2일차 소요시간이 411분으로 하루 활동 가능시간 375분을 초과합니다.",
+        "similarity": 71.3,
+        "metricGain": 0
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-gwanbangjerim",
+      "stop-metasequoia",
+      "stop-daein-market",
+      "stop-acc"
+    ],
+    "changedStopIds": [
+      "stop-yangnim"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 1.2815999999997985
+  }
+}

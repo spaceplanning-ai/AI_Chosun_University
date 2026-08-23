@@ -1,0 +1,193 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "couple-emotional",
+  "trace": {
+    "refinementId": "reduceCost",
+    "objective": {
+      "kind": "metric",
+      "metric": "costLevel",
+      "direction": "decrease"
+    },
+    "constraintDelta": {
+      "costSensitivity": 36
+    },
+    "before": {
+      "walkingLoad": 40.9,
+      "travelMinutes": 388,
+      "indoorRatio": 50,
+      "costLevel": 28.3,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 71.1
+    },
+    "after": {
+      "walkingLoad": 45.8,
+      "travelMinutes": 445,
+      "indoorRatio": 44.4,
+      "costLevel": 23.2,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 96,
+      "linkageScore": 69.2
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-mokpo-cablecar",
+        "attractionId": "mokpo-cablecar",
+        "contribution": 70,
+        "projectedGain": 7.8
+      },
+      {
+        "stopId": "stop-purple-island",
+        "attractionId": "purple-island",
+        "contribution": 40,
+        "projectedGain": 4.4
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 35,
+        "projectedGain": 3.9
+      },
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 30,
+        "projectedGain": 3.3
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 25,
+        "projectedGain": 2.8
+      },
+      {
+        "stopId": "stop-mokpo-modern",
+        "attractionId": "mokpo-modern",
+        "contribution": 18,
+        "projectedGain": 2
+      },
+      {
+        "stopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangju-art-museum",
+        "contribution": 15,
+        "projectedGain": 1.7
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 12,
+        "projectedGain": 1.3
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 10,
+        "projectedGain": 1.1
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-mokpo-cablecar",
+        "removedAttractionId": "mokpo-cablecar",
+        "addedAttractionId": "gaudo",
+        "similarity": 54.5,
+        "metricGain": 5.1,
+        "reasons": [
+          "목포해상케이블카을(를) 강진 가우도 출렁다리(으)로 교체했습니다.",
+          "관광가치 유사도 54.5점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 5.1만큼 감소했습니다.",
+          "보행부담 16점 → 60점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "gwangju-museum",
+        "reason": "관광가치 유사도 13.3점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 13.3,
+        "metricGain": 7.7
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "suncheonbay-garden",
+        "reason": "2일차에서 순천만국가정원의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 53,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "2일차 소요시간이 526분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 42.1,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "yeosu-cablecar",
+        "reason": "2일차 소요시간이 504분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 96,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "gwanbangjerim",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 7.7 / 유사도 40.2).",
+        "similarity": 40.2,
+        "metricGain": 7.7
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "juknokwon",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 4.4 / 유사도 42.7).",
+        "similarity": 42.7,
+        "metricGain": 4.4
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "metasequoia",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 5.5 / 유사도 39.3).",
+        "similarity": 39.3,
+        "metricGain": 5.5
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "boseong-tea",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 4.6 / 유사도 39.3).",
+        "similarity": 39.3,
+        "metricGain": 4.6
+      },
+      {
+        "forStopId": "stop-mokpo-cablecar",
+        "attractionId": "gwangjuho",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 7.7 / 유사도 27).",
+        "similarity": 27,
+        "metricGain": 7.7
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-daein-market",
+      "stop-acc",
+      "stop-yangnim",
+      "stop-gwangju-art-museum",
+      "stop-mokpo-modern",
+      "stop-purple-island",
+      "stop-odongdo"
+    ],
+    "changedStopIds": [
+      "stop-mokpo-cablecar"
+    ],
+    "changeRatio": 11.1,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.5268000000000939
+  }
+}

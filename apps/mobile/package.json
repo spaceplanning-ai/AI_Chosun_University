@@ -1,0 +1,27 @@
+{
+  "name": "@namdo-prism/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "description": "서비스뷰 — QR 모바일 결과 페이지 (관람객 개인 단말용)",
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@namdo-prism/core": "*",
+    "lucide-react": "0.469.0",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "22.10.7",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.7.3"
+  }
+}

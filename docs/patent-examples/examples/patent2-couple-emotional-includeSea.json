@@ -1,0 +1,538 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "couple-emotional",
+  "trace": {
+    "refinementId": "includeSea",
+    "objective": {
+      "kind": "categoryShare",
+      "category": "sea",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "interestBoost": {
+        "sea": 0.34
+      },
+      "compactnessDemand": -10
+    },
+    "before": {
+      "walkingLoad": 40.9,
+      "travelMinutes": 388,
+      "indoorRatio": 50,
+      "costLevel": 28.3,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 71.1
+    },
+    "after": {
+      "walkingLoad": 40.9,
+      "travelMinutes": 388,
+      "indoorRatio": 50,
+      "costLevel": 28.3,
+      "stopCount": 9,
+      "stopsByRegion": {
+        "gwangju": 5,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 71.1
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangju-art-museum",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-mokpo-modern",
+        "attractionId": "mokpo-modern",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 100,
+        "projectedGain": 11.1
+      },
+      {
+        "stopId": "stop-mokpo-cablecar",
+        "attractionId": "mokpo-cablecar",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 0,
+        "projectedGain": 0
+      },
+      {
+        "stopId": "stop-purple-island",
+        "attractionId": "purple-island",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 37.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 69.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 29.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwanbangjerim",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 35.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "boseong-tea",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gaudo",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 19.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangjuho",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 30.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangju-museum",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 36,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 22.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwanbangjerim",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 14.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "metasequoia",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 19.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 44,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "boseong-tea",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gaudo",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 24.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 35.4,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 53.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "juknokwon",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 27.1,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "gwanbangjerim",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 17.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 29.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "suncheonbay-garden",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 17.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 34.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "yeosu-cablecar",
+        "reason": "관광가치 유사도 20.4점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 20.4,
+        "metricGain": 11.1
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "boseong-tea",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 29.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwangju-art-museum",
+        "attractionId": "gaudo",
+        "reason": "관광가치 유사도 8점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 8,
+        "metricGain": 11.1
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 17.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 46.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "juknokwon",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 39.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "gwanbangjerim",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 43.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 42,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "suncheonbay-garden",
+        "reason": "2일차 소요시간이 541분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 30.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "2일차 소요시간이 505분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 44.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "yeosu-cablecar",
+        "reason": "2일차 소요시간이 516분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 42.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "boseong-tea",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 42,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-mokpo-modern",
+        "attractionId": "gaudo",
+        "reason": "관광가치 유사도 23점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 23,
+        "metricGain": 11.1
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 39.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwangju-museum",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 45.4,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 31,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gwanbangjerim",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 22.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "metasequoia",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 22.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 30.4,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 34.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "boseong-tea",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-songjeong-market",
+        "attractionId": "gaudo",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 10,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangjuho",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 43.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 52.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 담양 죽녹원의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 35.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gwanbangjerim",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 39.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 38,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 순천만국가정원의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 25,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "suncheonbay-wetland",
+        "reason": "1일차에서 순천만습지의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 27,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차 소요시간이 496분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "boseong-tea",
+        "reason": "1일차에서 보성 대한다원 녹차밭의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 38,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-yangnim",
+        "attractionId": "gaudo",
+        "reason": "1일차에서 강진 가우도 출렁다리의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 8,
+        "metricGain": 0
+      }
+    ],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-daein-market",
+      "stop-acc",
+      "stop-yangnim",
+      "stop-gwangju-art-museum",
+      "stop-mokpo-modern",
+      "stop-mokpo-cablecar",
+      "stop-purple-island",
+      "stop-odongdo"
+    ],
+    "changedStopIds": [],
+    "changeRatio": 0,
+    "objectiveSatisfied": false,
+    "elapsedMs": 1.7350999999998749
+  }
+}

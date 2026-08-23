@@ -1,0 +1,270 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "family-with-child",
+  "trace": {
+    "refinementId": "preferIndoor",
+    "objective": {
+      "kind": "metric",
+      "metric": "indoorRatio",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "indoorPreference": 38
+    },
+    "before": {
+      "walkingLoad": 36.3,
+      "travelMinutes": 267,
+      "indoorRatio": 16.7,
+      "costLevel": 28.7,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 1,
+        "jeonnam": 5
+      },
+      "averageTrust": 100,
+      "linkageScore": 61.4
+    },
+    "after": {
+      "walkingLoad": 28,
+      "travelMinutes": 274,
+      "indoorRatio": 25,
+      "costLevel": 32.8,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 1,
+        "jeonnam": 5
+      },
+      "averageTrust": 100,
+      "linkageScore": 61.4
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-suncheonbay-garden",
+        "attractionId": "suncheonbay-garden",
+        "contribution": 100,
+        "projectedGain": 16.7
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 50,
+        "projectedGain": 8.3
+      },
+      {
+        "stopId": "stop-yeosu-cablecar",
+        "attractionId": "yeosu-cablecar",
+        "contribution": 50,
+        "projectedGain": 8.3
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-suncheonbay-garden",
+        "removedAttractionId": "suncheonbay-garden",
+        "addedAttractionId": "mokpo-cablecar",
+        "similarity": 53,
+        "metricGain": 8.3,
+        "reasons": [
+          "순천만국가정원을(를) 목포해상케이블카(으)로 교체했습니다.",
+          "관광가치 유사도 53점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 8.3만큼 증가했습니다.",
+          "보행부담 66점 → 16점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "acc",
+        "reason": "2일차 소요시간이 497분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "yangnim",
+        "reason": "2일차 소요시간이 468분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 39.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "songjeong-market",
+        "reason": "2일차 소요시간이 466분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 22.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "juknokwon",
+        "reason": "2일차 소요시간이 438분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 79.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "mokpo-cablecar",
+        "reason": "2일차에서 담양 메타세쿼이아 가로수길의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 40.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "unjusa",
+        "reason": "2일차 소요시간이 465분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 78.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "acc",
+        "reason": "2일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "yangnim",
+        "reason": "2일차 소요시간이 472분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 38,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "songjeong-market",
+        "reason": "2일차 소요시간이 458분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 27.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "juknokwon",
+        "reason": "2일차 소요시간이 433분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 96.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "mokpo-cablecar",
+        "reason": "2일차 소요시간이 525분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 39.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-metasequoia",
+        "attractionId": "unjusa",
+        "reason": "2일차 소요시간이 480분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 62.5,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "acc",
+        "reason": "2일차에서 담양 메타세쿼이아 가로수길의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 27.9,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "yangnim",
+        "reason": "2일차 소요시간이 516분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "songjeong-market",
+        "reason": "2일차 소요시간이 508분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 29.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "juknokwon",
+        "reason": "2일차 소요시간이 515분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 86.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "mokpo-cablecar",
+        "reason": "2일차에서 담양 메타세쿼이아 가로수길의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 53.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-odongdo",
+        "attractionId": "unjusa",
+        "reason": "2일차 소요시간이 485분으로 하루 활동 가능시간 425분을 초과합니다.",
+        "similarity": 60.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "songjeong-market",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 8.3
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "juknokwon",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 79.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "unjusa",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 59,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "acc",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 16.6 / 유사도 31.7).",
+        "similarity": 31.7,
+        "metricGain": 16.6
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "yangnim",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 8.3 / 유사도 25).",
+        "similarity": 25,
+        "metricGain": 8.3
+      }
+    ],
+    "keptStopIds": [
+      "stop-daein-market",
+      "stop-odongdo",
+      "stop-yeosu-cablecar",
+      "stop-gwanbangjerim",
+      "stop-metasequoia"
+    ],
+    "changedStopIds": [
+      "stop-suncheonbay-garden"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 1.1671000000001186
+  }
+}

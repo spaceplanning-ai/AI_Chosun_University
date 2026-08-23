@@ -1,0 +1,458 @@
+@import 'tailwindcss';
+@import './tokens.primitive.css';
+@import './tokens.semantic.css';
+@import './theme.css';
+
+/**
+ * 공용 컴포넌트의 클래스도 스캔 대상에 넣는다.
+ *
+ * Tailwind의 자동 소스 탐지는 앱 디렉터리를 기준으로 동작하고 node_modules 를 건너뛴다.
+ * 이 선언이 없으면 `packages/core` 안에서만 쓰이는 유틸리티(min-h-control-md, animate-scene-in 등)가
+ * 통째로 누락되어, 빌드는 성공하는데 화면만 무너지는 형태로 문제가 드러난다.
+ * 경로는 이 파일 기준 상대경로이므로 별도 리포로 분리해 node_modules 로 설치해도 그대로 동작한다.
+ */
+@source "../**/*.{ts,tsx}";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--surface-page);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background: var(--gradient-stage) fixed;
+    color: var(--content-primary);
+    /*
+      한국어는 어절(띄어쓰기) 단위로 끊어 읽는다. 기본값으로 두면 브라우저가 음절 아무 데서나
+      줄을 바꿔 「오래된 이야기」가 "이 / 야기" 로 갈라진다. 멀리서 읽는 전시 화면에서는
+      이 한 글자 차이가 곧바로 오독으로 이어지므로 전 화면에 keep-all 을 적용한다.
+      영문 URL·긴 식별자가 넘칠 수 있으니 overflow-wrap 으로 예외만 허용한다.
+    */
+    word-break: keep-all;
+    /*
+      `keep-all` 만 두면 긴 URL·식별자 같은 끊을 곳 없는 낱말이 상자를 뚫고 나간다.
+      `break-word` 가 아니라 `anywhere` 인 이유는, `anywhere` 만이 최소너비 계산에 반영되어
+      flex·grid 안에서도 칸이 실제로 줄어들기 때문이다. 고정 화면인 키오스크에서
+      넘침은 곧 잘린 글자이므로 더 안전한 쪽을 고른다.
+    */
+    overflow-wrap: anywhere;
+    font-family: var(--np-family-sans);
+    font-size: var(--font-body);
+    line-height: var(--np-leading-normal);
+    letter-spacing: var(--np-tracking-normal);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color var(--motion-normal) var(--motion-ease-out),
+      color var(--motion-normal) var(--motion-ease-out);
+  }
+
+  /* 키오스크는 터치 전용 전시 장비다. 텍스트 선택·확대·스크롤 바운스를 차단한다. */
+  [data-surface='kiosk'] body {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+    user-select: none;
+    cursor: default;
+  }
+
+  [data-surface='kiosk'] ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  [data-surface='kiosk'] ::-webkit-scrollbar-thumb {
+    background-color: var(--line-default);
+    border-radius: var(--np-radius-pill);
+  }
+
+  [data-surface='kiosk'] ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: var(--np-radius-xs);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* 숫자 데이터(점수·시간·지수)는 자릿수 흔들림 없이 읽혀야 한다. */
+  [data-numeric] {
+    font-family: var(--np-family-numeric);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  /* 스크린리더 전용 — 전시 화면에는 안 보이되 접근성 트리에는 남는다. */
+  .sr-only-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /** 제목의 줄바꿈을 고르게 나눈다. 브라우저가 6~10줄까지만 지원하므로 제목 전용이다. */
+  .text-balance-safe {
+    text-wrap: balance;
+  }
+
+  /** 본문의 마지막 줄에 한 낱말만 남는 것을 막는다. 제목용 balance 와 달리 줄 수 제한이 없다. */
+  .text-pretty-safe {
+    text-wrap: pretty;
+  }
+
+  .surface-outline {
+    border: var(--outline-width) solid var(--line-subtle);
+  }
+
+  .surface-outline-strong {
+    border: var(--outline-width) solid var(--line-default);
+  }
+
+  /* 프리즘 그라디언트를 글자에 입히는 브랜드 표현 */
+  .text-prism {
+    background: var(--gradient-prism);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-prism {
+    background: var(--gradient-prism);
+  }
+
+  /**
+   * 대기화면 배경 아트 위에 덮는 가림막.
+   *
+   * 배경 아트는 멀리서 시선을 끄는 역할이고, 글자는 가까이서 읽는 역할이다.
+   * 둘을 같은 자리에 그대로 겹치면 본문이 밝은 도형 위에 얹혀 읽기 어려워진다.
+   * 그래서 글자가 놓이는 왼쪽만 배경색으로 되돌리고, 오른쪽은 아트를 살린다.
+   * 색은 테마 토큰을 따르므로 밝은 테마/전시 테마가 각각 알아서 맞춰진다.
+   */
+  .attract-scrim {
+    background: var(--gradient-attract-scrim);
+  }
+
+  /** 배경 아트의 세기. 밝은 면과 어두운 면에서 같은 값이 같은 세기로 보이지 않으므로 테마가 정한다. */
+  .attract-art {
+    opacity: var(--attract-art-opacity);
+  }
+
+  /**
+   * 자치구 선택 표시.
+   * 지도 도형과 오른쪽 목록이 같은 색을 쓰도록 한곳에서 정한다.
+   */
+  .district-selected {
+    background-color: var(--map-selected-surface);
+    color: var(--map-selected-on);
+  }
+
+  .scrollable-y {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /**
+   * 큰 글씨 모드에서 보조 설명을 감춘다 (제안서 7.5 "설명문 간소화").
+   * 컴포넌트가 모드를 조건 분기하지 않고 클래스 하나만 붙이면 되도록 여기에 규칙을 둔다.
+   */
+  .hide-in-large-mode {
+    display: revert;
+  }
+
+  :root[data-ui-mode='large'] .hide-in-large-mode {
+    display: none;
+  }
+
+  /** 반대로 큰 글씨 모드에서만 보여야 하는 요소. */
+  .only-in-large-mode {
+    display: none;
+  }
+
+  :root[data-ui-mode='large'] .only-in-large-mode {
+    display: revert;
+  }
+
+  /**
+   * 「여기입니다」 표시.
+   *
+   * 여러 메뉴가 한 화면을 쓸 때, 누른 메뉴에 해당하는 칸을 잠시 두른다.
+   *
+   * 유틸리티 클래스를 코드에서 조합해 붙이지 않고 여기에 미리 만들어 두는 이유가 있다 —
+   * `classList.add('ring-2', ...)` 처럼 실행 중에 붙이면 Tailwind 가 그 조합을
+   * 훑을 기회가 없어 **CSS 에 아예 생성되지 않는다.** 붙였는데 아무 일도 안 일어난다.
+   */
+  .focus-flash {
+    outline: 2px solid var(--brand-solid);
+    outline-offset: 3px;
+    border-radius: var(--shape-panel);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .focus-flash {
+      animation: focus-flash-in var(--motion-normal) ease-out;
+    }
+  }
+
+  @keyframes focus-flash-in {
+    from {
+      outline-color: transparent;
+    }
+  }
+}
+
+@layer components {
+  /**
+   * 지도 위 이름표.
+   *
+   * MapLibre 마커는 DOM 요소를 그대로 받으므로 Tailwind 유틸리티를 붙일 자리가 없다.
+   * 그래서 이 한 자리만 클래스로 둔다 — 값은 모두 토큰에서 읽으므로 테마를 따라간다.
+   */
+  .district-pin {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.4rem 0.55rem 0.4rem 0.85rem;
+    border-radius: var(--shape-pill);
+    background: color-mix(in oklab, var(--surface-card) 92%, transparent);
+    box-shadow: var(--elevation-card);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1.2;
+    transition:
+      background-color var(--motion-fast) var(--motion-ease-out),
+      box-shadow var(--motion-fast) var(--motion-ease-out),
+      transform var(--motion-fast) var(--motion-ease-out);
+  }
+
+  /*
+    배율에 따라 보였다 사라진다.
+    `display: none` 이라 자리를 차지하지 않는다 — 안 보이는 이름표가 자리만 잡고 있으면
+    다른 이름표가 밀려나 지도 위 배치가 흔들린다.
+  */
+  .district-pin[data-visible='false'],
+  .province-pin[data-visible='false'],
+  .spot-pin[data-visible='false'] {
+    display: none;
+  }
+
+  .district-pin:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--elevation-raised);
+  }
+
+  .district-pin[data-selected='true'] {
+    background: var(--map-selected-surface);
+    box-shadow: var(--elevation-raised);
+  }
+
+  .district-pin__name {
+    font-size: var(--font-label);
+    font-weight: 700;
+    color: var(--content-primary);
+  }
+
+  /*
+    멀리서는 이름만 남긴다.
+    건수까지 붙으면 이름표가 길어져 서로 밀어내고, 정작 지명이 몇 개 안 남는다.
+  */
+  .district-pin[data-detail='name'] .district-pin__count {
+    display: none;
+  }
+
+  /* 숫자는 이름 옆에 알약으로 붙인다. 두 줄로 쌓으면 지도 위에서 덩치가 커져 지명을 가린다. */
+  .district-pin__count {
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--shape-pill);
+    background: var(--surface-sunken);
+    font-size: var(--font-micro);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--content-secondary);
+  }
+
+  .district-pin[data-selected='true'] .district-pin__name {
+    color: var(--map-selected-on);
+  }
+
+  .district-pin[data-selected='true'] .district-pin__count {
+    background: color-mix(in oklab, var(--map-selected-on) 22%, transparent);
+    color: var(--map-selected-on);
+  }
+
+  /**
+   * 시·도 이름표.
+   *
+   * 시군 이름표보다 크고 진해야 «한 단계 위»로 읽힌다. 같은 크기면 둘이 같은 층으로 보여
+   * 왜 어떤 배율에서는 이것만 나오는지 알 수 없다.
+   */
+  .province-pin {
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--shape-pill);
+    background: var(--surface-card);
+    box-shadow: var(--elevation-raised);
+    font-size: var(--font-subhead);
+    font-weight: 700;
+    letter-spacing: var(--np-tracking-tight);
+    color: var(--content-primary);
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      transform var(--motion-fast) var(--motion-ease-out),
+      box-shadow var(--motion-fast) var(--motion-ease-out);
+  }
+
+  .province-pin:hover {
+    transform: translateY(-1px);
+  }
+
+  /**
+   * 관광지 표식.
+   *
+   * 구역 이름표보다 작고 가벼워야 한다 — 같은 크기면 둘 중 무엇이 상위인지 알 수 없다.
+   * 점 하나로 «여기»를 찍고 이름은 그 옆에 붙인다.
+   */
+  .spot-pin {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.7rem 0.25rem 0.25rem;
+    border-radius: var(--shape-pill);
+    background: var(--surface-card);
+    box-shadow: var(--elevation-card);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /*
+    관광유형 그림.
+
+    동그란 바탕에 흰 그림을 얹는다 — 지도의 도로·지명 위에서도 «표식»으로 먼저 읽히려면
+    배경이 있어야 한다. 그림만 얹으면 지도의 선과 섞인다.
+  */
+  .spot-pin__icon {
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: var(--shape-pill);
+    background: var(--map-selected-surface);
+    color: var(--map-selected-on);
+  }
+
+  .spot-pin__icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .spot-pin__name {
+    font-size: var(--font-micro);
+    font-weight: 600;
+    color: var(--content-secondary);
+  }
+}
+
+/*
+지도 조작 단추 — 레이어 **밖**에 둔다.
+
+MapLibre 의 기본 CSS 는 어느 레이어에도 속하지 않는다. 레이어에 든 규칙은
+특이도와 상관없이 레이어 밖 규칙에 진다. 그래서 여기만 레이어 없이 적는다.
+*/
+/**
+ * 지도 확대·축소 단추.
+ *
+ * 라이브러리 기본 모양은 작고 각져 있어 터치 화면에서 누르기 어렵고,
+ * 전시 화면에 브라우저 기본 UI 가 그대로 드러난다. 우리 토큰으로 다시 입힌다.
+ */
+.maplibregl-ctrl.maplibregl-ctrl-group {
+  border-radius: var(--shape-control);
+  background: var(--surface-card);
+  box-shadow: var(--elevation-card);
+  overflow: hidden;
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-group button {
+  /*
+    라이브러리 기본값(29px)은 마우스 기준이라 손가락으로는 작다.
+    그렇다고 가장 큰 규격을 쓰면 지도를 가린다 — 주인공은 지도이고 이건 곁들이다.
+    본문 단추와 같은 중간 규격으로 둔다.
+  */
+  width: var(--control-sm);
+  height: var(--control-sm);
+  background: transparent;
+}
+
+/* 단추 크기에 맞춰 그림표도 맞춘다. 안 그러면 넓은 판 가운데 작은 기호만 뜬다. */
+.maplibregl-ctrl.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  background-size: 52%;
+}
+
+/* 화면 가장자리와의 간격. 기본값(10px)은 큰 화면에서 모서리에 붙은 것처럼 보인다. */
+.maplibregl-ctrl-bottom-right .maplibregl-ctrl {
+  margin: 0 var(--gap-md) var(--gap-md) 0;
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--line-subtle);
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-group button:hover {
+  background: var(--surface-sunken);
+}
+
+/*
+  지도 배율 표시.
+
+  확대·축소 단추 바로 위에 붙는다. 단추와 같은 폭·모서리를 써야 한 덩어리로 읽힌다.
+  레이어 밖에 두는 까닭은 위 단추와 같다 — 라이브러리 기본 CSS 를 덮어야 한다.
+*/
+.maplibregl-ctrl.map-zoom-level {
+  display: grid;
+  justify-items: center;
+  gap: 0.05rem;
+  width: var(--control-sm);
+  padding: 0.4rem 0;
+  border-radius: var(--shape-control);
+  background: var(--surface-card);
+  box-shadow: var(--elevation-card);
+  pointer-events: none;
+}
+
+.map-zoom-level__label {
+  font-size: var(--font-micro);
+  font-weight: 600;
+  color: var(--content-subtle);
+}
+
+.map-zoom-level__value {
+  font-size: var(--font-caption);
+  font-weight: 700;
+  color: var(--content);
+  font-variant-numeric: tabular-nums;
+}

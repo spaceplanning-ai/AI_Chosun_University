@@ -1,0 +1,138 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "family-with-child",
+  "trace": {
+    "refinementId": "reduceWalking",
+    "objective": {
+      "kind": "metric",
+      "metric": "walkingLoad",
+      "direction": "decrease"
+    },
+    "constraintDelta": {
+      "walkingTolerance": -32,
+      "compactnessDemand": 14
+    },
+    "before": {
+      "walkingLoad": 36.3,
+      "travelMinutes": 267,
+      "indoorRatio": 16.7,
+      "costLevel": 28.7,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 1,
+        "jeonnam": 5
+      },
+      "averageTrust": 100,
+      "linkageScore": 61.4
+    },
+    "after": {
+      "walkingLoad": 30.7,
+      "travelMinutes": 204,
+      "indoorRatio": 16.7,
+      "costLevel": 21.2,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 2,
+        "jeonnam": 4
+      },
+      "averageTrust": 100,
+      "linkageScore": 66.8
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-suncheonbay-garden",
+        "attractionId": "suncheonbay-garden",
+        "contribution": 66,
+        "projectedGain": 11
+      },
+      {
+        "stopId": "stop-odongdo",
+        "attractionId": "odongdo",
+        "contribution": 54,
+        "projectedGain": 9
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 30,
+        "projectedGain": 5
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 28,
+        "projectedGain": 4.7
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 22,
+        "projectedGain": 3.7
+      },
+      {
+        "stopId": "stop-yeosu-cablecar",
+        "attractionId": "yeosu-cablecar",
+        "contribution": 18,
+        "projectedGain": 3
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-suncheonbay-garden",
+        "removedAttractionId": "suncheonbay-garden",
+        "addedAttractionId": "gwangjuho",
+        "similarity": 71.3,
+        "metricGain": 5.6,
+        "reasons": [
+          "순천만국가정원을(를) 광주호 호수생태원(으)로 교체했습니다.",
+          "관광가치 유사도 71.3점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 5.6만큼 감소했습니다.",
+          "보행부담 66점 → 32점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "songjeong-market",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 7
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "mokpo-cablecar",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 8.3 / 유사도 53).",
+        "similarity": 53,
+        "metricGain": 8.3
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "unjusa",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 3.6 / 유사도 59).",
+        "similarity": 59,
+        "metricGain": 3.6
+      },
+      {
+        "forStopId": "stop-suncheonbay-garden",
+        "attractionId": "acc",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 4.6 / 유사도 31.7).",
+        "similarity": 31.7,
+        "metricGain": 4.6
+      }
+    ],
+    "keptStopIds": [
+      "stop-daein-market",
+      "stop-odongdo",
+      "stop-yeosu-cablecar",
+      "stop-gwanbangjerim",
+      "stop-metasequoia"
+    ],
+    "changedStopIds": [
+      "stop-suncheonbay-garden"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.36599999999998545
+  }
+}

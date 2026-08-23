@@ -1,0 +1,47 @@
+{
+  "name": "namdo-prism",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI 남도 프리즘 — 설명가능 AI 기반 광주·전남 초광역 관광 큐레이션 키오스크 (Front-End)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:kiosk": "npm run dev --workspace @namdo-prism/kiosk",
+    "dev:mobile": "npm run dev --workspace @namdo-prism/mobile",
+    "dev:admin": "npm run dev --workspace @namdo-prism/admin",
+    "build": "npm run build --workspaces --if-present",
+    "build:kiosk": "npm run build --workspace @namdo-prism/kiosk",
+    "build:mobile": "npm run build --workspace @namdo-prism/mobile",
+    "build:admin": "npm run build --workspace @namdo-prism/admin",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "data:export": "node packages/core/scripts/dataset.mjs export",
+    "data:import": "node packages/core/scripts/dataset.mjs import",
+    "data:validate": "node packages/core/scripts/dataset.mjs validate",
+    "patent:examples": "node packages/core/scripts/patent-examples.mjs",
+    "test": "node packages/core/scripts/test.mjs",
+    "contrast": "node packages/core/scripts/contrast.mjs",
+    "check:screens": "node scripts/check-screens.mjs",
+    "docs:shots": "node scripts/build-doc-shots.mjs",
+    "docs:srs": "node scripts/build-srs.mjs",
+    "docs:zip": "node scripts/pack-shots.mjs",
+    "check:crud": "node scripts/check-admin-crud.mjs",
+    "check:logs": "node scripts/check-admin-logs.mjs",
+    "check:kakao": "node scripts/check-kakao.mjs",
+    "map:worker": "node scripts/copy-map-worker.mjs",
+    "fonts:build": "node scripts/build-fonts.mjs",
+    "shots": "node scripts/screenshots.mjs",
+    "map:districts": "node scripts/build-district-map.mjs",
+    "map:areas": "node scripts/build-namdo-areas.mjs",
+    "package:kiosk": "npm run package --workspace @namdo-prism/kiosk"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.2.0",
+    "@types/node": "22.10.7",
+    "eslint": "9.18.0",
+    "eslint-config-next": "^16.3.0",
+    "typescript": "5.7.3"
+  }
+}

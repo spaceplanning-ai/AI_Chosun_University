@@ -1,0 +1,109 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "parents-one-night",
+  "trace": {
+    "refinementId": "reduceWalking",
+    "objective": {
+      "kind": "metric",
+      "metric": "walkingLoad",
+      "direction": "decrease"
+    },
+    "constraintDelta": {
+      "walkingTolerance": -32,
+      "compactnessDemand": 14
+    },
+    "before": {
+      "walkingLoad": 33.3,
+      "travelMinutes": 120,
+      "indoorRatio": 41.7,
+      "costLevel": 20.3,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 4,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 59.1
+    },
+    "after": {
+      "walkingLoad": 28,
+      "travelMinutes": 136,
+      "indoorRatio": 50,
+      "costLevel": 20.8,
+      "stopCount": 6,
+      "stopsByRegion": {
+        "gwangju": 4,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 59.7
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 58,
+        "projectedGain": 9.7
+      },
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 38,
+        "projectedGain": 6.3
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 30,
+        "projectedGain": 5
+      },
+      {
+        "stopId": "stop-metasequoia",
+        "attractionId": "metasequoia",
+        "contribution": 28,
+        "projectedGain": 4.7
+      },
+      {
+        "stopId": "stop-songjeong-market",
+        "attractionId": "songjeong-market",
+        "contribution": 24,
+        "projectedGain": 4
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 22,
+        "projectedGain": 3.7
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-yangnim",
+        "removedAttractionId": "yangnim",
+        "addedAttractionId": "gwangju-art-museum",
+        "similarity": 62.5,
+        "metricGain": 5.3,
+        "reasons": [
+          "양림동 근대역사문화마을을(를) 광주시립미술관(으)로 교체했습니다.",
+          "관광가치 유사도 62.5점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 5.3만큼 감소했습니다.",
+          "보행부담 58점 → 26점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [],
+    "keptStopIds": [
+      "stop-songjeong-market",
+      "stop-gwanbangjerim",
+      "stop-metasequoia",
+      "stop-daein-market",
+      "stop-acc"
+    ],
+    "changedStopIds": [
+      "stop-yangnim"
+    ],
+    "changeRatio": 16.7,
+    "objectiveSatisfied": true,
+    "elapsedMs": 1.9713000000001557
+  }
+}

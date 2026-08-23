@@ -1,0 +1,1962 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": {
+    "id": "rainy-day-trip",
+    "title": "비 오는 날 당일여행"
+  },
+  "input": {
+    "companion": "friends",
+    "duration": "day",
+    "interests": [
+      "culture",
+      "food",
+      "history"
+    ],
+    "transport": "ownCar",
+    "specialNeeds": [
+      "moreIndoor"
+    ],
+    "origin": "서울역"
+  },
+  "conditionVector": {
+    "interestWeights": {
+      "culture": 0.25252525252525254,
+      "nature": 0,
+      "sea": 0,
+      "food": 0.33333333333333337,
+      "photo": 0.08080808080808081,
+      "history": 0.25252525252525254,
+      "activity": 0.08080808080808081,
+      "rest": 0
+    },
+    "walkingTolerance": 72,
+    "indoorPreference": 78,
+    "costSensitivity": 38,
+    "dailyCapacityMinutes": 480,
+    "transitDependency": 10,
+    "seniorConsideration": 8,
+    "childConsideration": 4,
+    "compactnessDemand": 38,
+    "dayCount": 1,
+    "origin": "서울역"
+  },
+  "retrieval": {
+    "query": {
+      "text": "광주 전남 문화·예술 음식 역사 친구 당일 자가용 실내 장소를 많이 포함해 주세요 운영시간 요금 접근성",
+      "terms": [
+        "광주",
+        "전남",
+        "문화",
+        "예술",
+        "음식",
+        "역사",
+        "친구",
+        "당일",
+        "자가용",
+        "실내",
+        "장소",
+        "많이",
+        "포함해",
+        "주세요",
+        "운영시간",
+        "요금",
+        "접근성"
+      ]
+    },
+    "documents": [
+      {
+        "documentId": "doc-mokpocc-02",
+        "similarity": 0.16470588235294117,
+        "matchedTerms": [
+          "전남",
+          "문화",
+          "역사",
+          "접근성"
+        ],
+        "rank": 1
+      },
+      {
+        "documentId": "doc-acc-01",
+        "similarity": 0.15882352941176472,
+        "matchedTerms": [
+          "광주",
+          "문화",
+          "운영시간"
+        ],
+        "rank": 2
+      },
+      {
+        "documentId": "doc-mokpomodern-01",
+        "similarity": 0.1411764705882353,
+        "matchedTerms": [
+          "전남",
+          "문화",
+          "역사"
+        ],
+        "rank": 3
+      },
+      {
+        "documentId": "doc-mokpomodern-02",
+        "similarity": 0.1411764705882353,
+        "matchedTerms": [
+          "전남",
+          "문화",
+          "역사"
+        ],
+        "rank": 4
+      },
+      {
+        "documentId": "doc-yangnim-01",
+        "similarity": 0.1411764705882353,
+        "matchedTerms": [
+          "광주",
+          "문화",
+          "역사"
+        ],
+        "rank": 5
+      },
+      {
+        "documentId": "doc-artmuseum-02",
+        "similarity": 0.1392156862745098,
+        "matchedTerms": [
+          "광주",
+          "문화",
+          "접근성"
+        ],
+        "rank": 6
+      },
+      {
+        "documentId": "doc-acc-02",
+        "similarity": 0.12352941176470589,
+        "matchedTerms": [
+          "광주",
+          "문화",
+          "예술"
+        ],
+        "rank": 7
+      },
+      {
+        "documentId": "doc-yangnim-02",
+        "similarity": 0.12352941176470589,
+        "matchedTerms": [
+          "광주",
+          "문화",
+          "요금"
+        ],
+        "rank": 8
+      },
+      {
+        "documentId": "doc-daein-01",
+        "similarity": 0.11764705882352941,
+        "matchedTerms": [
+          "광주",
+          "예술"
+        ],
+        "rank": 9
+      },
+      {
+        "documentId": "doc-gwangjuho-02",
+        "similarity": 0.11764705882352941,
+        "matchedTerms": [
+          "광주",
+          "전남"
+        ],
+        "rank": 10
+      },
+      {
+        "documentId": "doc-mokpocc-01",
+        "similarity": 0.11764705882352941,
+        "matchedTerms": [
+          "전남",
+          "요금"
+        ],
+        "rank": 11
+      },
+      {
+        "documentId": "doc-museum-02",
+        "similarity": 0.11764705882352941,
+        "matchedTerms": [
+          "광주",
+          "접근성"
+        ],
+        "rank": 12
+      }
+    ],
+    "corpusSize": 41,
+    "elapsedMs": 0.6717999999996209
+  },
+  "trustAssessments": [
+    {
+      "attractionId": "acc",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.18 (53일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 3곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·접근성·이용요금·휴무일 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-acc-01",
+        "doc-acc-02",
+        "doc-yangnim-02"
+      ]
+    },
+    {
+      "attractionId": "yangnim",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시 남구(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.04.27 (105일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·접근성·이용요금 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-yangnim-01",
+        "doc-yangnim-02"
+      ]
+    },
+    {
+      "attractionId": "songjeong-market",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시 광산구(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.07.01 (40일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·접근성·휴무일·이용요금 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-songjeong-01",
+        "doc-songjeong-02"
+      ]
+    },
+    {
+      "attractionId": "mudeungsan",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.05 (66일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·접근성·휴무일 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-mudeungsan-01",
+        "doc-mudeungsan-02"
+      ]
+    },
+    {
+      "attractionId": "gwangjuho",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시 북구(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.19 (83일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-gwangjuho-01",
+        "doc-gwangjuho-02"
+      ]
+    },
+    {
+      "attractionId": "gwangju-museum",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 문화체육관광부(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.07.14 (27일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 3곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·접근성·이용요금·휴무일 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-museum-01",
+        "doc-museum-02",
+        "doc-artmuseum-02"
+      ]
+    },
+    {
+      "attractionId": "gwangju-art-museum",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.30 (41일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·휴무일·접근성 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-artmuseum-01",
+        "doc-artmuseum-02"
+      ]
+    },
+    {
+      "attractionId": "daein-market",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 광주광역시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.02 (100일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 주소·접근성·연락처·운영시간 (4종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-acc-02",
+        "doc-daein-01"
+      ]
+    },
+    {
+      "attractionId": "juknokwon",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 담양군(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.24 (47일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 3곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 접근성·주소·운영시간·연락처·이용요금·휴무일 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-gwangjuho-02",
+        "doc-juknokwon-01",
+        "doc-juknokwon-02"
+      ]
+    },
+    {
+      "attractionId": "gwanbangjerim",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 전라남도(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.08 (94일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 4곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 접근성·주소·이용요금·운영시간·연락처 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-gwangjuho-02",
+        "doc-juknokwon-02",
+        "doc-gwanbang-01",
+        "doc-gwanbang-02"
+      ]
+    },
+    {
+      "attractionId": "metasequoia",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 전라남도(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.11 (60일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 3곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 주소·접근성·이용요금·연락처·운영시간·휴무일 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-juknokwon-02",
+        "doc-gwanbang-02",
+        "doc-metasequoia-01",
+        "doc-metasequoia-02"
+      ]
+    },
+    {
+      "attractionId": "suncheonbay-garden",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 순천시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.07.03 (38일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성·휴무일 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-scgarden-01",
+        "doc-scgarden-02"
+      ]
+    },
+    {
+      "attractionId": "suncheonbay-wetland",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 순천시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.20 (51일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·휴무일·접근성 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-scwetland-01",
+        "doc-scwetland-02"
+      ]
+    },
+    {
+      "attractionId": "odongdo",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 여수시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.26 (76일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-odongdo-01",
+        "doc-odongdo-02",
+        "doc-yeosucc-02"
+      ]
+    },
+    {
+      "attractionId": "yeosu-cablecar",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 여수시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.07.08 (33일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 3곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 주소·접근성·운영시간·이용요금·연락처 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-odongdo-02",
+        "doc-yeosucc-01",
+        "doc-yeosucc-02"
+      ]
+    },
+    {
+      "attractionId": "mokpo-modern",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 목포시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.02 (69일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·휴무일·접근성 (6종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-mokpomodern-01",
+        "doc-mokpomodern-02",
+        "doc-mokpocc-02"
+      ]
+    },
+    {
+      "attractionId": "mokpo-cablecar",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 목포시(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.21 (81일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·이용요금·연락처·주소·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-mokpocc-01",
+        "doc-mokpocc-02"
+      ]
+    },
+    {
+      "attractionId": "boseong-tea",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 보성군(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.04.02 (130일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-boseong-01",
+        "doc-boseong-02"
+      ]
+    },
+    {
+      "attractionId": "gaudo",
+      "score": 64.3,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 강진군(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 0.37222222222222223,
+          "weight": 25,
+          "evidence": "최근 갱신일 2025.06.30 (406일 경과 — 확인 필요)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 0.5,
+          "weight": 20,
+          "evidence": "공식 출처가 1곳뿐이어서 교차 확인이 되지 않았습니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 0.5,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소 (2종)."
+        }
+      ],
+      "verdict": "demoted",
+      "supportingDocumentIds": [
+        "doc-gaudo-01"
+      ]
+    },
+    {
+      "attractionId": "purple-island",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 신안군(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.05.14 (88일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-purple-01",
+        "doc-purple-02"
+      ]
+    },
+    {
+      "attractionId": "unjusa",
+      "score": 100,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 1,
+          "weight": 35,
+          "evidence": "최상위 출처는 화순군(지방자치단체)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 1,
+          "weight": 25,
+          "evidence": "최근 갱신일 2026.06.16 (55일 경과)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "서로 다른 공식 출처 2곳의 정보가 일치합니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 1,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 운영시간·주소·연락처·이용요금·접근성 (5종)."
+        }
+      ],
+      "verdict": "accepted",
+      "supportingDocumentIds": [
+        "doc-unjusa-01",
+        "doc-unjusa-02"
+      ]
+    },
+    {
+      "attractionId": "yeongsanpo",
+      "score": 31.8,
+      "factors": [
+        {
+          "id": "officialIssuer",
+          "achieved": 0.48,
+          "weight": 35,
+          "evidence": "최상위 출처는 영산포홍어거리상인회(운영시설)입니다."
+        },
+        {
+          "id": "recentUpdate",
+          "achieved": 0,
+          "weight": 25,
+          "evidence": "최근 갱신일 2024.09.06 (703일 경과 — 확인 필요)."
+        },
+        {
+          "id": "corroboration",
+          "achieved": 0.5,
+          "weight": 20,
+          "evidence": "공식 출처가 1곳뿐이어서 교차 확인이 되지 않았습니다."
+        },
+        {
+          "id": "fieldCoverage",
+          "achieved": 0.25,
+          "weight": 20,
+          "evidence": "확인된 정보 항목: 주소 (1종)."
+        }
+      ],
+      "verdict": "excluded",
+      "supportingDocumentIds": [
+        "doc-yeongsanpo-01"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "attractionId": "mokpo-modern",
+      "total": 71.8,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 77.9,
+          "weight": 30,
+          "weighted": 23.37
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 51.9,
+          "weight": 20,
+          "weighted": 10.38
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 84.3,
+          "weight": 10,
+          "weighted": 8.43
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 91.6,
+          "weight": 5,
+          "weighted": 4.58
+        }
+      ],
+      "trustScore": 100,
+      "rank": 1
+    },
+    {
+      "attractionId": "gwangju-museum",
+      "total": 65.4,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 54.2,
+          "weight": 30,
+          "weighted": 16.26
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 89.3,
+          "weight": 20,
+          "weighted": 17.86
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 44.5,
+          "weight": 15,
+          "weighted": 6.68
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 98.9,
+          "weight": 10,
+          "weighted": 9.89
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 93.5,
+          "weight": 5,
+          "weighted": 4.68
+        }
+      ],
+      "trustScore": 100,
+      "rank": 2
+    },
+    {
+      "attractionId": "gwangju-art-museum",
+      "total": 63.4,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 47.8,
+          "weight": 30,
+          "weighted": 14.34
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 89.2,
+          "weight": 20,
+          "weighted": 17.84
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 44.5,
+          "weight": 15,
+          "weighted": 6.68
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 98.4,
+          "weight": 10,
+          "weighted": 9.84
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 93.7,
+          "weight": 5,
+          "weighted": 4.68
+        }
+      ],
+      "trustScore": 100,
+      "rank": 3
+    },
+    {
+      "attractionId": "gwanbangjerim",
+      "total": 60.9,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 33.8,
+          "weight": 30,
+          "weighted": 10.14
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 69.7,
+          "weight": 20,
+          "weighted": 13.94
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 71.6,
+          "weight": 10,
+          "weighted": 7.16
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 93.7,
+          "weight": 5,
+          "weighted": 4.68
+        }
+      ],
+      "trustScore": 100,
+      "rank": 4
+    },
+    {
+      "attractionId": "unjusa",
+      "total": 60.7,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 24.1,
+          "weight": 30,
+          "weighted": 7.23
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 68.3,
+          "weight": 20,
+          "weighted": 13.66
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 30,
+          "weight": 10,
+          "weighted": 3
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 69.8,
+          "weight": 10,
+          "weighted": 6.98
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 96.4,
+          "weight": 5,
+          "weighted": 4.82
+        }
+      ],
+      "trustScore": 100,
+      "rank": 5
+    },
+    {
+      "attractionId": "mokpo-cablecar",
+      "total": 56.6,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 27.3,
+          "weight": 30,
+          "weighted": 8.19
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 50.6,
+          "weight": 20,
+          "weighted": 10.12
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 85.9,
+          "weight": 10,
+          "weighted": 8.59
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 93.1,
+          "weight": 5,
+          "weighted": 4.66
+        }
+      ],
+      "trustScore": 100,
+      "rank": 6
+    },
+    {
+      "attractionId": "metasequoia",
+      "total": 56,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 17.6,
+          "weight": 30,
+          "weighted": 5.28
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 69.4,
+          "weight": 20,
+          "weighted": 13.88
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 71.1,
+          "weight": 10,
+          "weighted": 7.11
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 94.3,
+          "weight": 5,
+          "weighted": 4.72
+        }
+      ],
+      "trustScore": 100,
+      "rank": 7
+    },
+    {
+      "attractionId": "juknokwon",
+      "total": 55.9,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 17.6,
+          "weight": 30,
+          "weighted": 5.28
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 69.6,
+          "weight": 20,
+          "weighted": 13.92
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 69.5,
+          "weight": 10,
+          "weighted": 6.95
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 93.9,
+          "weight": 5,
+          "weighted": 4.7
+        }
+      ],
+      "trustScore": 100,
+      "rank": 8
+    },
+    {
+      "attractionId": "yeosu-cablecar",
+      "total": 53.8,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 27.3,
+          "weight": 30,
+          "weighted": 8.19
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 37.3,
+          "weight": 20,
+          "weighted": 7.46
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 85.6,
+          "weight": 10,
+          "weighted": 8.56
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 92.2,
+          "weight": 5,
+          "weighted": 4.61
+        }
+      ],
+      "trustScore": 100,
+      "rank": 9
+    },
+    {
+      "attractionId": "suncheonbay-garden",
+      "total": 48.9,
+      "criteria": [
+        {
+          "id": "preferenceFit",
+          "raw": 13.3,
+          "weight": 30,
+          "weighted": 3.99
+        },
+        {
+          "id": "travelFeasibility",
+          "raw": 41.2,
+          "weight": 20,
+          "weighted": 8.24
+        },
+        {
+          "id": "regionLinkage",
+          "raw": 100,
+          "weight": 15,
+          "weighted": 15
+        },
+        {
+          "id": "resourceDiversity",
+          "raw": 0,
+          "weight": 10,
+          "weighted": 0
+        },
+        {
+          "id": "accessibilityFit",
+          "raw": 70.7,
+          "weight": 10,
+          "weighted": 7.07
+        },
+        {
+          "id": "informationTrust",
+          "raw": 100,
+          "weight": 10,
+          "weighted": 10
+        },
+        {
+          "id": "regionalDispersion",
+          "raw": 92.4,
+          "weight": 5,
+          "weighted": 4.62
+        }
+      ],
+      "trustScore": 100,
+      "rank": 10
+    }
+  ],
+  "exclusions": [
+    {
+      "attractionId": "mudeungsan",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 14점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "gwangjuho",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 20점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "suncheonbay-wetland",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 18점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "odongdo",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 24점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "boseong-tea",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 22점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "gaudo",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 16점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "purple-island",
+      "reason": "weatherUnsuitable",
+      "stage": "constraintFilter",
+      "detail": "실내 장소 요청에 대해 우천 적합도 14점으로 대체가 필요합니다."
+    },
+    {
+      "attractionId": "yeongsanpo",
+      "reason": "staleInformation",
+      "stage": "trustFilter",
+      "detail": "최근 갱신일이 703일 전(2024-09-06)으로 기준 540일을 초과했습니다. 운영기관 확인이 필요합니다."
+    },
+    {
+      "attractionId": "mokpo-modern",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 19:20 도착 기준 관람 종료가 20:55로 운영 종료 18:00를 넘깁니다."
+    },
+    {
+      "attractionId": "gwangju-museum",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 18:27 도착 기준 관람 종료가 19:57로 운영 종료 18:00를 넘깁니다."
+    },
+    {
+      "attractionId": "gwangju-art-museum",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 18:27 도착 기준 관람 종료가 19:42로 운영 종료 18:00를 넘깁니다."
+    },
+    {
+      "attractionId": "unjusa",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 18:47 도착 기준 관람 종료가 19:57로 운영 종료 18:00를 넘깁니다."
+    },
+    {
+      "attractionId": "mokpo-cablecar",
+      "reason": "capacityCap",
+      "stage": "scheduleFitting",
+      "detail": "1일차 잔여 활동시간 60분으로는 체류 70분 + 이동 81분을 수용할 수 없습니다."
+    },
+    {
+      "attractionId": "metasequoia",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 18:47 도착 기준 관람 종료가 19:42로 운영 종료 19:00를 넘깁니다."
+    },
+    {
+      "attractionId": "juknokwon",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 18:47 도착 기준 관람 종료가 20:07로 운영 종료 18:00를 넘깁니다."
+    },
+    {
+      "attractionId": "yeosu-cablecar",
+      "reason": "capacityCap",
+      "stage": "scheduleFitting",
+      "detail": "1일차 잔여 활동시간 60분으로는 체류 60분 + 이동 132분을 수용할 수 없습니다."
+    },
+    {
+      "attractionId": "suncheonbay-garden",
+      "reason": "outsideOpeningHours",
+      "stage": "scheduleFitting",
+      "detail": "1일차 19:38 도착 기준 관람 종료가 22:08로 운영 종료 19:00를 넘깁니다."
+    }
+  ],
+  "linkage": {
+    "score": 66.8,
+    "components": [
+      {
+        "id": "regionBalance",
+        "value": 50,
+        "weight": 35,
+        "explanation": "광주 3곳 · 전남 1곳으로 구성되었습니다."
+      },
+      {
+        "id": "resourceComplementarity",
+        "value": 57.1,
+        "weight": 25,
+        "explanation": "서로 다른 관광유형 4종을 각 지역이 나누어 기여합니다."
+      },
+      {
+        "id": "corridorEfficiency",
+        "value": 100,
+        "weight": 25,
+        "explanation": "지역 간 이동을 1회로 묶어 왕복 없이 이어집니다."
+      },
+      {
+        "id": "narrativeContinuity",
+        "value": 66.7,
+        "weight": 15,
+        "explanation": "연속한 3개 구간 중 2개가 인접 자원으로 이어집니다."
+      }
+    ],
+    "stopsByRegion": {
+      "gwangju": 3,
+      "jeonnam": 1
+    },
+    "crossRegionTransitions": 1
+  },
+  "linkageCorrection": {
+    "removedAttractionId": "songjeong-market",
+    "addedAttractionId": "gwanbangjerim",
+    "linkageBefore": 10,
+    "linkageAfter": 66.8,
+    "reason": "일정이 광주 자원으로만 구성되어, 마지막 방문지를 전남 후보로 교체했습니다. 초광역 연계지수 10점 → 66.8점."
+  },
+  "output": {
+    "id": "it_rainy-day-trip",
+    "title": "광주의 도시의 거리에서 담양의 숲까지, 친구 떠나는 당일",
+    "subtitle": "서울역 출발 · 광주·전남 · 방문지 4곳",
+    "days": [
+      {
+        "dayIndex": 0,
+        "title": "1일차 · 광주 → 담양",
+        "focusRegion": "gwangju",
+        "stops": [
+          {
+            "id": "stop-daein-market",
+            "attractionId": "daein-market",
+            "dayIndex": 0,
+            "startMinutes": 688,
+            "stayMinutes": 60,
+            "travelFromPreviousMinutes": 28,
+            "rationale": {
+              "reasons": [
+                "선택하신 ‘문화·예술’·‘음식’에 해당하는 곳입니다.",
+                "보행부담 30점으로 요청하신 한계 72점 이내입니다.",
+                "실내·실외 공간으로 우천 적합도 62점입니다.",
+                "공식 관광자료 2건에서 주소·접근성·연락처·운영시간 정보가 확인되었습니다 (정보 신뢰도 100점)."
+              ],
+              "sourceDocumentIds": [
+                "doc-acc-02",
+                "doc-daein-01"
+              ],
+              "score": {
+                "attractionId": "daein-market",
+                "total": 86.6,
+                "criteria": [
+                  {
+                    "id": "preferenceFit",
+                    "raw": 97.2,
+                    "weight": 30,
+                    "weighted": 29.16
+                  },
+                  {
+                    "id": "travelFeasibility",
+                    "raw": 84.7,
+                    "weight": 20,
+                    "weighted": 16.94
+                  },
+                  {
+                    "id": "regionLinkage",
+                    "raw": 50,
+                    "weight": 15,
+                    "weighted": 7.5
+                  },
+                  {
+                    "id": "resourceDiversity",
+                    "raw": 100,
+                    "weight": 10,
+                    "weighted": 10
+                  },
+                  {
+                    "id": "accessibilityFit",
+                    "raw": 84.6,
+                    "weight": 10,
+                    "weighted": 8.46
+                  },
+                  {
+                    "id": "informationTrust",
+                    "raw": 100,
+                    "weight": 10,
+                    "weighted": 10
+                  },
+                  {
+                    "id": "regionalDispersion",
+                    "raw": 90.8,
+                    "weight": 5,
+                    "weighted": 4.54
+                  }
+                ],
+                "trustScore": 100,
+                "rank": 1
+              }
+            }
+          },
+          {
+            "id": "stop-acc",
+            "attractionId": "acc",
+            "dayIndex": 0,
+            "startMinutes": 760,
+            "stayMinutes": 120,
+            "travelFromPreviousMinutes": 12,
+            "rationale": {
+              "reasons": [
+                "선택하신 ‘문화·예술’·‘역사’에 해당하는 곳입니다.",
+                "보행부담 38점으로 요청하신 한계 72점 이내입니다.",
+                "실내 공간으로 우천 적합도 96점입니다.",
+                "광주 자원으로서 초광역 연계지수를 끌어올립니다 (연계 기여 83점).",
+                "공식 관광자료 3건에서 운영시간·주소·연락처·접근성 정보가 확인되었습니다 (정보 신뢰도 100점)."
+              ],
+              "sourceDocumentIds": [
+                "doc-acc-01",
+                "doc-acc-02",
+                "doc-yangnim-02"
+              ],
+              "score": {
+                "attractionId": "acc",
+                "total": 88.8,
+                "criteria": [
+                  {
+                    "id": "preferenceFit",
+                    "raw": 87.5,
+                    "weight": 30,
+                    "weighted": 26.25
+                  },
+                  {
+                    "id": "travelFeasibility",
+                    "raw": 99.6,
+                    "weight": 20,
+                    "weighted": 19.92
+                  },
+                  {
+                    "id": "regionLinkage",
+                    "raw": 83,
+                    "weight": 15,
+                    "weighted": 12.45
+                  },
+                  {
+                    "id": "resourceDiversity",
+                    "raw": 76,
+                    "weight": 10,
+                    "weighted": 7.6
+                  },
+                  {
+                    "id": "accessibilityFit",
+                    "raw": 98.8,
+                    "weight": 10,
+                    "weighted": 9.88
+                  },
+                  {
+                    "id": "informationTrust",
+                    "raw": 100,
+                    "weight": 10,
+                    "weighted": 10
+                  },
+                  {
+                    "id": "regionalDispersion",
+                    "raw": 54.6,
+                    "weight": 5,
+                    "weighted": 2.73
+                  }
+                ],
+                "trustScore": 100,
+                "rank": 1
+              }
+            }
+          },
+          {
+            "id": "stop-yangnim",
+            "attractionId": "yangnim",
+            "dayIndex": 0,
+            "startMinutes": 892,
+            "stayMinutes": 90,
+            "travelFromPreviousMinutes": 12,
+            "rationale": {
+              "reasons": [
+                "선택하신 ‘역사’·‘문화·예술’에 해당하는 곳입니다.",
+                "보행부담 58점으로 요청하신 한계 72점 이내입니다.",
+                "실내·실외 공간으로 우천 적합도 44점입니다.",
+                "공식 관광자료 2건에서 운영시간·주소·연락처·접근성 정보가 확인되었습니다 (정보 신뢰도 100점)."
+              ],
+              "sourceDocumentIds": [
+                "doc-yangnim-01",
+                "doc-yangnim-02"
+              ],
+              "score": {
+                "attractionId": "yangnim",
+                "total": 74.4,
+                "criteria": [
+                  {
+                    "id": "preferenceFit",
+                    "raw": 77.9,
+                    "weight": 30,
+                    "weighted": 23.37
+                  },
+                  {
+                    "id": "travelFeasibility",
+                    "raw": 98.8,
+                    "weight": 20,
+                    "weighted": 19.76
+                  },
+                  {
+                    "id": "regionLinkage",
+                    "raw": 50,
+                    "weight": 15,
+                    "weighted": 7.5
+                  },
+                  {
+                    "id": "resourceDiversity",
+                    "raw": 8,
+                    "weight": 10,
+                    "weighted": 0.8
+                  },
+                  {
+                    "id": "accessibilityFit",
+                    "raw": 84.1,
+                    "weight": 10,
+                    "weighted": 8.41
+                  },
+                  {
+                    "id": "informationTrust",
+                    "raw": 100,
+                    "weight": 10,
+                    "weighted": 10
+                  },
+                  {
+                    "id": "regionalDispersion",
+                    "raw": 91.8,
+                    "weight": 5,
+                    "weighted": 4.59
+                  }
+                ],
+                "trustScore": 100,
+                "rank": 1
+              }
+            }
+          },
+          {
+            "id": "stop-gwanbangjerim",
+            "attractionId": "gwanbangjerim",
+            "dayIndex": 0,
+            "startMinutes": 1023,
+            "stayMinutes": 50,
+            "travelFromPreviousMinutes": 41,
+            "rationale": {
+              "reasons": [
+                "선택하신 ‘역사’에 해당하는 곳입니다.",
+                "보행부담 22점으로 요청하신 한계 72점 이내입니다.",
+                "실외 공간으로 우천 적합도 28점입니다.",
+                "전남 자원으로서 초광역 연계지수를 끌어올립니다 (연계 기여 100점).",
+                "공식 관광자료 4건에서 접근성·주소·이용요금·운영시간 정보가 확인되었습니다 (정보 신뢰도 100점)."
+              ],
+              "sourceDocumentIds": [
+                "doc-gwangjuho-02",
+                "doc-juknokwon-02",
+                "doc-gwanbang-01",
+                "doc-gwanbang-02"
+              ],
+              "score": {
+                "attractionId": "gwanbangjerim",
+                "total": 63.2,
+                "criteria": [
+                  {
+                    "id": "preferenceFit",
+                    "raw": 33.8,
+                    "weight": 30,
+                    "weighted": 10.14
+                  },
+                  {
+                    "id": "travelFeasibility",
+                    "raw": 81.2,
+                    "weight": 20,
+                    "weighted": 16.24
+                  },
+                  {
+                    "id": "regionLinkage",
+                    "raw": 100,
+                    "weight": 15,
+                    "weighted": 15
+                  },
+                  {
+                    "id": "resourceDiversity",
+                    "raw": 0,
+                    "weight": 10,
+                    "weighted": 0
+                  },
+                  {
+                    "id": "accessibilityFit",
+                    "raw": 71.6,
+                    "weight": 10,
+                    "weighted": 7.16
+                  },
+                  {
+                    "id": "informationTrust",
+                    "raw": 100,
+                    "weight": 10,
+                    "weighted": 10
+                  },
+                  {
+                    "id": "regionalDispersion",
+                    "raw": 93.7,
+                    "weight": 5,
+                    "weighted": 4.68
+                  }
+                ],
+                "trustScore": 100,
+                "rank": 2
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "metrics": {
+      "walkingLoad": 37,
+      "travelMinutes": 93,
+      "indoorRatio": 50,
+      "costLevel": 16.8,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 66.8
+    },
+    "linkage": {
+      "score": 66.8,
+      "components": [
+        {
+          "id": "regionBalance",
+          "value": 50,
+          "weight": 35,
+          "explanation": "광주 3곳 · 전남 1곳으로 구성되었습니다."
+        },
+        {
+          "id": "resourceComplementarity",
+          "value": 57.1,
+          "weight": 25,
+          "explanation": "서로 다른 관광유형 4종을 각 지역이 나누어 기여합니다."
+        },
+        {
+          "id": "corridorEfficiency",
+          "value": 100,
+          "weight": 25,
+          "explanation": "지역 간 이동을 1회로 묶어 왕복 없이 이어집니다."
+        },
+        {
+          "id": "narrativeContinuity",
+          "value": 66.7,
+          "weight": 15,
+          "explanation": "연속한 3개 구간 중 2개가 인접 자원으로 이어집니다."
+        }
+      ],
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "crossRegionTransitions": 1
+    }
+  },
+  "elapsedMs": 2.424199999999928
+}

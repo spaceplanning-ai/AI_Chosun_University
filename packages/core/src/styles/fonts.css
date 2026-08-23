@@ -1,0 +1,66 @@
+/**
+ * 번들 서체 선언.
+ *
+ * 이 파일을 불러오는 앱만 자체 호스팅 Pretendard 를 쓴다.
+ * 파일은 `npm run fonts:build` 가 각 앱의 `public/fonts` 에 만들어 둔다.
+ *
+ * ── 왜 앱마다 골라 붙이는가 ────────────────────────────────────────
+ * 키오스크는 오프라인으로 도는데다 심사에서 보이는 화면이라 글꼴이 어긋나면 안 된다.
+ * 어드민도 검수 자료로 캡처되므로 같은 글꼴이어야 한다.
+ * 반면 모바일 결과 페이지는 관람객 휴대폰이 이동통신망으로 받아 간다 —
+ * 2MB 를 더 받게 할 이유가 없고, 휴대폰의 한글 기본 서체는 이미 충분히 좋다.
+ * 그래서 `globals.css` 가 아니라 별도 파일로 두고 두 앱에서만 불러온다.
+ *
+ * ── 왜 family 이름을 따로 두는가 ──────────────────────────────────
+ * 스택에는 이미 'Pretendard' 가 들어 있다(개발 PC 에 설치돼 있으면 그게 잡힌다).
+ * 번들본을 같은 이름으로 선언하면 화면만 봐서는 **설치본이 잡힌 것인지
+ * 번들본이 잡힌 것인지 구분할 수 없다** — 전시 장비에서야 틀어졌음을 알게 된다.
+ * 이름을 다르게 두면 번들이 빠졌을 때 글꼴이 눈에 띄게 달라져 바로 드러난다.
+ *
+ * 그 이름은 서체 스택이 원래 이 용도로 비워 둔 `--font-korean-webfont` 에 넣는다.
+ * 이 파일을 불러오지 않는 앱에서는 슬롯이 비어 설치본 → OS 서체 순으로 내려간다.
+ *
+ * `font-display: swap` 을 쓰는 이유는, 서체를 기다리는 동안 글자가 보이지 않는
+ * 편(block)보다 대체 글꼴로라도 먼저 보이는 편이 키오스크에서 낫기 때문이다.
+ * 어차피 같은 기기에서 로컬로 읽으므로 바뀌는 순간은 거의 눈에 띄지 않는다.
+ */
+
+@font-face {
+  font-family: 'Pretendard Bundled';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/pretendard-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard Bundled';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/pretendard-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard Bundled';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/pretendard-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard Bundled';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/pretendard-700.woff2') format('woff2');
+}
+
+/*
+  스택의 첫 자리에 번들본을 꽂는다.
+  `tokens.primitive.css` 의 `--np-family-sans` 가 이 슬롯을 첫 항목으로 읽는다.
+*/
+:root {
+  --font-korean-webfont: 'Pretendard Bundled';
+}

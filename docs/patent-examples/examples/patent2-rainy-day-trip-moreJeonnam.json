@@ -1,0 +1,162 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "rainy-day-trip",
+  "trace": {
+    "refinementId": "moreJeonnam",
+    "objective": {
+      "kind": "regionShare",
+      "region": "jeonnam",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "regionBias": {
+        "jeonnam": 26,
+        "gwangju": -10
+      },
+      "compactnessDemand": -12
+    },
+    "before": {
+      "walkingLoad": 37,
+      "travelMinutes": 93,
+      "indoorRatio": 50,
+      "costLevel": 16.8,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 66.8
+    },
+    "after": {
+      "walkingLoad": 43,
+      "travelMinutes": 149,
+      "indoorRatio": 25,
+      "costLevel": 16.8,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 2,
+        "jeonnam": 2
+      },
+      "averageTrust": 100,
+      "linkageScore": 57.6
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 100,
+        "projectedGain": 25
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 100,
+        "projectedGain": 25
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 100,
+        "projectedGain": 25
+      },
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-acc",
+        "removedAttractionId": "acc",
+        "addedAttractionId": "juknokwon",
+        "similarity": 29.2,
+        "metricGain": 25,
+        "reasons": [
+          "국립아시아문화전당을(를) 담양 죽녹원(으)로 교체했습니다.",
+          "관광가치 유사도 29.2점으로 원래 일정의 성격을 유지합니다.",
+          "해당 지역의 비중이 25.0%p 늘었습니다.",
+          "보행부담 38점 → 62점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "songjeong-market",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 57,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 69.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "gwangju-art-museum",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 65.8,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 31.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 35.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "mokpo-modern",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 54.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "mokpo-cablecar",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 38.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "unjusa",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 25
+      },
+      {
+        "forStopId": "stop-acc",
+        "attractionId": "metasequoia",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 25 / 유사도 25.8).",
+        "similarity": 25.8,
+        "metricGain": 25
+      }
+    ],
+    "keptStopIds": [
+      "stop-daein-market",
+      "stop-yangnim",
+      "stop-gwanbangjerim"
+    ],
+    "changedStopIds": [
+      "stop-acc"
+    ],
+    "changeRatio": 25,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.4908999999997832
+  }
+}

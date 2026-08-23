@@ -1,0 +1,249 @@
+/**
+ * Layer 1 — Primitive tokens (원시 토큰)
+ *
+ * 팔레트/스케일의 "원본 값"만 보관한다. 여기의 토큰은 컴포넌트에서 직접 사용하지 않는다.
+ * 컴포넌트는 언제나 Layer 2(시맨틱 토큰)만 참조한다.
+ *
+ * 팔레트 근거: 제안서 11.2 전시 디자인 방향
+ *   주색상(짙은 남색·청록) / 보조색상(녹색·하늘색) / 강조색상(주황·노랑) / 배경(밝은 미색·어두운 전시배경)
+ */
+
+:root {
+  /* ── 색상: 남색 (Primary / 전시 배경 계열) ───────────────────────── */
+  --np-navy-950: #050b16;
+  --np-navy-900: #0a1526;
+  --np-navy-850: #0c1b30;
+  --np-navy-800: #0f2038;
+  --np-navy-700: #14304f;
+  --np-navy-600: #1b4270;
+  --np-navy-500: #245894;
+
+  /* ── 색상: 청록 (광주 — 도시·문화·예술) ─────────────────────────── */
+  --np-teal-800: #05464e;
+  --np-teal-700: #075e68;
+  --np-teal-600: #0a7683;
+  --np-teal-500: #0e93a3;
+  --np-teal-400: #35b2c0;
+  --np-teal-300: #7ed0d9;
+  --np-teal-100: #d7f0f3;
+
+  /* ── 색상: 녹색 (전남 — 자연·생태·해양) ─────────────────────────── */
+  --np-green-800: #0e4837;
+  --np-green-700: #14624a;
+  --np-green-600: #17805c;
+  --np-green-500: #1e9e6e;
+  --np-green-450: #22a877;
+  --np-green-400: #45bb8b;
+  --np-green-300: #86d6b4;
+  --np-green-100: #daf2e7;
+
+  /* ── 색상: 하늘 (보조) ─────────────────────────────────────────── */
+  --np-sky-700: #245f93;
+  --np-sky-600: #2e7fc2;
+  /** 차트·지도 마크 전용 단계. 글자용보다 밝고 채도가 높아야 도형으로 구분된다. */
+  --np-sky-450: #3d8ede;
+  --np-sky-500: #4fa8d8;
+  --np-sky-300: #a5d3ee;
+  --np-sky-100: #e1f0fa;
+
+  /* ── 색상: 주황·노랑 (강조 / AI 하이라이트) ─────────────────────── */
+  --np-amber-800: #7a4a05;
+  --np-amber-700: #b26a05;
+  --np-amber-600: #d98708;
+  --np-amber-500: #f2a20c;
+  --np-amber-400: #f7bc4a;
+  --np-amber-300: #fbd98f;
+  --np-amber-100: #fef3da;
+
+  /* ── 색상: 코랄 (제외·주의) ─────────────────────────────────────── */
+  --np-coral-700: #93380a;
+  --np-coral-600: #d9500c;
+  --np-coral-500: #f2670c;
+  --np-coral-300: #f9b78c;
+  --np-coral-100: #fdeade;
+
+  /* ── 색상: 적색 (오류) ─────────────────────────────────────────── */
+  --np-red-700: #8f2621;
+  --np-red-600: #c7362f;
+  --np-red-500: #e24a42;
+  --np-red-300: #f0a19c;
+  --np-red-100: #fbe3e1;
+
+  /* ── 색상: 미색 (밝은 배경) ─────────────────────────────────────── */
+  --np-ivory-50: #fdfbf6;
+  --np-ivory-100: #faf7f0;
+  --np-ivory-200: #f1ebdf;
+  --np-ivory-300: #e3daca;
+
+  /* ── 색상: 중립 (텍스트·구분선) ─────────────────────────────────── */
+  --np-ink-900: #16202e;
+  --np-ink-800: #22304a;
+  --np-ink-700: #33415a;
+  --np-ink-500: #5c6b85;
+  /* 밝은 배경 위 보조글자 전용 단계. ink-400 은 아이보리 면에서 3:1 을 넘기지 못한다
+     (page 3.00 · sunken 2.62). 이 값은 밝은 테마의 모든 면에서 3.2:1 이상을 확보한다. */
+  --np-ink-450: #6a7892;
+  --np-ink-400: #8593ab;
+  --np-ink-300: #b4becd;
+  --np-ink-200: #d7dde7;
+  --np-ink-100: #ebeff5;
+  --np-white: #ffffff;
+
+  /* ── 색상: 무채색 (안내도 모노톤) ───────────────────────────────
+     발주처가 지정한 네 색(#191f28 · #333d4b · #b0b8c1 · #3182f6)은 한 회색 램프에서 나온 값이다.
+     그 램프를 통째로 가져와 쓰면 지정색과 중간 단계들이 같은 계열로 맞아떨어진다.
+     임의의 순회색을 섞으면 지정색만 붕 뜬다. */
+  --np-mono-0: #ffffff;
+  --np-mono-50: #f9fafb;
+  --np-mono-100: #f2f4f6;
+  --np-mono-200: #e5e8eb;
+  --np-mono-300: #d1d6db;
+  --np-mono-400: #b0b8c1;
+  --np-mono-500: #8b95a1;
+  --np-mono-600: #6b7684;
+  --np-mono-700: #4e5968;
+  --np-mono-800: #333d4b;
+  --np-mono-900: #191f28;
+  --np-mono-950: #0d1116;
+
+  /* ── 색상: 지정 팔레트 ─────────────────────────────────────────
+     발주처가 직접 지정한 값이다. 임의로 바꾸지 않는다. */
+  --np-brand-ink: #191f28; /* 메인 글자 */
+  --np-brand-ink-sub: #333d4b; /* 서브 글자 */
+  --np-brand-blue: #3182f6; /* 버튼·포인트 */
+  --np-brand-disabled: #b0b8c1; /* 비활성 */
+
+  /* 지정색에서 파생한 단계. 누름/호버 상태와 옅은 배경이 필요해 명도만 조정했다. */
+  --np-brand-blue-dark: #1b64da;
+  --np-brand-blue-soft: #e8f3ff;
+
+  /*
+    지도 구역용 옅은 파랑 네 단계.
+
+    같은 지정 파랑에서 명도만 올려 뽑았다 — 색상은 그대로이므로 버튼과 한 가족으로 읽힌다.
+    자원이 많은 구일수록 진해진다. 가장 진한 단계에도 검은 글자가 얹히므로,
+    지정 글자색(#191f28)이 4.5:1 을 넘기는 선에서 멈췄다.
+  */
+  --np-brand-blue-tint-100: #eef5ff;
+  --np-brand-blue-tint-200: #d8e8fe;
+  --np-brand-blue-tint-300: #bcd8fc;
+  --np-brand-blue-tint-400: #9cc4fa;
+
+  /* ── 타이포 스케일: 표준(일반) 모드 원본값 ──────────────────────── */
+  --np-size-display: 4.25rem;
+  --np-size-title: 2.75rem;
+  --np-size-heading: 2rem;
+  --np-size-subhead: 1.5rem;
+  --np-size-body: 1.1875rem;
+  --np-size-label: 1.0625rem;
+  --np-size-caption: 0.9375rem;
+  --np-size-micro: 0.8125rem;
+
+  /* ── 타이포 스케일: 큰 글씨 모드 원본값 (RFP 접근성 요구) ───────── */
+  --np-size-large-display: 5.25rem;
+  --np-size-large-title: 3.5rem;
+  --np-size-large-heading: 2.625rem;
+  --np-size-large-subhead: 2rem;
+  --np-size-large-body: 1.625rem;
+  --np-size-large-label: 1.5rem;
+  --np-size-large-caption: 1.25rem;
+  --np-size-large-micro: 1.0625rem;
+
+  /* ── 타이포 스케일: 모바일(QR 결과 페이지) 원본값 ──────────────── */
+  --np-size-mobile-display: 2rem;
+  --np-size-mobile-title: 1.625rem;
+  --np-size-mobile-heading: 1.3125rem;
+  --np-size-mobile-subhead: 1.125rem;
+  --np-size-mobile-body: 1rem;
+  --np-size-mobile-label: 0.9375rem;
+  --np-size-mobile-caption: 0.875rem;
+  --np-size-mobile-micro: 0.75rem;
+
+  /* ── 간격 스케일 원본값 ─────────────────────────────────────────── */
+  --np-space-2xs: 0.25rem;
+  --np-space-xs: 0.5rem;
+  --np-space-sm: 0.75rem;
+  --np-space-md: 1.25rem;
+  --np-space-lg: 2rem;
+  --np-space-xl: 3rem;
+  --np-space-2xl: 4.5rem;
+
+  --np-space-large-2xs: 0.375rem;
+  --np-space-large-xs: 0.75rem;
+  --np-space-large-sm: 1.125rem;
+  --np-space-large-md: 1.75rem;
+  --np-space-large-lg: 2.75rem;
+  --np-space-large-xl: 4rem;
+  --np-space-large-2xl: 5.5rem;
+
+  --np-space-mobile-2xs: 0.25rem;
+  --np-space-mobile-xs: 0.5rem;
+  --np-space-mobile-sm: 0.75rem;
+  --np-space-mobile-md: 1rem;
+  --np-space-mobile-lg: 1.5rem;
+  --np-space-mobile-xl: 2rem;
+  --np-space-mobile-2xl: 2.75rem;
+
+  /* ── 터치 타깃 원본값 ───────────────────────────────────────────── */
+  --np-control-sm: 3.25rem;
+  --np-control-md: 4.25rem;
+  --np-control-lg: 5.5rem;
+
+  --np-control-large-sm: 4.25rem;
+  --np-control-large-md: 5.5rem;
+  --np-control-large-lg: 7rem;
+
+  --np-control-mobile-sm: 2.5rem;
+  --np-control-mobile-md: 3rem;
+  --np-control-mobile-lg: 3.5rem;
+
+  /* ── 모서리 반경 원본값 ─────────────────────────────────────────── */
+  /*
+    반경은 «크게 둥글게»가 아니라 **부품 높이에 따라 완만하게** 커진다.
+    작은 칩까지 크게 굴리면 알약처럼 보여 «누르는 것»과 «표시»가 구분되지 않는다.
+    지정 팔레트가 나온 디자인 체계도 4→16px 사다리를 쓴다.
+  */
+  --np-radius-xs: 0.25rem;
+  --np-radius-sm: 0.5rem;
+  --np-radius-md: 0.75rem;
+  --np-radius-lg: 1rem;
+  --np-radius-xl: 1.25rem;
+  /*
+    큰 화면 전용 단계.
+    55인치 세로 키오스크에서 1rem 모서리는 «각진 상자»로 보인다. 화면이 크면 모서리도
+    함께 커져야 같은 인상이 된다 — 작은 화면의 값을 그대로 올리면 싸구려로 읽힌다.
+  */
+  --np-radius-2xl: 1.5rem;
+  --np-radius-3xl: 2rem;
+  --np-radius-pill: 999rem;
+
+  /**
+   * 서체 스택.
+   * 전시 장비는 오프라인으로 구동되므로(A안 필수범위 "전시용 오프라인 시연모드")
+   * 웹폰트 네트워크 로딩에 의존하지 않고 OS 내장 한글 서체를 우선한다.
+   * 자체 호스팅 서체를 얹을 경우 `--font-korean-webfont` 슬롯만 채우면 되고,
+   * 비어 있어도 선언이 무효화되지 않도록 var() 폴백을 명시한다.
+   */
+  --np-family-sans:
+    var(--font-korean-webfont, 'Pretendard'), 'Apple SD Gothic Neo', 'Malgun Gothic',
+    'Noto Sans KR', system-ui, sans-serif;
+  --np-family-numeric:
+    var(--font-numeric-webfont, ui-monospace), 'SFMono-Regular', 'Consolas', 'Liberation Mono',
+    monospace;
+
+  /* ── 자간·행간 원본값 ───────────────────────────────────────────── */
+  --np-leading-tight: 1.18;
+  --np-leading-snug: 1.32;
+  --np-leading-normal: 1.55;
+  --np-leading-relaxed: 1.72;
+  /*
+    큰 글자만 좁힌다.
+    한글은 라틴과 달리 기본 자간이 0 이다(W3C KLREQ). 본문에 음수 자간을 주면
+    글자 사이가 붙어 저시력·노안 이용자의 판독을 떨어뜨린다 — 큰 글씨 모드를 넣은 목적과 어긋난다.
+    KRDS(정부 디지털 서비스 디자인 시스템)도 본문 자간을 0 으로 규정한다.
+    제목처럼 큰 글자에서만 시각적 균형을 위해 좁힌다.
+  */
+  --np-tracking-tight: -0.02em;
+  --np-tracking-normal: 0em;
+  --np-tracking-wide: 0.06em;
+}

@@ -1,0 +1,918 @@
+[
+  {
+    "id": "acc",
+    "name": "국립아시아문화전당",
+    "region": "gwangju",
+    "district": "광주 동구",
+    "address": "광주광역시 동구 문화전당로 38",
+    "coordinates": {
+      "lat": 35.1468,
+      "lng": 126.9198
+    },
+    "categories": [
+      "culture",
+      "history",
+      "photo",
+      "activity"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "10:00",
+      "close": "18:00"
+    },
+    "closedDays": [
+      "월"
+    ],
+    "averageStayMinutes": 120,
+    "setting": "indoor",
+    "walkingLoad": 38,
+    "familyScore": 88,
+    "seniorScore": 82,
+    "rainySuitability": 96,
+    "transitAccess": 92,
+    "costLevel": 30,
+    "adjacentIds": [
+      "daein-market",
+      "yangnim"
+    ],
+    "summary": "옛 전남도청 부지에 조성된 국내 최대 규모의 복합문화시설. 전시·공연·어린이문화원이 한 건물에 모여 있어 날씨와 무관하게 관람할 수 있다.",
+    "highlight": "비 오는 날에도 반나절이 채워지는 실내 문화공간",
+    "motif": "art"
+  },
+  {
+    "id": "yangnim",
+    "name": "양림동 근대역사문화마을",
+    "region": "gwangju",
+    "district": "광주 남구",
+    "address": "광주광역시 남구 양림동 일원",
+    "coordinates": {
+      "lat": 35.1394,
+      "lng": 126.9145
+    },
+    "categories": [
+      "history",
+      "photo",
+      "culture",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "parents"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 90,
+    "setting": "mixed",
+    "walkingLoad": 58,
+    "familyScore": 64,
+    "seniorScore": 58,
+    "rainySuitability": 44,
+    "transitAccess": 78,
+    "costLevel": 12,
+    "adjacentIds": [
+      "acc"
+    ],
+    "summary": "선교사 사택과 한옥, 근대 양옥이 골목 단위로 남아 있는 보존지구. 펭귄마을 공예특화거리와 카페가 함께 있어 도보 산책 코스로 이어진다.",
+    "highlight": "골목마다 사진이 되는 근대건축 산책길",
+    "motif": "heritage"
+  },
+  {
+    "id": "songjeong-market",
+    "name": "1913 송정역시장",
+    "region": "gwangju",
+    "district": "광주 광산구",
+    "address": "광주광역시 광산구 송정로8번길 13",
+    "coordinates": {
+      "lat": 35.14,
+      "lng": 126.793
+    },
+    "categories": [
+      "food",
+      "photo",
+      "culture"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "10:00",
+      "close": "21:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 70,
+    "setting": "mixed",
+    "walkingLoad": 24,
+    "familyScore": 82,
+    "seniorScore": 80,
+    "rainySuitability": 70,
+    "transitAccess": 98,
+    "costLevel": 35,
+    "adjacentIds": [],
+    "summary": "광주송정역 바로 앞 전통시장을 리모델링한 먹거리 거리. 열차 도착 직후 또는 상경 직전 짧은 시간에 식사를 해결하기 좋다.",
+    "highlight": "광주송정역 도보 2분, 여정의 시작과 끝을 채우는 미식 거점",
+    "motif": "food"
+  },
+  {
+    "id": "mudeungsan",
+    "name": "무등산국립공원 증심사지구",
+    "region": "gwangju",
+    "district": "광주 동구",
+    "address": "광주광역시 동구 증심사길 일원",
+    "coordinates": {
+      "lat": 35.1236,
+      "lng": 126.9569
+    },
+    "categories": [
+      "nature",
+      "activity",
+      "history"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "group"
+    ],
+    "openingHours": {
+      "open": "05:00",
+      "close": "19:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 150,
+    "setting": "outdoor",
+    "walkingLoad": 88,
+    "familyScore": 42,
+    "seniorScore": 34,
+    "rainySuitability": 14,
+    "transitAccess": 66,
+    "costLevel": 8,
+    "adjacentIds": [
+      "gwangjuho"
+    ],
+    "summary": "광주 도심에서 시내버스로 닿는 국립공원 입구 구간. 증심사까지의 완만한 구간과 중머리재로 이어지는 본격 등산로가 나뉜다.",
+    "highlight": "도심에서 가장 가까운 국립공원, 다만 보행부담이 큰 구간",
+    "motif": "forest"
+  },
+  {
+    "id": "gwangjuho",
+    "name": "광주호 호수생태원",
+    "region": "gwangju",
+    "district": "광주 북구",
+    "address": "광주광역시 북구 충효샘길 7",
+    "coordinates": {
+      "lat": 35.1836,
+      "lng": 126.9772
+    },
+    "categories": [
+      "nature",
+      "rest",
+      "photo"
+    ],
+    "audiences": [
+      "couple",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "06:00",
+      "close": "19:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 60,
+    "setting": "outdoor",
+    "walkingLoad": 32,
+    "familyScore": 86,
+    "seniorScore": 84,
+    "rainySuitability": 20,
+    "transitAccess": 48,
+    "costLevel": 0,
+    "adjacentIds": [
+      "mudeungsan",
+      "juknokwon",
+      "gwanbangjerim"
+    ],
+    "summary": "광주호 수변을 따라 평지 데크길이 이어지는 무료 생태공원. 담양 방면 이동 경로 위에 있어 광주와 전남을 잇는 중간 기착지로 쓰인다.",
+    "highlight": "평지 데크길로 걷기 편한 광주–담양 사이 길목",
+    "motif": "field"
+  },
+  {
+    "id": "gwangju-museum",
+    "name": "국립광주박물관",
+    "region": "gwangju",
+    "district": "광주 북구",
+    "address": "광주광역시 북구 하서로 110",
+    "coordinates": {
+      "lat": 35.1856,
+      "lng": 126.8862
+    },
+    "categories": [
+      "history",
+      "culture"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "10:00",
+      "close": "18:00"
+    },
+    "closedDays": [
+      "월"
+    ],
+    "averageStayMinutes": 90,
+    "setting": "indoor",
+    "walkingLoad": 30,
+    "familyScore": 84,
+    "seniorScore": 86,
+    "rainySuitability": 98,
+    "transitAccess": 62,
+    "costLevel": 0,
+    "adjacentIds": [
+      "gwangju-art-museum"
+    ],
+    "summary": "신안 해저유물을 포함한 남도 역사 상설전시를 무료로 운영한다. 전관 냉난방과 승강기가 갖춰져 있어 고령 동반 여행에 적합하다.",
+    "highlight": "무료 관람 + 전관 무장애 동선",
+    "motif": "heritage"
+  },
+  {
+    "id": "gwangju-art-museum",
+    "name": "광주시립미술관",
+    "region": "gwangju",
+    "district": "광주 북구",
+    "address": "광주광역시 북구 하서로 52",
+    "coordinates": {
+      "lat": 35.1846,
+      "lng": 126.888
+    },
+    "categories": [
+      "culture",
+      "photo"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "parents"
+    ],
+    "openingHours": {
+      "open": "10:00",
+      "close": "18:00"
+    },
+    "closedDays": [
+      "월"
+    ],
+    "averageStayMinutes": 75,
+    "setting": "indoor",
+    "walkingLoad": 26,
+    "familyScore": 72,
+    "seniorScore": 84,
+    "rainySuitability": 97,
+    "transitAccess": 60,
+    "costLevel": 15,
+    "adjacentIds": [
+      "gwangju-museum"
+    ],
+    "summary": "광주비엔날레 전시관과 인접한 시립미술관. 상설관과 기획전이 분리 운영되며 관람 동선이 짧아 다른 일정과 묶기 쉽다.",
+    "highlight": "박물관과 나란히 붙은 짧은 동선의 미술관",
+    "motif": "art"
+  },
+  {
+    "id": "daein-market",
+    "name": "대인예술시장",
+    "region": "gwangju",
+    "district": "광주 동구",
+    "address": "광주광역시 동구 제봉로194번길 7-1",
+    "coordinates": {
+      "lat": 35.1524,
+      "lng": 126.916
+    },
+    "categories": [
+      "culture",
+      "food",
+      "photo",
+      "activity"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "group"
+    ],
+    "openingHours": {
+      "open": "11:00",
+      "close": "20:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 60,
+    "setting": "mixed",
+    "walkingLoad": 30,
+    "familyScore": 68,
+    "seniorScore": 66,
+    "rainySuitability": 62,
+    "transitAccess": 88,
+    "costLevel": 25,
+    "adjacentIds": [
+      "acc"
+    ],
+    "summary": "전통시장 점포 사이에 예술가 작업실이 들어선 도심형 예술시장. 야시장이 열리는 주말 저녁에 방문객이 집중된다.",
+    "highlight": "문화전당에서 도보로 이어지는 예술시장",
+    "motif": "city"
+  },
+  {
+    "id": "juknokwon",
+    "name": "담양 죽녹원",
+    "region": "jeonnam",
+    "district": "전남 담양군",
+    "address": "전라남도 담양군 담양읍 죽녹원로 119",
+    "coordinates": {
+      "lat": 35.3227,
+      "lng": 126.988
+    },
+    "categories": [
+      "nature",
+      "photo",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 80,
+    "setting": "outdoor",
+    "walkingLoad": 62,
+    "familyScore": 74,
+    "seniorScore": 56,
+    "rainySuitability": 32,
+    "transitAccess": 58,
+    "costLevel": 30,
+    "adjacentIds": [
+      "gwanbangjerim",
+      "metasequoia",
+      "gwangjuho"
+    ],
+    "summary": "31만 제곱미터 대나무숲에 여덟 갈래 산책로가 조성되어 있다. 초입부터 오르막 데크가 이어져 체력 부담이 있는 편이다.",
+    "highlight": "광주에서 40분, 남도 여행의 대표 이미지",
+    "motif": "forest"
+  },
+  {
+    "id": "gwanbangjerim",
+    "name": "담양 관방제림",
+    "region": "jeonnam",
+    "district": "전남 담양군",
+    "address": "전라남도 담양군 담양읍 객사리 일원",
+    "coordinates": {
+      "lat": 35.3247,
+      "lng": 126.9868
+    },
+    "categories": [
+      "nature",
+      "rest",
+      "history",
+      "photo"
+    ],
+    "audiences": [
+      "couple",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "00:00",
+      "close": "24:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 50,
+    "setting": "outdoor",
+    "walkingLoad": 22,
+    "familyScore": 88,
+    "seniorScore": 90,
+    "rainySuitability": 28,
+    "transitAccess": 60,
+    "costLevel": 0,
+    "adjacentIds": [
+      "juknokwon",
+      "metasequoia"
+    ],
+    "summary": "담양천 제방을 따라 300년 넘은 노거수가 늘어선 천연기념물 제366호. 평지 흙길이라 보행부담이 매우 낮고 입장료가 없다.",
+    "highlight": "평지 흙길·무료·그늘 — 부모님 동반에 최적",
+    "motif": "forest"
+  },
+  {
+    "id": "metasequoia",
+    "name": "담양 메타세쿼이아 가로수길",
+    "region": "jeonnam",
+    "district": "전남 담양군",
+    "address": "전라남도 담양군 담양읍 학동리 578-4",
+    "coordinates": {
+      "lat": 35.33,
+      "lng": 126.966
+    },
+    "categories": [
+      "nature",
+      "photo",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "child",
+      "parents"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "19:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 55,
+    "setting": "outdoor",
+    "walkingLoad": 28,
+    "familyScore": 84,
+    "seniorScore": 82,
+    "rainySuitability": 26,
+    "transitAccess": 54,
+    "costLevel": 20,
+    "adjacentIds": [
+      "juknokwon",
+      "gwanbangjerim"
+    ],
+    "summary": "1970년대 가로수 사업으로 조성된 약 8.5km 구간 중 보행 전용 구간을 개방한다. 노면이 평탄해 유아차와 휠체어 통행이 가능하다.",
+    "highlight": "평탄한 노면, 사진 한 장으로 설명되는 남도 풍경",
+    "motif": "forest"
+  },
+  {
+    "id": "suncheonbay-garden",
+    "name": "순천만국가정원",
+    "region": "jeonnam",
+    "district": "전남 순천시",
+    "address": "전라남도 순천시 국가정원1호길 47",
+    "coordinates": {
+      "lat": 34.92,
+      "lng": 127.5
+    },
+    "categories": [
+      "nature",
+      "rest",
+      "photo",
+      "activity"
+    ],
+    "audiences": [
+      "couple",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "19:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 150,
+    "setting": "outdoor",
+    "walkingLoad": 66,
+    "familyScore": 90,
+    "seniorScore": 70,
+    "rainySuitability": 30,
+    "transitAccess": 72,
+    "costLevel": 45,
+    "adjacentIds": [
+      "suncheonbay-wetland"
+    ],
+    "summary": "대한민국 제1호 국가정원. 부지가 넓어 스카이큐브와 원내 순환열차를 함께 이용해야 도보 부담을 줄일 수 있다.",
+    "highlight": "원내 순환열차로 보행부담을 조절할 수 있는 대형 정원",
+    "motif": "field"
+  },
+  {
+    "id": "suncheonbay-wetland",
+    "name": "순천만습지",
+    "region": "jeonnam",
+    "district": "전남 순천시",
+    "address": "전라남도 순천시 순천만길 513-25",
+    "coordinates": {
+      "lat": 34.885,
+      "lng": 127.509
+    },
+    "categories": [
+      "nature",
+      "photo"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "08:00",
+      "close": "19:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 110,
+    "setting": "outdoor",
+    "walkingLoad": 70,
+    "familyScore": 72,
+    "seniorScore": 58,
+    "rainySuitability": 18,
+    "transitAccess": 62,
+    "costLevel": 35,
+    "adjacentIds": [
+      "suncheonbay-garden"
+    ],
+    "summary": "갈대군락과 S자 수로로 알려진 연안습지. 용산전망대까지는 왕복 1시간가량의 오르막 구간을 포함한다.",
+    "highlight": "갈대밭 데크길과 전망대 일몰",
+    "motif": "field"
+  },
+  {
+    "id": "odongdo",
+    "name": "여수 오동도",
+    "region": "jeonnam",
+    "district": "전남 여수시",
+    "address": "전라남도 여수시 오동도로 222",
+    "coordinates": {
+      "lat": 34.742,
+      "lng": 127.754
+    },
+    "categories": [
+      "sea",
+      "nature",
+      "photo",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "00:00",
+      "close": "24:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 90,
+    "setting": "outdoor",
+    "walkingLoad": 54,
+    "familyScore": 80,
+    "seniorScore": 66,
+    "rainySuitability": 24,
+    "transitAccess": 76,
+    "costLevel": 10,
+    "adjacentIds": [
+      "yeosu-cablecar"
+    ],
+    "summary": "방파제로 연결된 동백 군락 섬. 입구에서 섬까지 768m 구간은 도보 또는 동백열차로 이동할 수 있다.",
+    "highlight": "동백열차로 걷는 구간을 건너뛸 수 있는 바다 산책",
+    "motif": "sea"
+  },
+  {
+    "id": "yeosu-cablecar",
+    "name": "여수해상케이블카",
+    "region": "jeonnam",
+    "district": "전남 여수시",
+    "address": "전라남도 여수시 오동도로 3",
+    "coordinates": {
+      "lat": 34.748,
+      "lng": 127.746
+    },
+    "categories": [
+      "sea",
+      "activity",
+      "photo"
+    ],
+    "audiences": [
+      "couple",
+      "friends",
+      "child",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:30",
+      "close": "21:30"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 60,
+    "setting": "mixed",
+    "walkingLoad": 18,
+    "familyScore": 82,
+    "seniorScore": 78,
+    "rainySuitability": 74,
+    "transitAccess": 74,
+    "costLevel": 72,
+    "adjacentIds": [
+      "odongdo"
+    ],
+    "summary": "자산공원과 돌산공원을 잇는 1.5km 해상 구간. 크리스탈 캐빈은 별도 요금이며 야간 운행 시 여수 밤바다 조망이 가능하다.",
+    "highlight": "거의 걷지 않고 여수 밤바다를 조망하는 구간",
+    "motif": "night"
+  },
+  {
+    "id": "mokpo-modern",
+    "name": "목포 근대역사문화공간",
+    "region": "jeonnam",
+    "district": "전남 목포시",
+    "address": "전라남도 목포시 영산로 29번길 일원",
+    "coordinates": {
+      "lat": 34.786,
+      "lng": 126.382
+    },
+    "categories": [
+      "history",
+      "photo",
+      "culture"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "parents"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [
+      "월"
+    ],
+    "averageStayMinutes": 95,
+    "setting": "mixed",
+    "walkingLoad": 50,
+    "familyScore": 62,
+    "seniorScore": 62,
+    "rainySuitability": 52,
+    "transitAccess": 80,
+    "costLevel": 18,
+    "adjacentIds": [
+      "mokpo-cablecar"
+    ],
+    "summary": "옛 목포일본영사관과 근대역사관 1·2관을 포함한 등록문화재 밀집 구역. 목포역에서 도보 10분 거리에 모여 있다.",
+    "highlight": "목포역 도보권에 밀집한 근대건축 군락",
+    "motif": "heritage"
+  },
+  {
+    "id": "mokpo-cablecar",
+    "name": "목포해상케이블카",
+    "region": "jeonnam",
+    "district": "전남 목포시",
+    "address": "전라남도 목포시 해양대학로 240",
+    "coordinates": {
+      "lat": 34.79,
+      "lng": 126.366
+    },
+    "categories": [
+      "sea",
+      "photo",
+      "activity"
+    ],
+    "audiences": [
+      "couple",
+      "friends",
+      "child",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "21:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 70,
+    "setting": "mixed",
+    "walkingLoad": 16,
+    "familyScore": 84,
+    "seniorScore": 82,
+    "rainySuitability": 76,
+    "transitAccess": 66,
+    "costLevel": 70,
+    "adjacentIds": [
+      "mokpo-modern"
+    ],
+    "summary": "북항과 고하도를 잇는 3.23km 국내 최장 해상케이블카. 유달산 스테이션에서 중간 하차가 가능하다.",
+    "highlight": "보행부담 없이 유달산과 다도해를 함께 보는 구간",
+    "motif": "sea"
+  },
+  {
+    "id": "boseong-tea",
+    "name": "보성 대한다원 녹차밭",
+    "region": "jeonnam",
+    "district": "전남 보성군",
+    "address": "전라남도 보성군 보성읍 녹차로 763-65",
+    "coordinates": {
+      "lat": 34.736,
+      "lng": 127.077
+    },
+    "categories": [
+      "nature",
+      "photo",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "friends",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 80,
+    "setting": "outdoor",
+    "walkingLoad": 74,
+    "familyScore": 66,
+    "seniorScore": 46,
+    "rainySuitability": 22,
+    "transitAccess": 44,
+    "costLevel": 28,
+    "adjacentIds": [],
+    "summary": "삼나무길을 지나 계단식 차밭 전망대로 오르는 구조. 전망대까지는 연속된 오르막 계단 구간을 지나야 한다.",
+    "highlight": "남도 차밭의 대표 풍경, 다만 계단 구간이 길다",
+    "motif": "field"
+  },
+  {
+    "id": "gaudo",
+    "name": "강진 가우도 출렁다리",
+    "region": "jeonnam",
+    "district": "전남 강진군",
+    "address": "전라남도 강진군 도암면 가우도길 24",
+    "coordinates": {
+      "lat": 34.59,
+      "lng": 126.769
+    },
+    "categories": [
+      "sea",
+      "activity",
+      "nature"
+    ],
+    "audiences": [
+      "couple",
+      "friends",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 75,
+    "setting": "outdoor",
+    "walkingLoad": 60,
+    "familyScore": 58,
+    "seniorScore": 44,
+    "rainySuitability": 16,
+    "transitAccess": 26,
+    "costLevel": 24,
+    "adjacentIds": [],
+    "summary": "강진만 한가운데 섬을 두 개의 보행교로 연결한 해안 명소. 섬 둘레 생태탐방로는 약 2.4km 구간이다.",
+    "highlight": "강진만을 가로지르는 보행교와 해안 둘레길",
+    "motif": "sea"
+  },
+  {
+    "id": "purple-island",
+    "name": "신안 퍼플섬(반월·박지도)",
+    "region": "jeonnam",
+    "district": "전남 신안군",
+    "address": "전라남도 신안군 안좌면 박지리 일원",
+    "coordinates": {
+      "lat": 34.73,
+      "lng": 126.115
+    },
+    "categories": [
+      "sea",
+      "photo",
+      "activity"
+    ],
+    "audiences": [
+      "couple",
+      "friends",
+      "group"
+    ],
+    "openingHours": {
+      "open": "09:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 120,
+    "setting": "outdoor",
+    "walkingLoad": 72,
+    "familyScore": 60,
+    "seniorScore": 40,
+    "rainySuitability": 14,
+    "transitAccess": 18,
+    "costLevel": 40,
+    "adjacentIds": [],
+    "summary": "보라색으로 통일한 섬 경관과 목교로 알려진 곳. 목포에서 자동차로 1시간 30분 이상 소요되어 당일 일정에는 부담이 크다.",
+    "highlight": "사진 임팩트는 크지만 접근시간이 긴 섬",
+    "motif": "sea"
+  },
+  {
+    "id": "unjusa",
+    "name": "화순 운주사",
+    "region": "jeonnam",
+    "district": "전남 화순군",
+    "address": "전라남도 화순군 도암면 천태로 91-44",
+    "coordinates": {
+      "lat": 34.928,
+      "lng": 126.923
+    },
+    "categories": [
+      "history",
+      "nature",
+      "rest"
+    ],
+    "audiences": [
+      "solo",
+      "couple",
+      "parents",
+      "group"
+    ],
+    "openingHours": {
+      "open": "08:00",
+      "close": "18:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 70,
+    "setting": "outdoor",
+    "walkingLoad": 44,
+    "familyScore": 62,
+    "seniorScore": 68,
+    "rainySuitability": 26,
+    "transitAccess": 34,
+    "costLevel": 14,
+    "adjacentIds": [],
+    "summary": "천불천탑 설화로 알려진 사찰. 광주에서 40분 거리로 가까우면서도 전남 권역에 속해 초광역 일정 구성에 활용도가 높다.",
+    "highlight": "광주에서 가장 가까운 전남 역사 자원",
+    "motif": "heritage"
+  },
+  {
+    "id": "yeongsanpo",
+    "name": "나주 영산포 홍어거리",
+    "region": "jeonnam",
+    "district": "전남 나주시",
+    "address": "전라남도 나주시 영산동 일원",
+    "coordinates": {
+      "lat": 34.999,
+      "lng": 126.718
+    },
+    "categories": [
+      "food",
+      "history"
+    ],
+    "audiences": [
+      "friends",
+      "group"
+    ],
+    "openingHours": {
+      "open": "11:00",
+      "close": "21:00"
+    },
+    "closedDays": [],
+    "averageStayMinutes": 70,
+    "setting": "indoor",
+    "walkingLoad": 20,
+    "familyScore": 40,
+    "seniorScore": 62,
+    "rainySuitability": 82,
+    "transitAccess": 40,
+    "costLevel": 58,
+    "adjacentIds": [],
+    "summary": "영산강 하구 포구를 중심으로 형성된 홍어 전문 식당가. 개별 점포 운영시간이 자주 바뀌어 방문 전 확인이 필요하다.",
+    "highlight": "남도 발효미식의 원류, 다만 공식 정보 갱신이 느린 구역",
+    "motif": "food"
+  }
+]

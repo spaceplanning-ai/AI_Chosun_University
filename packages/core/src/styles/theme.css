@@ -1,0 +1,272 @@
+/**
+ * Layer 3 — Tailwind 매핑
+ *
+ * 시맨틱 토큰을 Tailwind 유틸리티 네임스페이스에 1:1로 노출한다.
+ * `inline` 을 쓰는 이유: 유틸리티가 `var(--gap-md)` 를 그대로 참조하게 만들어,
+ * `[data-ui-mode='large']` 같은 컨텍스트 셀렉터에서 토큰만 바꿔도 전 화면이 따라오게 하기 위함.
+ * 새 값이 필요하면 이 파일이 아니라 Layer 1/2에 추가한다.
+ */
+
+@theme inline {
+  /* ── 색: 면 ─────────────────────────────────────────────────────── */
+  --color-surface-page: var(--surface-page);
+  --color-surface-page-subtle: var(--surface-page-subtle);
+  --color-surface-card: var(--surface-card);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-inverse: var(--surface-inverse);
+
+  /* ── 색: 선 ─────────────────────────────────────────────────────── */
+  --color-line-subtle: var(--line-subtle);
+  --color-line: var(--line-default);
+  --color-line-strong: var(--line-strong);
+
+  /* ── 색: 글자 ───────────────────────────────────────────────────── */
+  --color-content: var(--content-primary);
+  --color-content-secondary: var(--content-secondary);
+  --color-content-muted: var(--content-muted);
+  --color-content-subtle: var(--content-subtle);
+  --color-content-disabled: var(--content-disabled);
+  --color-content-inverse: var(--content-inverse);
+
+  /* ── 색: 브랜드·강조 ────────────────────────────────────────────── */
+  --color-brand: var(--brand-solid);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--brand-on-solid);
+  --color-brand-ring: var(--brand-ring);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-text: var(--brand-text);
+  --color-accent: var(--accent-solid);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--accent-on-solid);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-text: var(--accent-text);
+
+  /* ── 색: 지역 구분 (광주 / 전남) ────────────────────────────────── */
+  --color-gwangju: var(--region-gwangju);
+  --color-gwangju-soft: var(--region-gwangju-soft);
+  --color-gwangju-mark: var(--region-gwangju-mark);
+  --color-jeonnam: var(--region-jeonnam);
+  --color-jeonnam-soft: var(--region-jeonnam-soft);
+  --color-jeonnam-mark: var(--region-jeonnam-mark);
+
+  /* ── 색: 상태 ───────────────────────────────────────────────────── */
+  --color-positive: var(--status-positive);
+  --color-positive-mark: var(--status-positive-mark);
+  --color-caution-mark: var(--status-caution-mark);
+  --color-excluded-mark: var(--status-excluded-mark);
+  --color-critical-mark: var(--status-critical-mark);
+  --color-positive-soft: var(--status-positive-soft);
+  --color-caution: var(--status-caution);
+  --color-caution-soft: var(--status-caution-soft);
+  --color-excluded: var(--status-excluded);
+  --color-excluded-soft: var(--status-excluded-soft);
+  --color-critical: var(--status-critical);
+  --color-critical-soft: var(--status-critical-soft);
+  --color-neutral: var(--status-neutral);
+  --color-neutral-soft: var(--status-neutral-soft);
+  --color-focus: var(--focus-ring);
+  --color-scrim: var(--scrim);
+
+  /* ── 글자 크기 (모드에 따라 자동 치환) ──────────────────────────── */
+  --text-display: var(--font-display);
+  --text-display--line-height: var(--np-leading-tight);
+  --text-display--letter-spacing: var(--np-tracking-tight);
+  --text-title: var(--font-title);
+  --text-title--line-height: var(--np-leading-tight);
+  --text-title--letter-spacing: var(--np-tracking-tight);
+  --text-heading: var(--font-heading);
+  --text-heading--line-height: var(--np-leading-snug);
+  --text-heading--letter-spacing: var(--np-tracking-tight);
+  --text-subhead: var(--font-subhead);
+  --text-subhead--line-height: var(--np-leading-snug);
+  --text-body: var(--font-body);
+  --text-body--line-height: var(--np-leading-normal);
+  --text-label: var(--font-label);
+  --text-label--line-height: var(--np-leading-snug);
+  --text-caption: var(--font-caption);
+  --text-caption--line-height: var(--np-leading-normal);
+  --text-micro: var(--font-micro);
+  --text-micro--line-height: var(--np-leading-normal);
+
+  /* ── 간격·치수 (모드에 따라 자동 치환) ──────────────────────────── */
+  --spacing-2xs: var(--gap-2xs);
+  --spacing-xs: var(--gap-xs);
+  --spacing-sm: var(--gap-sm);
+  --spacing-md: var(--gap-md);
+  --spacing-lg: var(--gap-lg);
+  --spacing-xl: var(--gap-xl);
+  --spacing-2xl: var(--gap-2xl);
+  --spacing-control-sm: var(--control-sm);
+  --spacing-control-md: var(--control-md);
+  --spacing-control-lg: var(--control-lg);
+  --spacing-stage: var(--stage-max-width);
+  --spacing-option-min: var(--option-height-min);
+
+  /* ── 모서리·그림자 ──────────────────────────────────────────────── */
+  --radius-control: var(--shape-control);
+  --radius-card: var(--shape-card);
+  --radius-panel: var(--shape-panel);
+  --radius-pill: var(--shape-pill);
+  --shadow-card: var(--elevation-card);
+  --shadow-raised: var(--elevation-raised);
+  --shadow-overlay: var(--elevation-overlay);
+  --shadow-glow: var(--elevation-accent-glow);
+
+  /* ── 서체·행간·자간 ─────────────────────────────────────────────── */
+  --font-sans: var(--np-family-sans);
+  --font-numeric: var(--np-family-numeric);
+  --leading-tight: var(--np-leading-tight);
+  --leading-snug: var(--np-leading-snug);
+  --leading-normal: var(--np-leading-normal);
+  --leading-relaxed: var(--np-leading-relaxed);
+  --tracking-tight: var(--np-tracking-tight);
+  --tracking-normal: var(--np-tracking-normal);
+  --tracking-wide: var(--np-tracking-wide);
+
+  /* ── 이징·모션 ──────────────────────────────────────────────────── */
+  --ease-out-kiosk: var(--motion-ease-out);
+  --ease-in-out-kiosk: var(--motion-ease-in-out);
+  --ease-spring: var(--motion-ease-spring);
+
+  --animate-scene-in: scene-in var(--motion-scene) var(--motion-ease-out) both;
+  --animate-rise-in: rise-in var(--motion-normal) var(--motion-ease-out) both;
+  /* 주의 — `both` 라서 끝난 뒤에도 `opacity: 1` 이 남는다. 애니메이션 값은 선언된 opacity 를
+     이기므로, 흐리게 깔아야 하는 요소에는 이 애니메이션과 opacity 를 같은 요소에 걸지 말 것. */
+  --animate-fade-in: fade-in var(--motion-normal) var(--motion-ease-out) both;
+  /* 안내도 조각이 판에 내려앉는 등장. 지연시간은 조각마다 따로 준다. */
+  --animate-map-piece-in: map-piece-in var(--motion-slow) var(--motion-ease-out) both;
+  /* 말풍선이 누른 자리에서 살짝 솟으며 나타난다. */
+  --animate-callout-in: callout-in var(--motion-fast) var(--motion-ease-out) both;
+  /* 접힌 메뉴가 펼쳐질 때. 위에서 흘러내리듯 나타난다. */
+  --animate-accordion-in: accordion-in var(--motion-fast) var(--motion-ease-out) both;
+  /*
+    펼쳐지는 메뉴. 아코디언과 달리 «버튼에서 자라 나오는» 느낌이라
+    위쪽을 기준점으로 잡고 아주 살짝 키운다. 많이 키우면 튀어 보인다.
+  */
+  --animate-menu-in: menu-in var(--motion-fast) var(--motion-ease-out) both;
+  /* 아래에서 올라오는 알림. 화면 밖에서 밀려 들어오는 방향과 맞춘다. */
+  --animate-toast-in: toast-in var(--motion-normal) var(--motion-ease-out) both;
+  --animate-pulse-soft: pulse-soft 2.4s var(--motion-ease-in-out) infinite;
+  --animate-sweep: sweep var(--motion-ambient) linear infinite;
+  --animate-trace: trace 2.8s var(--motion-ease-in-out) infinite;
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 2.5rem, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.875rem, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes map-piece-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes accordion-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes callout-in {
+  from {
+    opacity: 0;
+    transform: translateY(2.5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translate3d(-12%, 0, 0) scale(1.08);
+  }
+  50% {
+    transform: translate3d(12%, 0, 0) scale(1.14);
+  }
+  to {
+    transform: translate3d(-12%, 0, 0) scale(1.08);
+  }
+}
+
+@keyframes trace {
+  from {
+    stroke-dashoffset: var(--trace-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

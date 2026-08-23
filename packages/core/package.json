@@ -1,0 +1,49 @@
+{
+  "name": "@namdo-prism/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI 남도 프리즘 공용 코어 — 디자인 토큰, 도메인 로직(특허 후보 1·2안), UI 프리미티브, 로그 스키마",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./styles/globals.css": "./src/styles/globals.css",
+    "./styles/fonts.css": "./src/styles/fonts.css",
+    "./design": "./src/design/index.ts",
+    "./domain": "./src/domain/index.ts",
+    "./domain/linkage-recommendation": "./src/domain/linkage-recommendation/index.ts",
+    "./domain/minimal-change-replan": "./src/domain/minimal-change-replan/index.ts",
+    "./data": "./src/data/index.ts",
+    "./config": "./src/config/index.ts",
+    "./lib": "./src/lib/index.ts",
+    "./state": "./src/state/index.ts",
+    "./hooks": "./src/hooks/index.ts",
+    "./ui": "./src/components/ui/index.ts",
+    "./ui/evidence": "./src/components/evidence/index.ts",
+    "./ui/itinerary": "./src/components/itinerary/index.ts",
+    "./ui/map": "./src/components/map/index.ts",
+    "./integration": "./src/integration/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "lucide-react": "0.469.0",
+    "maplibre-gl": "^6.4.1",
+    "tailwind-merge": "^3.6.0",
+    "zustand": "5.0.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.7.3"
+  }
+}

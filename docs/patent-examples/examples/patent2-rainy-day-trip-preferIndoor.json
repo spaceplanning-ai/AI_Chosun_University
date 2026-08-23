@@ -1,0 +1,228 @@
+{
+  "referenceDate": "2026-08-10",
+  "scenario": "rainy-day-trip",
+  "trace": {
+    "refinementId": "preferIndoor",
+    "objective": {
+      "kind": "metric",
+      "metric": "indoorRatio",
+      "direction": "increase"
+    },
+    "constraintDelta": {
+      "indoorPreference": 38
+    },
+    "before": {
+      "walkingLoad": 37,
+      "travelMinutes": 93,
+      "indoorRatio": 50,
+      "costLevel": 16.8,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 66.8
+    },
+    "after": {
+      "walkingLoad": 36,
+      "travelMinutes": 101,
+      "indoorRatio": 62.5,
+      "costLevel": 14.3,
+      "stopCount": 4,
+      "stopsByRegion": {
+        "gwangju": 3,
+        "jeonnam": 1
+      },
+      "averageTrust": 100,
+      "linkageScore": 60
+    },
+    "impactRanking": [
+      {
+        "stopId": "stop-gwanbangjerim",
+        "attractionId": "gwanbangjerim",
+        "contribution": 100,
+        "projectedGain": 25
+      },
+      {
+        "stopId": "stop-daein-market",
+        "attractionId": "daein-market",
+        "contribution": 50,
+        "projectedGain": 12.5
+      },
+      {
+        "stopId": "stop-yangnim",
+        "attractionId": "yangnim",
+        "contribution": 50,
+        "projectedGain": 12.5
+      },
+      {
+        "stopId": "stop-acc",
+        "attractionId": "acc",
+        "contribution": 0,
+        "projectedGain": 0
+      }
+    ],
+    "replacements": [
+      {
+        "removedStopId": "stop-daein-market",
+        "removedAttractionId": "daein-market",
+        "addedAttractionId": "gwangju-art-museum",
+        "similarity": 54.5,
+        "metricGain": 12.5,
+        "reasons": [
+          "대인예술시장을(를) 광주시립미술관(으)로 교체했습니다.",
+          "관광가치 유사도 54.5점으로 원래 일정의 성격을 유지합니다.",
+          "요청하신 지표가 12.5만큼 증가했습니다.",
+          "보행부담 30점 → 26점."
+        ]
+      }
+    ],
+    "rejectedAlternatives": [
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "songjeong-market",
+        "reason": "관광가치 유사도 22.5점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 22.5,
+        "metricGain": 12.5
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "gwangju-museum",
+        "reason": "1일차에서 국립광주박물관의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 27,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "gwangju-art-museum",
+        "reason": "관광가치 유사도 17.7점으로 기준 24점에 미달해 일정 성격이 달라집니다.",
+        "similarity": 17.7,
+        "metricGain": 25
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "juknokwon",
+        "reason": "1일차에서 담양 죽녹원의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 79.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 76.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 순천만국가정원의 관람 종료가 운영 종료 19:00를 넘깁니다.",
+        "similarity": 78,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차 소요시간이 502분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 36.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "mokpo-modern",
+        "reason": "1일차에서 목포 근대역사문화공간의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 43.7,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "mokpo-cablecar",
+        "reason": "1일차 소요시간이 483분으로 하루 활동 가능시간 480분을 초과합니다.",
+        "similarity": 40.2,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-gwanbangjerim",
+        "attractionId": "unjusa",
+        "reason": "1일차에서 화순 운주사의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 78.3,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "songjeong-market",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 79.6,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "juknokwon",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 22.5,
+        "metricGain": -12.5
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "metasequoia",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 19.2,
+        "metricGain": -12.5
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "suncheonbay-garden",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 25,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "yeosu-cablecar",
+        "reason": "1일차에서 국립아시아문화전당의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 44,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "mokpo-modern",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 44,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "mokpo-cablecar",
+        "reason": "1일차에서 양림동 근대역사문화마을의 관람 종료가 운영 종료 18:00를 넘깁니다.",
+        "similarity": 42,
+        "metricGain": 0
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "unjusa",
+        "reason": "요청한 방향으로 지표가 개선되지 않습니다.",
+        "similarity": 12,
+        "metricGain": -12.5
+      },
+      {
+        "forStopId": "stop-daein-market",
+        "attractionId": "gwangju-museum",
+        "reason": "채택안보다 종합점수가 낮습니다 (개선 12.5 / 유사도 36).",
+        "similarity": 36,
+        "metricGain": 12.5
+      }
+    ],
+    "keptStopIds": [
+      "stop-acc",
+      "stop-yangnim",
+      "stop-gwanbangjerim"
+    ],
+    "changedStopIds": [
+      "stop-daein-market"
+    ],
+    "changeRatio": 25,
+    "objectiveSatisfied": true,
+    "elapsedMs": 0.6408999999998741
+  }
+}

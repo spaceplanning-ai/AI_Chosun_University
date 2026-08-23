@@ -1,0 +1,407 @@
+{
+  "scenarios": [
+    {
+      "conditions": {
+        "companion": "parents",
+        "duration": "oneNight",
+        "interests": [
+          "food",
+          "nature",
+          "culture"
+        ],
+        "transport": "transit",
+        "specialNeeds": [
+          "lessWalking",
+          "seniorFriendly"
+        ],
+        "origin": "서울역"
+      },
+      "proposed": {
+        "id": "proposed",
+        "name": "제안 알고리즘",
+        "attractionIds": [
+          "songjeong-market",
+          "gwanbangjerim",
+          "metasequoia",
+          "daein-market",
+          "acc",
+          "yangnim"
+        ],
+        "measures": {
+          "linkageScore": 59.1,
+          "averageTrust": 100,
+          "untrustedStops": 0,
+          "unsourcedStops": 0,
+          "walkingViolations": 2,
+          "openingHourViolations": 0,
+          "overloadedDays": 0,
+          "explainedRatio": 100,
+          "totalTravelMinutes": 120,
+          "stopCount": 6
+        }
+      },
+      "baselines": [
+        {
+          "id": "popularity",
+          "name": "인기·접근성 순 목록형",
+          "attractionIds": [
+            "songjeong-market",
+            "acc",
+            "daein-market",
+            "mokpo-modern",
+            "yangnim",
+            "odongdo",
+            "yeosu-cablecar",
+            "suncheonbay-garden",
+            "mokpo-cablecar",
+            "mudeungsan"
+          ],
+          "measures": {
+            "linkageScore": 50.8,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 6,
+            "openingHourViolations": 3,
+            "overloadedDays": 2,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 715,
+            "stopCount": 10
+          }
+        },
+        {
+          "id": "preferenceOnly",
+          "name": "취향 매칭 단일점수형",
+          "attractionIds": [
+            "daein-market",
+            "songjeong-market",
+            "boseong-tea",
+            "gwanbangjerim",
+            "gwangjuho",
+            "juknokwon",
+            "metasequoia",
+            "odongdo",
+            "suncheonbay-garden",
+            "unjusa"
+          ],
+          "measures": {
+            "linkageScore": 46.8,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 6,
+            "openingHourViolations": 3,
+            "overloadedDays": 2,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 688,
+            "stopCount": 10
+          }
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "companion": "couple",
+        "duration": "twoNights",
+        "interests": [
+          "photo",
+          "sea",
+          "culture"
+        ],
+        "transport": "rentalCar",
+        "specialNeeds": [
+          "none"
+        ],
+        "origin": "용산역"
+      },
+      "proposed": {
+        "id": "proposed",
+        "name": "제안 알고리즘",
+        "attractionIds": [
+          "songjeong-market",
+          "daein-market",
+          "acc",
+          "yangnim",
+          "gwangju-art-museum",
+          "mokpo-modern",
+          "mokpo-cablecar",
+          "purple-island",
+          "odongdo"
+        ],
+        "measures": {
+          "linkageScore": 71.1,
+          "averageTrust": 100,
+          "untrustedStops": 0,
+          "unsourcedStops": 0,
+          "walkingViolations": 0,
+          "openingHourViolations": 0,
+          "overloadedDays": 0,
+          "explainedRatio": 100,
+          "totalTravelMinutes": 388,
+          "stopCount": 9
+        }
+      },
+      "baselines": [
+        {
+          "id": "popularity",
+          "name": "인기·접근성 순 목록형",
+          "attractionIds": [
+            "songjeong-market",
+            "acc",
+            "daein-market",
+            "mokpo-modern",
+            "yangnim",
+            "odongdo",
+            "yeosu-cablecar",
+            "suncheonbay-garden",
+            "mokpo-cablecar",
+            "mudeungsan",
+            "gwangju-museum",
+            "suncheonbay-wetland",
+            "gwanbangjerim",
+            "gwangju-art-museum",
+            "juknokwon"
+          ],
+          "measures": {
+            "linkageScore": 44.6,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 1,
+            "openingHourViolations": 5,
+            "overloadedDays": 3,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 845,
+            "stopCount": 15
+          }
+        },
+        {
+          "id": "preferenceOnly",
+          "name": "취향 매칭 단일점수형",
+          "attractionIds": [
+            "daein-market",
+            "songjeong-market",
+            "acc",
+            "gwangju-art-museum",
+            "mokpo-modern",
+            "yangnim",
+            "mokpo-cablecar",
+            "odongdo",
+            "purple-island",
+            "yeosu-cablecar",
+            "boseong-tea",
+            "gwanbangjerim",
+            "gwangju-museum",
+            "gwangjuho",
+            "juknokwon"
+          ],
+          "measures": {
+            "linkageScore": 46.1,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 1,
+            "openingHourViolations": 5,
+            "overloadedDays": 3,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 1077,
+            "stopCount": 15
+          }
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "companion": "child",
+        "duration": "oneNight",
+        "interests": [
+          "activity",
+          "nature",
+          "food"
+        ],
+        "transport": "ownCar",
+        "specialNeeds": [
+          "childFriendly",
+          "moreIndoor"
+        ],
+        "origin": "서울역"
+      },
+      "proposed": {
+        "id": "proposed",
+        "name": "제안 알고리즘",
+        "attractionIds": [
+          "daein-market",
+          "suncheonbay-garden",
+          "odongdo",
+          "yeosu-cablecar",
+          "gwanbangjerim",
+          "metasequoia"
+        ],
+        "measures": {
+          "linkageScore": 61.4,
+          "averageTrust": 100,
+          "untrustedStops": 0,
+          "unsourcedStops": 0,
+          "walkingViolations": 2,
+          "openingHourViolations": 0,
+          "overloadedDays": 0,
+          "explainedRatio": 100,
+          "totalTravelMinutes": 267,
+          "stopCount": 6
+        }
+      },
+      "baselines": [
+        {
+          "id": "popularity",
+          "name": "인기·접근성 순 목록형",
+          "attractionIds": [
+            "songjeong-market",
+            "acc",
+            "daein-market",
+            "mokpo-modern",
+            "yangnim",
+            "odongdo",
+            "yeosu-cablecar",
+            "suncheonbay-garden",
+            "mokpo-cablecar",
+            "mudeungsan"
+          ],
+          "measures": {
+            "linkageScore": 50.8,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 4,
+            "openingHourViolations": 3,
+            "overloadedDays": 2,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 534,
+            "stopCount": 10
+          }
+        },
+        {
+          "id": "preferenceOnly",
+          "name": "취향 매칭 단일점수형",
+          "attractionIds": [
+            "suncheonbay-garden",
+            "gaudo",
+            "mudeungsan",
+            "daein-market",
+            "boseong-tea",
+            "gwanbangjerim",
+            "gwangjuho",
+            "juknokwon",
+            "metasequoia",
+            "odongdo"
+          ],
+          "measures": {
+            "linkageScore": 43.3,
+            "averageTrust": 96.4,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 6,
+            "openingHourViolations": 4,
+            "overloadedDays": 2,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 556,
+            "stopCount": 10
+          }
+        }
+      ]
+    },
+    {
+      "conditions": {
+        "companion": "friends",
+        "duration": "day",
+        "interests": [
+          "culture",
+          "food",
+          "history"
+        ],
+        "transport": "ownCar",
+        "specialNeeds": [
+          "moreIndoor"
+        ],
+        "origin": "서울역"
+      },
+      "proposed": {
+        "id": "proposed",
+        "name": "제안 알고리즘",
+        "attractionIds": [
+          "daein-market",
+          "acc",
+          "yangnim",
+          "gwanbangjerim"
+        ],
+        "measures": {
+          "linkageScore": 66.8,
+          "averageTrust": 100,
+          "untrustedStops": 0,
+          "unsourcedStops": 0,
+          "walkingViolations": 0,
+          "openingHourViolations": 0,
+          "overloadedDays": 0,
+          "explainedRatio": 100,
+          "totalTravelMinutes": 93,
+          "stopCount": 4
+        }
+      },
+      "baselines": [
+        {
+          "id": "popularity",
+          "name": "인기·접근성 순 목록형",
+          "attractionIds": [
+            "songjeong-market",
+            "acc",
+            "daein-market",
+            "mokpo-modern",
+            "yangnim"
+          ],
+          "measures": {
+            "linkageScore": 42.8,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 0,
+            "openingHourViolations": 2,
+            "overloadedDays": 1,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 237,
+            "stopCount": 5
+          }
+        },
+        {
+          "id": "preferenceOnly",
+          "name": "취향 매칭 단일점수형",
+          "attractionIds": [
+            "daein-market",
+            "songjeong-market",
+            "acc",
+            "mokpo-modern",
+            "yangnim"
+          ],
+          "measures": {
+            "linkageScore": 39,
+            "averageTrust": 100,
+            "untrustedStops": 0,
+            "unsourcedStops": 0,
+            "walkingViolations": 0,
+            "openingHourViolations": 2,
+            "overloadedDays": 1,
+            "explainedRatio": 0,
+            "totalTravelMinutes": 266,
+            "stopCount": 5
+          }
+        }
+      ]
+    }
+  ],
+  "referenceDate": "2026-08-10",
+  "summary": {
+    "linkageGain": 19.1,
+    "trustGain": 0.4,
+    "avoidedUntrustedStops": 0,
+    "avoidedWalkingViolations": 2,
+    "avoidedOpeningHourViolations": 3.4
+  }
+}
