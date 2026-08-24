@@ -241,7 +241,12 @@ const KIOSK_SCREENS: readonly DocScreen[] = [
         content: '납품 단계에 따라 노출되는 수정 요청 단추.',
         source: 'packages/core/src/config/refinements.ts',
       },
-      { name: '지도', content: '일정 방문지의 위치와 이동 경로.', source: 'attractions.json 좌표' },
+      {
+        name: '지도',
+        content:
+          '방문 순서를 잇는 선과 순번이 적힌 표식. 카카오 열쇠가 있으면 카카오 지도로, 없으면 대기화면과 같은 열린 지도로 그리고, 타일조차 받지 못하면 좌표만 쓰는 도형 지도로 물러난다.',
+        source: 'attractions.json 좌표 · 공개 지도 타일',
+      },
     ],
     features: [
       {
@@ -277,6 +282,7 @@ const KIOSK_SCREENS: readonly DocScreen[] = [
     ],
     guards: [
       '수정 요청이 조건을 만족하는 대안을 찾지 못하면 일정을 바꾸지 않고 그 사실을 안내한다.',
+      '지도 타일을 받지 못하면 좌표만 쓰는 도형 지도로 바꾼다. 회선이 끊겨도 방문 순서는 그대로 보인다.',
       '정보 신뢰도가 기준 점수에 못 미치는 관광지는 후보에서 제외하고, 제외 사유를 근거 시트에 남긴다.',
       '무조작이 이어지면 대기화면으로 돌아간다. 결과화면은 다른 화면보다 대기시간을 길게 둔다.',
     ],

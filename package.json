@@ -38,8 +38,8 @@
     "package:kiosk": "npm run package --workspace @namdo-prism/kiosk"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.2.0",
     "@types/node": "22.10.7",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "9.18.0",
     "eslint-config-next": "^16.3.0",
     "typescript": "5.7.3"

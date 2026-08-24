@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
+import { parseAsInteger, parseAsString, useQueryState } from 'nuqs';
 import { Pagination, SearchField, SelectField, Toolbar } from '@namdo-prism/core/ui';
 
 /**
@@ -14,6 +15,17 @@ import { Pagination, SearchField, SelectField, Toolbar } from '@namdo-prism/core
  *
  * 정렬은 비교 함수를 그대로 받는다. 문자열 키로 받으면 «내림차순인가 오름차순인가»를
  * 화면마다 다시 적어야 하고, 숫자와 글자를 섞어 다루기 어렵다.
+ *
+ * ── 왜 주소에 적는가 ───────────────────────────────────────────────
+ * 검색어와 쪽 번호를 화면 안의 상태로만 들고 있으면, 새로고침하면 처음으로 돌아가고
+ * 「이 조건으로 걸린 것 좀 봐 달라」고 링크를 건넬 수 없다. 상세는 이미 주소에
+ * 적히는데(`?id=`) 목록 조건만 안 적히면, 같은 화면 안에서 규칙이 둘로 갈린다.
+ *
+ * 기본값일 때는 주소에 아무것도 붙지 않는다 — 아무 조건 없이 연 목록의 주소가
+ * `?q=&sort=&page=1` 로 지저분해지지 않게 한다.
+ *
+ * 한 화면에 목록이 하나라는 전제를 둔다. 지금은 그렇다. 둘을 나란히 놓게 되면
+ * 두 목록이 같은 이름을 나눠 쓰게 되므로, 그때 이름 앞에 화면별 머리를 붙인다.
  */
 
 export interface SortOption<T> {
@@ -58,9 +70,18 @@ export function useListControls<T>({
   unit = '건',
   pageSize,
 }: ListControlsConfig<T>): ListControls<T> {
-  const [query, setQuery] = useState('');
-  const [sortValue, setSortValue] = useState(sorts?.[0]?.value ?? '');
-  const [page, setPage] = useState(1);
+  const defaultSort = sorts?.[0]?.value ?? '';
+
+  /*
+    조건을 바꾸는 일은 «다른 곳으로 가는 일»이 아니다. `replace` 로 두어야
+    글자 한 자마다 뒤로가기 기록이 쌓이지 않는다 — 상세로 들어갈 때만 기록을 남긴다.
+  */
+  const [query, setQuery] = useQueryState('q', parseAsString.withDefault('').withOptions({ history: 'replace' }));
+  const [sortValue, setSortValue] = useQueryState(
+    'sort',
+    parseAsString.withDefault(defaultSort).withOptions({ history: 'replace' }),
+  );
+  const [page, setPage] = useQueryState('page', parseAsInteger.withDefault(1).withOptions({ history: 'replace' }));
 
   const visible = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -91,7 +112,7 @@ export function useListControls<T>({
         className="mt-md"
         page={safePage}
         pageCount={pageCount}
-        onChange={setPage}
+        onChange={(next) => void setPage(next)}
       />
     ) : null,
     node: hasControls ? (
@@ -107,9 +128,9 @@ export function useListControls<T>({
           <SearchField
             value={query}
             onChange={(value) => {
-              setQuery(value);
+              void setQuery(value);
               // 3쪽을 보다 검색하면 결과의 3쪽이 아니라 처음부터 봐야 한다.
-              setPage(1);
+              void setPage(1);
             }}
             placeholder={placeholder}
           />
@@ -120,8 +141,8 @@ export function useListControls<T>({
             value={sortValue}
             options={sorts.map((option) => ({ value: option.value, label: option.label }))}
             onChange={(value) => {
-              setSortValue(value);
-              setPage(1);
+              void setSortValue(value);
+              void setPage(1);
             }}
           />
         ) : null}

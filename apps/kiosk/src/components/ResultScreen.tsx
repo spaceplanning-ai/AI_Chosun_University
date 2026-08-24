@@ -14,7 +14,7 @@ import {
   type DaySelection,
 } from '@namdo-prism/core/ui/itinerary';
 import { ExclusionList, LinkagePanel } from '@namdo-prism/core/ui/evidence';
-import { KakaoRouteMap } from '@namdo-prism/core/ui/map';
+import { KakaoRouteMap, OpenRouteMap } from '@namdo-prism/core/ui/map';
 import { KAKAO_MAP_KEY } from '@/config/runtime';
 import { Badge, Button, Card, Panel, Sheet } from '@namdo-prism/core/ui';
 import type { ItineraryStop, RefinementId } from '@namdo-prism/core/domain';
@@ -51,12 +51,22 @@ export function ResultScreen() {
   */
   const [daySelection, setDaySelection] = useState<DaySelection>(0);
   /*
-    경로도 카카오맵으로 그린다. 도로와 지명이 함께 보여야 «담양이 광주 바로 위»가 전달된다.
-    다만 전시장이 오프라인이면 지도가 아예 안 나오므로, 실패하면 좌표 기반 SVG 지도로 되돌린다.
+    경로는 실제 지도 위에 그린다. 도로와 지명이 함께 보여야 «담양이 광주 바로 위»가 전달된다.
+
+    ── 세 단계로 물러난다 ────────────────────────────────────────────
+      ① 카카오맵    열쇠가 있을 때. 국내 지명이 가장 익숙하게 나온다.
+      ② 열린 지도    열쇠가 없을 때. 대기화면과 같은 지도라 등록도 열쇠도 필요 없다.
+      ③ 도형 지도    타일조차 못 받을 때. 자료가 손에 있어 회선과 무관하게 그려진다.
+
+    ②를 둔 이유는, 열쇠가 없다는 이유로 곧장 ③으로 내려가면 인터넷이 되는 자리에서도
+    도로와 지명이 없는 그림을 보게 되기 때문이다.
   */
-  const [routeMapUnavailable, setRouteMapUnavailable] = useState(false);
-  const useKakaoRoute = Boolean(KAKAO_MAP_KEY) && !routeMapUnavailable;
-  const handleRouteMapUnavailable = useCallback(() => setRouteMapUnavailable(true), []);
+  const [kakaoUnavailable, setKakaoUnavailable] = useState(false);
+  const [tilesUnavailable, setTilesUnavailable] = useState(false);
+  const useKakaoRoute = Boolean(KAKAO_MAP_KEY) && !kakaoUnavailable;
+  const useOpenRoute = !useKakaoRoute && !tilesUnavailable;
+  const handleKakaoUnavailable = useCallback(() => setKakaoUnavailable(true), []);
+  const handleTilesUnavailable = useCallback(() => setTilesUnavailable(true), []);
 
   if (!generation || !itinerary) return null;
 
@@ -91,8 +101,12 @@ export function ResultScreen() {
           <KakaoRouteMap
             days={itinerary.days}
             appKey={KAKAO_MAP_KEY}
-            onUnavailable={handleRouteMapUnavailable}
+            onUnavailable={handleKakaoUnavailable}
           />
+        </div>
+      ) : useOpenRoute ? (
+        <div className="h-[26rem] overflow-hidden rounded-card surface-outline">
+          <OpenRouteMap days={itinerary.days} onUnavailable={handleTilesUnavailable} />
         </div>
       ) : (
         <RouteMap days={itinerary.days} changedStopIds={highlightIds} />

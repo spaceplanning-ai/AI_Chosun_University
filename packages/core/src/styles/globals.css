@@ -351,6 +351,50 @@
   }
 
   /*
+    경로 표식.
+
+    순번이 먼저 읽혀야 한다 — 이 지도에서 알아야 할 것은 «어디»보다 «몇 번째»다.
+    그래서 숫자를 색이 있는 원에 담고 이름은 옆에 흐리게 붙인다.
+    색은 날짜마다 달라지므로 컴포넌트가 변수로 넣어 준다.
+  */
+  .route-pin {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.6rem 0.2rem 0.2rem;
+    border-radius: var(--shape-pill);
+    background: var(--surface-card);
+    box-shadow: var(--elevation-card);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .route-pin__mark {
+    display: grid;
+    place-items: center;
+    min-width: 1.45rem;
+    height: 1.45rem;
+    padding: 0 0.3rem;
+    border-radius: var(--shape-pill);
+    background: var(--route-pin-color, var(--accent-solid));
+    color: var(--accent-on-solid);
+    font-size: var(--text-micro);
+    font-weight: 700;
+  }
+
+  .route-pin__name {
+    font-size: var(--text-micro);
+    font-weight: 600;
+    color: var(--content-muted);
+  }
+
+  /* 출발점은 순번이 아니라 «여기서 시작»이라, 숫자 자리에 글자가 들어가고 색을 뺀다. */
+  .route-pin--gateway .route-pin__mark {
+    background: var(--surface-sunken);
+    color: var(--content-muted);
+  }
+
+  /*
     관광유형 그림.
 
     동그란 바탕에 흰 그림을 얹는다 — 지도의 도로·지명 위에서도 «표식»으로 먼저 읽히려면

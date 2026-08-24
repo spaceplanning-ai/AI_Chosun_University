@@ -1,6 +1,5 @@
 'use client';
 
-import { useMemo } from 'react';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { ResourceRecord, ResourceSchema } from '@/config/resourceSchemas';
@@ -57,19 +56,36 @@ function createResourceStore(schema: ResourceSchema) {
   );
 }
 
-export function useResourceStore(schema: ResourceSchema) {
-  const store = useMemo(() => {
-    const existing = STORES.get(schema.id);
-    if (existing) return existing;
-    const created = createResourceStore(schema);
-    STORES.set(schema.id, created);
-    return created;
-  }, [schema]);
+/**
+ * 스키마에 딸린 store 를 가져온다. 없으면 그때 만든다.
+ *
+ * `useMemo` 로 감싸지 않는다. 같은 id 면 늘 같은 것을 돌려주므로 외워 둘 이유가 없고,
+ * 외워 두면 «훅을 만들어 내는 훅»이 되어 규칙이 흐려진다.
+ */
+function resourceStoreFor(schema: ResourceSchema): ResourceStoreHook {
+  const existing = STORES.get(schema.id);
+  if (existing) return existing;
+  const created = createResourceStore(schema);
+  STORES.set(schema.id, created);
+  return created;
+}
 
-  const records = store((state) => state.records);
-  const upsert = store((state) => state.upsert);
-  const remove = store((state) => state.remove);
-  const reset = store((state) => state.reset);
+export function useResourceStore(schema: ResourceSchema) {
+  /*
+    이름이 `use` 로 시작해야 한다.
+
+    이것은 zustand 가 만들어 준 **훅**이다. 그런데 이름이 `store` 면 도구들이
+    그 사실을 알 수 없다 — 훅인지 아닌지는 이름으로만 판단하기 때문이다.
+    React Compiler 는 그것을 보통 함수 호출로 보고 결과를 외워 두는데,
+    그러면 자료가 바뀌어도 화면이 처음 값을 그대로 들고 있게 된다.
+    실제로 그렇게 **목록이 영원히 빈 채로** 서 있었다.
+  */
+  const useStore = resourceStoreFor(schema);
+
+  const records = useStore((state) => state.records);
+  const upsert = useStore((state) => state.upsert);
+  const remove = useStore((state) => state.remove);
+  const reset = useStore((state) => state.reset);
 
   return { records, upsert, remove, reset };
 }
