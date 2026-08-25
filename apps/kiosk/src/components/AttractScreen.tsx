@@ -2,8 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import { ArrowRight, ChevronRight, Info } from 'lucide-react';
-import { GWANGJU_DISTRICTS, NAMDO_AREAS, districtAttractions } from '@namdo-prism/core/data';
-import { DistrictPanel } from '@/components/DistrictPanel';
+import { GWANGJU_DISTRICTS, districtAttractions } from '@namdo-prism/core/data';
 import { Button } from '@namdo-prism/core/ui';
 import { MAP_TILE_URL } from '@/config/runtime';
 import { GwangjuDistrictMap, OpenRegionMap } from '@namdo-prism/core/ui/map';
@@ -12,9 +11,9 @@ import { GwangjuDistrictMap, OpenRegionMap } from '@namdo-prism/core/ui/map';
  * 대기화면 (제안서 6.1).
  *
  * 관공서·금융권 안내 키오스크의 층별 안내도 형식을 따랐다.
- * 가운데에 광주광역시 자치구 안내도를 두고, 오른쪽에 자치구 목록을 세로로 세운다.
+ * 왼쪽에 광주·전남 광역 안내도를 두고, 오른쪽에 광주 자치구 목록을 세로로 세운다.
  * 지도의 도형과 오른쪽 목록은 **같은 것을 가리키는 두 개의 입구**이므로,
- * 어느 쪽을 눌러도 같은 안내가 열린다 — 손이 닿는 위치가 사람마다 다르기 때문이다.
+ * 어느 쪽을 눌러도 같은 것이 선택된다 — 손이 닿는 위치가 사람마다 다르기 때문이다.
  *
  * 화면 제목과 로고는 쉘(`KioskShell`) 머리말이 이미 갖고 있다. 여기서 또 제목을 달면
  * 머리말이 두 겹으로 쌓여 정작 눌러야 할 안내도가 밀려난다. 그래서 이 화면은
@@ -37,62 +36,6 @@ export function AttractScreen({ onStart }: AttractScreenProps) {
   const [mapUnavailable, setMapUnavailable] = useState(false);
 
   const handleUnavailable = useCallback(() => setMapUnavailable(true), []);
-
-  /*
-    ── 지도만 보기 ────────────────────────────────────────────────────
-    지도가 화면을 꽉 채웠을 때 어떻게 보이는지 확인하려고 두었던 모습이다.
-    큰 문장·자치구 목록·머리말·바닥글을 모두 덮고 지도만 남긴다.
-
-    **이 상태로는 여행일정을 시작할 수 없다** — 시작 버튼까지 가려지기 때문이다.
-    지도를 고른 뒤 열리는 판의 단추가 유일한 입구가 되는데, 그 판은 지도의
-    도형을 눌러야 열리므로 «무엇을 해야 하는지»가 화면에 남지 않는다.
-    그래서 확인을 마친 지금은 꺼 둔다. 다시 볼 일이 있으면 이 한 줄만 켠다.
-  */
-  const MAP_ONLY = false;
-
-  /** 목록 판이 지도를 가리는 폭(픽셀). 판 폭 26rem + 바깥 여백만큼이다. */
-  const PANEL_INSET = 480;
-
-  if (MAP_ONLY) {
-    const selected = NAMDO_AREAS.find((area) => area.code === selectedId);
-
-    return (
-      <div className="fixed inset-0 z-50 bg-surface-page">
-        {mapUnavailable ? (
-          <GwangjuDistrictMap
-            selectedId={selectedId}
-            onSelect={(district) => setSelectedId(district.id)}
-            className="h-full w-full"
-          />
-        ) : (
-          <OpenRegionMap
-            selectedId={selectedId}
-            leftInset={selected ? PANEL_INSET : 0}
-            onSelect={(area) => setSelectedId(area.code)}
-            onUnavailable={handleUnavailable}
-            tileUrl={MAP_TILE_URL}
-            className="h-full w-full rounded-none"
-          />
-        )}
-
-        {/*
-          목록 판.
-
-          지도 위에 겹치되, 판이 없는 자리는 지도가 그대로 눌려야 하므로
-          바깥 상자는 이벤트를 통과시키고 판만 받는다.
-        */}
-        {selected ? (
-          <div className="pointer-events-none absolute inset-y-lg start-lg z-10">
-            <DistrictPanel
-              district={selected}
-              onClose={() => setSelectedId(undefined)}
-              onStart={onStart}
-            />
-          </div>
-        ) : null}
-      </div>
-    );
-  }
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-md lg:flex-row lg:items-stretch">

@@ -30,34 +30,9 @@ export interface BackendContract {
  * 백엔드 대기 중인 화면들의 계약 목록.
  *
  * 여기에만 적어 두면 화면·문서·인계 자료가 같은 내용을 본다.
+ * 화면이 없어지면 그 계약도 함께 덜어낸다 — 남겨 두면 «만들어야 할 API» 로 읽힌다.
  */
 export const BACKEND_CONTRACTS: readonly BackendContract[] = [
-  {
-    viewId: 'doc-chunk',
-    endpoint: '/api/documents/{documentId}/chunks',
-    method: 'GET',
-    fields: [
-      { name: 'chunkId', type: 'string', note: '청크 식별자' },
-      { name: 'order', type: 'number', note: '문서 안 순서' },
-      { name: 'text', type: 'string', note: '원문. 화면에 그대로 보여 준다' },
-      { name: 'tokenCount', type: 'number', note: '토큰 수' },
-      { name: 'embeddingState', type: "'pending' | 'done' | 'failed'", note: '임베딩 진행 상태' },
-      { name: 'usageCount', type: 'number', note: '검색에 쓰인 횟수' },
-    ],
-  },
-  {
-    viewId: 'doc-embedding',
-    endpoint: '/api/embeddings/status',
-    method: 'GET',
-    fields: [
-      { name: 'model', type: 'string', note: '임베딩 모델명' },
-      { name: 'dimension', type: 'number', note: '벡터 차원' },
-      { name: 'version', type: 'string', note: '재현을 위한 버전. 로그에도 같이 남는다' },
-      { name: 'indexedChunks', type: 'number', note: '색인 완료 청크 수' },
-      { name: 'pendingChunks', type: 'number', note: '대기 중 청크 수' },
-      { name: 'lastIndexedAt', type: 'string (ISO)', note: '마지막 색인 시각' },
-    ],
-  },
   {
     viewId: 'sys-model',
     endpoint: '/api/system/model',
@@ -79,16 +54,6 @@ export const BACKEND_CONTRACTS: readonly BackendContract[] = [
       { name: 'body', type: 'string', note: '프롬프트 본문' },
       { name: 'appliedAt', type: 'string (ISO)', note: '적용 시작일' },
       { name: 'isExperiment', type: 'boolean', note: '실험용인지 운영용인지' },
-    ],
-  },
-  {
-    viewId: 'sys-embedding',
-    endpoint: '/api/system/embedding',
-    method: 'GET',
-    fields: [
-      { name: 'model', type: 'string', note: '임베딩 모델' },
-      { name: 'dimension', type: 'number', note: '차원' },
-      { name: 'version', type: 'string', note: '버전' },
     ],
   },
   {
