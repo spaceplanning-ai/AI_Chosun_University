@@ -56,45 +56,35 @@ import { usePresentation } from '@/state/presentation';
 const VIEWS: Record<string, React.ComponentType<{ view: AdminViewId }>> = {
   dashboard: DashboardView,
 
-  // 관광지 데이터 관리
+  // 관광지
   'poi-manage': AttractionRegistryView,
   'poi-meta': AttractionManageView,
 
-  // 공식문서 / RAG
+  // 문서 — 자료를 고치는 자리와 검색이 도는 방식을 정하는 자리로 갈린다
   'doc-manage': DocumentsView,
-  'rec-model': RecommenderSettingsView,
   'doc-config': SearchConfigView,
 
-  // AI 추천 관리 — 후보 점수·제외 사유·신뢰도·근거가 모두 연구자 화면 한곳에 있다
-  // 배점표 세 가지(추천·신뢰도·연계지수)가 한 화면에 있어 4.2 와 5.5 가 같은 곳을 본다
+  // 추천 엔진 — 배점표 세 가지(추천·신뢰도·연계지수)를 한 화면에서 다룬다
+  'rec-model': RecommenderSettingsView,
   'rec-weight': WeightsView,
 
-  // 초광역 연계지수 — 구성요소 배점도 같은 배점 화면에서 조절한다
-  'link-stats': LinkageStatsView,
+  // 초광역 연계지수 — 구성요소 배점은 배점 화면이 이미 다루므로 여기 두지 않는다
   'poi-region': ZoneManagerView,
-  // 4개 구성요소 배점은 배점 화면이 이미 다룬다. 같은 값을 두 곳에서 고치게 두지 않는다
+  'link-stats': LinkageStatsView,
 
-  // 일정 재구성 연구
-
-  // 연구 / 실험
-
-  // 연구 로그
+  // 로그
   'log-session': LogsView,
   'log-rag': RagLogView,
   'log-rec': RecommendationLogView,
   'log-error': ErrorLogView,
 
-  // 사용자 / 현장 실증 — 모두 가져온 세션 로그에서 계산한다
+  // 사용자 — 모두 가져온 세션 로그에서 계산한다
   'field-pattern': FieldPatternView,
   'field-qr': FieldQrView,
 
-  // 검수
-
-  // 특허 / 기술자료
-
+  // 시스템 설정 — 프롬프트·만족도는 공통 관리 틀이 받는다
   'sys-model': ModelSettingsView,
 };
-
 
 export function AdminShell({ view }: AdminShellProps) {
   usePresentationSync(usePresentation);

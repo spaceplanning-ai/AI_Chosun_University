@@ -97,7 +97,8 @@ export const DOC_CAPTURES: Record<string, readonly DocCapture[]> = {
     { file: '66-어드민-권역관리', caption: '권역 목록. 상세에 「지수」 탭이 붙어 묶음을 바꾼 효과를 같은 자리에서 본다.' },
   ],
   'admin/link-stats': [
-    { file: '58-어드민-연계통계', caption: '조회 조건은 위에 한 벌만 두고 두 탭이 함께 쓴다.' },
+    { file: '58-어드민-연계통계', caption: '지역별 — 조회 조건은 위에 한 벌만 두고 두 탭이 함께 쓴다.' },
+    { file: '59-어드민-연계관계', caption: '관광지 관계 — 같은 계산을 다른 각도로 본다. 조건은 그대로 두고 표시만 바뀐다.' },
   ],
   'admin/log-session': [
     { file: '29-어드민-세션로그', caption: '가져온 로그가 없는 상태. 표 머리는 남기고 빈 상태 문구를 같은 자리에 둔다.' },

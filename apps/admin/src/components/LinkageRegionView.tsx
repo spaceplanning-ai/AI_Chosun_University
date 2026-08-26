@@ -1,10 +1,8 @@
 'use client';
 
 import { useMemo } from 'react';
-import { ATTRACTIONS, DEMO_SCENARIOS, requireAttraction } from '@namdo-prism/core/data';
-import { generateItinerary } from '@namdo-prism/core/domain/linkage-recommendation';
-import { REGION_LABELS } from '@namdo-prism/core/domain';
-import { useIsClient } from '@namdo-prism/core/hooks';
+import { ATTRACTIONS, requireAttraction } from '@namdo-prism/core/data';
+import { REGION_LABELS, type Itinerary } from '@namdo-prism/core/domain';
 import { BarList, Badge, Callout, DataTable, Panel, Stat, type DataTableColumn } from '@namdo-prism/core/ui';
 import { findResourceSchema } from '@/config/resourceSchemas';
 import { useResourceStore } from '@/state/resources';
@@ -47,12 +45,14 @@ export interface LinkageStatsFilters {
    * 다른 곳이 그 자리에 들어와, 분포 자체가 달라진다.
    */
   referenceDate: string;
-  /** 셀 시나리오. 비우면 시연 시나리오 전체를 본다. */
-  scenarioIds?: readonly string[];
+  /**
+   * 셀 일정. 두 탭이 같은 것을 보므로 부모가 한 번만 만들어 건넨다.
+   * 아직 만들기 전(서버 렌더)에는 `undefined` 다.
+   */
+  itineraries: readonly Itinerary[] | undefined;
 }
 
-export function LinkageRegionView({ referenceDate, scenarioIds }: LinkageStatsFilters) {
-  const isClient = useIsClient();
+export function LinkageRegionView({ referenceDate, itineraries }: LinkageStatsFilters) {
   const navigate = useAdminNavigate();
 
   /*
@@ -63,30 +63,15 @@ export function LinkageRegionView({ referenceDate, scenarioIds }: LinkageStatsFi
   const zoneSchema = findResourceSchema('poi-region')!;
   const { records: zones } = useResourceStore(zoneSchema);
 
-  /** 조회 조건에 걸린 시나리오. 고른 것이 없으면 전체를 본다. */
-  const scenarios = useMemo(
-    () =>
-      scenarioIds === undefined || scenarioIds.length === 0
-        ? DEMO_SCENARIOS
-        : DEMO_SCENARIOS.filter((scenario) => scenarioIds.includes(scenario.id)),
-    [scenarioIds],
-  );
-
   const analysis = useMemo(() => {
-    if (!isClient) return undefined;
+    if (itineraries === undefined) return undefined;
 
     const appearances = new Map<string, number>();
     let crossings = 0;
     let totalStops = 0;
     const regionStops = new Map<string, number>();
 
-    for (const scenario of scenarios) {
-      const { itinerary } = generateItinerary({
-        conditions: scenario.conditions,
-        referenceDate,
-        itineraryId: `region_${scenario.id}`,
-      });
-
+    for (const itinerary of itineraries) {
       // 하루 안에서 지역이 바뀌는 지점을 센다. 날이 바뀌는 것은 이동이 아니다.
       for (const day of itinerary.days) {
         let previousRegion: string | undefined;
@@ -120,7 +105,7 @@ export function LinkageRegionView({ referenceDate, scenarioIds }: LinkageStatsFi
       .sort((a, b) => b.appearances - a.appearances || b.attractions - a.attractions);
 
     return { rows, crossings, totalStops, regionStops };
-  }, [isClient, scenarios, referenceDate]);
+  }, [itineraries]);
 
   const rows = analysis?.rows ?? [];
   const unusedDistricts = rows.filter((row) => row.appearances === 0);
@@ -191,7 +176,7 @@ export function LinkageRegionView({ referenceDate, scenarioIds }: LinkageStatsFi
     <div className="flex flex-col gap-lg">
       <Panel
         title="초광역 분포"
-        description={`시나리오 ${scenarios.length}건의 일정을 모두 펼쳐 세었습니다. 기준일 ${referenceDate}.`}
+        description={`시나리오 ${itineraries?.length ?? 0}건의 일정을 모두 펼쳐 세었습니다. 기준일 ${referenceDate}.`}
       >
         <div className="grid gap-md sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="전체 방문지" value={analysis?.totalStops ?? 0} unit="곳" />

@@ -189,17 +189,25 @@ const LINE_LAYER = 'area-line';
  */
 const featureId = (area: NamdoArea) => Number(area.code);
 
+/**
+ * 단계별 면 색을 한 번에 읽어 둔다.
+ *
+ * 색은 CSS 변수에 있어 `getComputedStyle` 로 읽어야 하는데, 그 호출은 브라우저에게
+ * «지금까지 미뤄 둔 스타일 계산을 끝내라»는 요구다. 구역마다 부르면 42번을 부르게 되고,
+ * 단계는 넷뿐이라 그중 38번은 같은 값을 다시 읽는 일이다.
+ */
+function intensityFills(): string[] {
+  return INTENSITY_TOKENS.map((token) => resolveTokenColor(token, '#e5e8eb'));
+}
+
 /** 구역 하나를 GeoJSON 으로. 저장된 경계는 [위도, 경도] 순이라 뒤집어 넘긴다. */
-function toFeature(area: NamdoArea) {
+function toFeature(area: NamdoArea, fills: readonly string[]) {
   return {
     type: 'Feature' as const,
     id: featureId(area),
     properties: {
       code: area.code,
-      fill: resolveTokenColor(
-        INTENSITY_TOKENS[areaIntensity(areaAttractions(area).length)]!,
-        '#e5e8eb',
-      ),
+      fill: fills[areaIntensity(areaAttractions(area).length)]!,
     },
     geometry: {
       type: 'MultiPolygon' as const,
@@ -403,11 +411,13 @@ export function OpenRegionMap({
     });
 
     map.on('load', () => {
+      const fills = intensityFills();
+
       map.addSource(SOURCE_ID, {
         type: 'geojson',
         data: {
           type: 'FeatureCollection',
-          features: NAMDO_AREAS.map(toFeature),
+          features: NAMDO_AREAS.map((area) => toFeature(area, fills)),
         },
       });
 

@@ -146,6 +146,14 @@ const SCENARIOS = [
       { path: '/rec-model', name: '44-어드민-추천설정', fullPage: true },
       { path: '/rec-weight', name: '45-어드민-배점관리', fullPage: true },
       { path: '/link-stats', wait: 2500, name: '58-어드민-연계통계', fullPage: true },
+      // 두 탭이 같은 계산을 각자의 각도로 본다. 한쪽만 찍으면 다른 쪽이 깨져도 모른다.
+      {
+        path: '/link-stats',
+        clicks: ['관광지 관계'],
+        wait: 2500,
+        name: '59-어드민-연계관계',
+        fullPage: true,
+      },
       { path: '/log-session', name: '29-어드민-세션로그', fullPage: true },
       { path: '/log-rag', name: '61-어드민-로그빈상태', fullPage: true },
       { path: '/log-error', name: '67-어드민-에러로그', fullPage: true },

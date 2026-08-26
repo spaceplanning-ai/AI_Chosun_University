@@ -190,12 +190,3 @@ export function findNavItem(id: AdminViewId): AdminNavLocation {
   throw new Error(`알 수 없는 어드민 화면입니다: ${id}`);
 }
 
-/** 화면 수 집계. 인계 문서와 이 화면 자신이 같은 숫자를 쓰게 한다. */
-export function countViews(): { total: number; ready: number; planned: number } {
-  const items = ADMIN_NAVIGATION.flatMap((group) => group.items);
-  return {
-    total: items.length,
-    ready: items.filter((item) => item.status === 'ready').length,
-    planned: items.filter((item) => item.status === 'planned').length,
-  };
-}

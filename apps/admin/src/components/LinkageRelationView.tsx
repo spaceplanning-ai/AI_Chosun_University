@@ -1,9 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
-import { DEMO_SCENARIOS, requireAttraction } from '@namdo-prism/core/data';
-import { generateItinerary } from '@namdo-prism/core/domain/linkage-recommendation';
-import { useIsClient } from '@namdo-prism/core/hooks';
+import { requireAttraction } from '@namdo-prism/core/data';
 import type { LinkageStatsFilters } from './LinkageRegionView';
 import { Badge, DataTable, Panel, Stat, type DataTableColumn } from '@namdo-prism/core/ui';
 
@@ -32,30 +30,15 @@ interface PairRow {
   differentKind: boolean;
 }
 
-export function LinkageRelationView({ referenceDate, scenarioIds }: LinkageStatsFilters) {
-  const isClient = useIsClient();
-
-  /** 조회 조건에 걸린 시나리오. 고른 것이 없으면 전체를 본다. */
-  const scenarios = useMemo(
-    () =>
-      scenarioIds === undefined || scenarioIds.length === 0
-        ? DEMO_SCENARIOS
-        : DEMO_SCENARIOS.filter((scenario) => scenarioIds.includes(scenario.id)),
-    [scenarioIds],
-  );
+export function LinkageRelationView({ referenceDate, itineraries }: LinkageStatsFilters) {
 
   const analysis = useMemo(() => {
-    if (!isClient) return undefined;
+    if (itineraries === undefined) return undefined;
 
     /** 조합 키 → 누적. 같은 쌍이 여러 일정에 나오면 합쳐 센다. */
     const pairs = new Map<string, { from: string; to: string; count: number; linkageSum: number }>();
 
-    for (const scenario of scenarios) {
-      const { itinerary } = generateItinerary({
-        conditions: scenario.conditions,
-        referenceDate,
-        itineraryId: `rel_${scenario.id}`,
-      });
+    for (const itinerary of itineraries) {
       const linkage = itinerary.metrics.linkageScore;
 
       // 하루 안에서 이어지는 두 방문지만 «붙어 있다»고 본다. 날이 바뀌면 이어진 것이 아니다.
@@ -95,7 +78,7 @@ export function LinkageRelationView({ referenceDate, scenarioIds }: LinkageStats
     const sameKind = rows.filter((row) => !row.differentKind).length;
 
     return { rows, crossing, sameKind };
-  }, [isClient, scenarios, referenceDate]);
+  }, [itineraries]);
 
   const rows = analysis?.rows ?? [];
 
@@ -150,7 +133,7 @@ export function LinkageRelationView({ referenceDate, scenarioIds }: LinkageStats
     <div className="flex flex-col gap-lg">
       <Panel
         title="실제로 이어 붙은 조합"
-        description={`시나리오 ${scenarios.length}건의 일정에서 하루 안에 이어진 두 방문지를 세었습니다. 기준일 ${referenceDate}.`}
+        description={`시나리오 ${itineraries?.length ?? 0}건의 일정에서 하루 안에 이어진 두 방문지를 세었습니다. 기준일 ${referenceDate}.`}
       >
         <div className="grid gap-md sm:grid-cols-3">
           <Stat label="조합" value={rows.length} unit="쌍" />
