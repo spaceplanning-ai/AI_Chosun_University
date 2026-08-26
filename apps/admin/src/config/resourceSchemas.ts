@@ -128,7 +128,7 @@ const PROMPT_SCHEMA: ResourceSchema = {
   id: 'sys-prompt',
   title: '프롬프트 템플릿',
   description:
-    '답변 형식이 바뀌면 출처 제시율과 근거 일치율이 함께 흔들립니다. 판본을 남겨 되돌릴 수 있게 합니다.',
+    '답변 형식이 바뀌면 출처 제시율과 근거 일치율이 함께 흔들립니다. 판본을 남겨 되돌릴 수 있게 합니다. 아직 답변을 만드는 모델이 없어, 여기 저장한 문구는 보관만 되고 실행되지 않습니다.',
   singular: '템플릿',
   createInSheet: true,
   formDescription: '본문의 {{중괄호}} 자리에 실행 시점의 값이 채워집니다.',
@@ -553,7 +553,7 @@ const SURVEY_SCHEMA: ResourceSchema = {
   description:
     '설명가능성이 실제로 신뢰로 이어졌는지 묻는 문항입니다. 현장에서 받은 응답을 그대로 옮겨 적습니다.',
   singular: '응답',
-  formDescription: '모두 7점 척도입니다. 개인을 식별할 수 있는 값은 적지 않습니다.',
+  formDescription: '다섯 문항 모두 1~7점 척도입니다. 개인을 식별할 수 있는 값은 적지 않습니다.',
   searchPlaceholder: '응답 번호·메모 검색',
   titleField: 'respondent',
   fields: [
@@ -572,6 +572,33 @@ const SURVEY_SCHEMA: ResourceSchema = {
       kind: 'select',
       options: toOptions(COMPANIONS, COMPANION_LABELS),
       column: { header: '동행', width: '9rem' },
+    },
+    /*
+      문항 순서는 연구 모형(`researchModel.ts`)이 정한 번호를 따른다 —
+      적합성(1) · 설명 이해도(2) · 신뢰도(3) 다음에 만족도와 방문 의도가 온다.
+      현장에서 종이 설문을 옮겨 적는 사람이 위에서부터 그대로 읽어 내려갈 수 있어야 한다.
+    */
+    {
+      key: 'fit',
+      label: '인지된 적합성',
+      kind: 'number',
+      required: true,
+      min: 1,
+      max: 7,
+      unit: '점',
+      hint: '추천받은 일정이 자기 조건에 맞았다고 느낀 정도',
+      column: { header: '적합성', numeric: true, width: '7rem' },
+    },
+    {
+      key: 'clarity',
+      label: '설명 이해도',
+      kind: 'number',
+      required: true,
+      min: 1,
+      max: 7,
+      unit: '점',
+      hint: '왜 이 관광지가 뽑혔는지 설명을 이해한 정도',
+      column: { header: '이해도', numeric: true, width: '7rem' },
     },
     {
       key: 'trust',

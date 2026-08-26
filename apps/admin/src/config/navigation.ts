@@ -36,8 +36,6 @@ export interface AdminNavItem {
   /** 사이드바 항목 아래 한 줄. 열기 전에 무엇을 하는 화면인지 알린다. */
   hint: string;
   status: AdminViewStatus;
-  /** `planned` 인 화면에만. 이 화면을 채우려면 무엇이 있어야 하는가. */
-  needs?: string;
 }
 
 export interface AdminNavGroup {
@@ -71,12 +69,7 @@ export const ADMIN_NAVIGATION: readonly AdminNavGroup[] = [
     icon: FileSearch,
     items: [
       { id: 'doc-manage', label: '관리', hint: '어떤 기관 자료가 언제 갱신됐는지', status: 'ready' },
-      {
-        id: 'doc-config',
-        label: '검색 설정',
-        hint: '점수를 어떻게 매기는지, 색인에 무엇이 들었는지',
-        status: 'ready',
-      },
+      { id: 'doc-config', label: '검색 설정', hint: '점수를 어떻게 매기는지, 색인에 무엇이 들었는지', status: 'ready' },
     ],
   },
   {
@@ -119,33 +112,15 @@ export const ADMIN_NAVIGATION: readonly AdminNavGroup[] = [
     items: [
       { id: 'field-pattern', label: '이용 패턴', hint: '관람객이 실제로 무엇을 골랐는지', status: 'ready' },
       { id: 'field-qr', label: 'QR 전환률', hint: '만든 일정을 실제로 가져갔는지', status: 'ready' },
-      {
-        id: 'field-survey',
-        label: '만족도 조사',
-        hint: '현장에서 받은 응답을 옮겨 적습니다',
-        status: 'ready',
-        needs: '설문으로만 얻을 수 있는 값입니다(제안서 10.5). 시스템이 만들어 낼 수 없어 비워 둡니다.',
-      },
+      { id: 'field-survey', label: '만족도 조사', hint: '현장에서 받은 응답을 옮겨 적습니다', status: 'ready' },
     ],
   },
   {
     label: '시스템 설정',
     icon: Settings,
     items: [
-      {
-        id: 'sys-model',
-        label: 'AI 모델',
-        hint: '어떤 모델을 어떻게 부를지',
-        status: 'ready',
-        needs: '추천 이유는 생성모델이 아니라 점수 계산에서 파생됩니다. LLM 호출 자체가 없습니다.',
-      },
-      {
-        id: 'sys-prompt',
-        label: '프롬프트',
-        hint: '답변 형식을 정하는 문구',
-        status: 'ready',
-        needs: 'LLM 을 쓰지 않으므로 프롬프트가 없습니다. 백엔드에 생성모델이 붙으면 생깁니다.',
-      },
+      { id: 'sys-model', label: 'AI 모델', hint: '어떤 모델을 어떻게 부를지', status: 'ready' },
+      { id: 'sys-prompt', label: '프롬프트', hint: '답변 형식을 정하는 문구', status: 'ready' },
     ],
   },
 ];

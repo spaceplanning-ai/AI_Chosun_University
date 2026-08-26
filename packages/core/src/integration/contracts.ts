@@ -63,11 +63,11 @@ export const BACKEND_CONTRACTS: readonly BackendContract[] = [
     fields: [
       { name: 'responseId', type: 'string', note: '응답 식별자' },
       { name: 'sessionId', type: 'string', note: '어느 세션의 응답인지 잇는 열쇠' },
-      { name: 'perceivedFit', type: 'number (1–5)', note: '인지된 적합성' },
-      { name: 'perceivedTrust', type: 'number (1–5)', note: '인지된 신뢰도' },
-      { name: 'explanationClarity', type: 'number (1–5)', note: '설명 이해도' },
-      { name: 'satisfaction', type: 'number (1–5)', note: '추천 만족도' },
-      { name: 'visitIntention', type: 'number (1–5)', note: '방문의도' },
+      { name: 'perceivedFit', type: 'number (1–7)', note: '인지된 적합성' },
+      { name: 'perceivedTrust', type: 'number (1–7)', note: '인지된 신뢰도' },
+      { name: 'explanationClarity', type: 'number (1–7)', note: '설명 이해도' },
+      { name: 'satisfaction', type: 'number (1–7)', note: '추천 만족도' },
+      { name: 'visitIntention', type: 'number (1–7)', note: '방문의도' },
     ],
   },
 ];
