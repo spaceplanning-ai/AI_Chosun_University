@@ -27,19 +27,28 @@ export interface EmptyStateProps {
    * 어드민 목록에서는 쓰지 않는다 — 그러라고 공통으로 둔 것이다.
    */
   message?: string;
+  /**
+   * 다음에 무엇을 하면 되는지 한 줄.
+   *
+   * 「비어 있다」만 적으면 읽는 사람은 그것이 정상인지 고장인지 모른 채 화면을 떠난다.
+   * 등록할 수 있는 자리에서는 그 단추를 가리키고, 자료가 들어와야 채워지는 자리에서는
+   * 무엇이 들어와야 하는지 적는다. 없는 행동을 지어내지 않는다.
+   */
+  action?: string;
   className?: string;
 }
 
-export function EmptyState({ icon: Icon = Inbox, message = EMPTY_MESSAGE, className }: EmptyStateProps) {
+export function EmptyState({ icon: Icon = Inbox, message = EMPTY_MESSAGE, action, className }: EmptyStateProps) {
   return (
-    <p
+    <div
       className={cn(
         'flex flex-col items-center justify-center gap-xs py-xl text-caption text-content-muted',
         className,
       )}
     >
       <Icon className="size-8 text-content-subtle" aria-hidden />
-      {message}
-    </p>
+      <p>{message}</p>
+      {action === undefined ? null : <p className="text-content-subtle">{action}</p>}
+    </div>
   );
 }

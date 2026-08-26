@@ -138,8 +138,8 @@ export function DashboardView() {
     <div className="flex flex-col gap-lg">
 
       <Panel
-        title="검수기준 모니터링"
-        description="제안서 17.2 Go 기준. 화면을 열 때 검색기를 돌려 실측한 값입니다."
+        title="검수 지표"
+        description="검수 때 확인하는 세 가지 목표치입니다. 화면을 열 때 검색기를 돌려 지금 값을 잽니다."
         action={
           <span className="flex flex-wrap items-center gap-xs">
             {measuredAt ? (
@@ -224,7 +224,7 @@ export function DashboardView() {
       {/* ── 검색 동작 (위 판이 다루지 않는 값만) ────────────────────── */}
       <Panel
         title="검색 동작"
-        description="위 검수기준이 «목표를 넘었는가»라면, 여기는 «검색기가 어떻게 움직였는가»입니다."
+        description="위 지표가 목표를 넘었는지를 본다면, 여기서는 검색기가 어떤 점수로 문서를 골랐는지를 봅니다."
       >
         <div className="grid grid-cols-2 gap-sm lg:grid-cols-4">
           <Stat
@@ -262,7 +262,7 @@ export function DashboardView() {
       {/* ── 현장 실적 (로그를 가져와야 채워짐) ─────────────────────── */}
       <Panel
         title="현장 이용 실적"
-        description="키오스크가 내보낸 로그에서 계산합니다."
+        description="키오스크에서 가져온 세션 로그로 계산합니다. 로그가 없으면 값 대신 자료 없음으로 둡니다."
         action={
           <Badge tone={hasSessions ? 'brand' : 'neutral'}>
             {hasSessions ? `세션 ${sessions.length}건` : '가져온 로그 없음'}

@@ -149,7 +149,7 @@ export function useSettingsForm(schema: ResourceSchema): {
       {/* 바뀐 것이 없을 때는 아무 말도 하지 않는다 — 알릴 일이 없다는 것이 곧 그 상태다. */}
       {changedKeys.length > 0 ? <Badge tone="accent">{changedKeys.length}개 바뀜</Badge> : null}
       <Button size="sm" variant="ghost" iconLeft={RotateCcw} onClick={revert}>
-        기본값으로
+        기본값으로 되돌리기
       </Button>
       <Button size="sm" variant="accent" onClick={save}>
         저장

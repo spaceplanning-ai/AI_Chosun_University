@@ -171,6 +171,7 @@ export function RagLogView() {
           <DataTable
             columns={RETRIEVAL_COLUMNS}
             rows={list.rows}
+          emptyAction={'키오스크 세션 로그가 들어와야 채워집니다.'}
             rowKey={(row) => row.key}
             onRowClick={(row) => route.open(row.sessionId)}
           />
@@ -354,6 +355,7 @@ export function RecommendationLogView() {
           <DataTable
             columns={RECOMMENDATION_COLUMNS}
             rows={list.rows}
+          emptyAction={'키오스크 세션 로그가 들어와야 채워집니다.'}
             rowKey={(row) => row.key}
             onRowClick={(row) => route.open(row.sessionId)}
           />

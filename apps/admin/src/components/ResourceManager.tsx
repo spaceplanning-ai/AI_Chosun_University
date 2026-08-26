@@ -678,6 +678,15 @@ export function ResourceManager({ schema, extraTab }: ResourceManagerProps) {
           rows={rows}
           rowKey={(row) => row.id}
           onRowClick={(row) => openDetail(row)}
+          /*
+            비어 있는 사정이 둘이다 — 아직 아무것도 넣지 않았거나, 검색에 걸린 것이 없거나.
+            같은 말을 적으면 검색어를 지우면 될 일을 «자료가 없다»로 읽는다.
+          */
+          emptyAction={
+            query.trim().length > 0
+              ? '검색어와 일치하는 항목이 없습니다. 다른 낱말로 찾아보세요.'
+              : `「${schema.singular} 등록」으로 첫 항목을 추가해 주세요.`
+          }
         />
         <Pagination className="mt-md" page={safePage} pageCount={pageCount} onChange={setPage} />
       </Panel>

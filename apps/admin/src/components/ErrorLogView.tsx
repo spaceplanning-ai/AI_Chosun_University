@@ -151,6 +151,7 @@ export function ErrorLogView() {
           <DataTable
             columns={COLUMNS}
             rows={list.rows}
+          emptyAction={'키오스크 세션 로그가 들어와야 채워집니다.'}
             rowKey={(row) => row.key}
             onRowClick={(row) => route.open(row.key)}
           />

@@ -26,10 +26,10 @@ export function RefineBar({ onRefine, onRestart, disabled = false }: RefineBarPr
     <section aria-label="일정 수정" className="flex flex-col gap-sm">
       <h3 className="flex items-center gap-xs text-subhead font-bold text-content">
         <SlidersHorizontal className="size-[1.1em] text-accent" aria-hidden />
-        일정을 바꿔 볼까요?
+        일정 바꾸기
       </h3>
       <p className="hide-in-large-mode text-caption text-content-muted">
-        기존 일정을 통째로 바꾸지 않고, 유지할 장소와 변경할 장소를 구분해 다시 구성합니다.
+        아래에서 하나를 고르면 조건 선택으로 돌아가지 않고 이 자리에서 일정을 다시 짭니다.
       </p>
 
       <div className="grid grid-cols-2 gap-sm">

@@ -294,6 +294,7 @@ export function LogsView() {
         <DataTable
           columns={COLUMNS}
           rows={rows}
+          emptyAction={'키오스크 세션 로그가 들어와야 채워집니다.'}
           rowKey={(row) => row.sessionId}
           onRowClick={(row) => route.open(row.sessionId)}
         />

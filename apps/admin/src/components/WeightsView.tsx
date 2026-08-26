@@ -124,7 +124,7 @@ export function WeightsView() {
                             iconLeft={RotateCcw}
                             onClick={() => reset(group)}
                           >
-                            운영값으로
+                            운영값으로 되돌리기
                           </Button>
                         ) : null}
                       </span>

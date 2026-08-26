@@ -80,7 +80,7 @@ export function LinkageStatsView() {
               setScenarioIds([]);
             }}
           >
-            기본값으로
+            기본값으로 되돌리기
           </Button>
         ) : null
       }

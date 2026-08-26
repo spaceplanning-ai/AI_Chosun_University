@@ -37,6 +37,8 @@ export interface DataTableProps<TRow> {
    * 관람객이 보는 화면처럼 «등록»이 어울리지 않는 자리에만 넘긴다.
    */
   emptyMessage?: string;
+  /** 비었을 때 다음에 할 일. 등록 단추가 있는 표에는 그 단추를 가리킨다. */
+  emptyAction?: string;
   /**
    * 줄을 눌렀을 때. 주면 줄 전체가 눌리는 자리가 된다.
    *
@@ -60,6 +62,7 @@ export function DataTable<TRow>({
   caption,
   onRowClick,
   emptyMessage,
+  emptyAction,
   className,
 }: DataTableProps<TRow>) {
   /*
@@ -104,7 +107,7 @@ export function DataTable<TRow>({
           {rows.length === 0 ? (
             <tr>
               <td colSpan={columns.length} className="px-sm">
-                <EmptyState message={emptyMessage} />
+                <EmptyState message={emptyMessage} action={emptyAction} />
               </td>
             </tr>
           ) : null}
