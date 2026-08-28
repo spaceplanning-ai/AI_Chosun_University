@@ -6,7 +6,8 @@ import {
   RESEARCHER_UNLOCK_TAPS,
   RESEARCHER_UNLOCK_WINDOW_MS,
 } from '@namdo-prism/core/config';
-import { AccessibilityControls } from '@namdo-prism/core/ui';
+import { House } from 'lucide-react';
+import { AccessibilityControls, Button } from '@namdo-prism/core/ui';
 import { KioskClock } from '@/components/KioskClock';
 import { cn } from '@namdo-prism/core/lib';
 import { usePresentation } from '@/state/presentation';
@@ -32,6 +33,14 @@ export interface KioskShellProps {
    * 성격이 다른 두 화면을 같은 폭에 밀어 넣지 않으려고 예외를 둔다.
    */
   fullWidth?: boolean;
+  /**
+   * 처음으로 돌아가는 길.
+   *
+   * 주면 머리말 왼쪽에 단추가 선다. 대기화면처럼 이미 처음인 자리에서는 주지 않는다.
+   * 무인정보단말기 UI 가이드는 «과업 진행 중 처음화면으로 가기 위한 컨트롤»을 상단 좌측에
+   * 두라고 정한다 — 도중에 그만두려는 사람에게 「이전」을 다섯 번 누르라고 할 수는 없다.
+   */
+  onHome?: () => void;
 }
 
 export function KioskShell({
@@ -39,6 +48,7 @@ export function KioskShell({
   onResearcherUnlock,
   footer,
   fullWidth = false,
+  onHome,
 }: KioskShellProps) {
   // 연속 터치 상태는 렌더에 영향을 주지 않으므로 setter 만 쓴다.
   const [, setTapState] = useState({ count: 0, firstTapAt: 0 });
@@ -68,6 +78,7 @@ export function KioskShell({
     */
     <div className="flex h-svh min-h-0 flex-col overflow-hidden">
       <header className="flex items-center justify-between gap-md px-lg py-md">
+        <div className="flex items-center gap-md">
         <button
           type="button"
           onClick={handleBrandTap}
@@ -81,6 +92,19 @@ export function KioskShell({
             <span className="block text-subhead font-bold text-content">AI 남도 프리즘</span>
           </span>
         </button>
+
+        {/*
+          처음으로.
+
+          지침이 상단 «좌측»으로 못 박은 자리다. 도중에 그만두려는 사람이 가장 먼저
+          눈을 두는 곳이고, 오른쪽 접근성 조작부와 섞이지 않는다.
+        */}
+        {onHome ? (
+          <Button variant="ghost" size="sm" iconLeft={House} onClick={onHome}>
+            처음으로
+          </Button>
+        ) : null}
+        </div>
 
         <div className="flex items-center gap-sm">
           <KioskClock />

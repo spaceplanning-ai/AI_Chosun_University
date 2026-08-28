@@ -1,12 +1,13 @@
 'use client';
 
 import { useCallback, useMemo } from 'react';
-import { Check, Loader } from 'lucide-react';
+import { ArrowRight, Check, Loader } from 'lucide-react';
 import { ANALYSIS_TIMING_MS } from '@namdo-prism/core/config';
 import { getAttraction } from '@namdo-prism/core/data';
 import { useAnalysisSequence } from '@namdo-prism/core/hooks';
 import { REGION_LABELS } from '@namdo-prism/core/domain';
 import { cn } from '@namdo-prism/core/lib';
+import { Button } from '@namdo-prism/core/ui';
 import { useKiosk } from '@/state/kioskStore';
 
 /**
@@ -101,6 +102,19 @@ export function AnalysisScreen({ onComplete }: AnalysisScreenProps) {
           );
         })}
       </ol>
+
+      {/*
+        건너뛰기.
+
+        이 화면은 4.6초 뒤 스스로 결과로 넘어간다. 지침은 조작 없이 자동으로 바뀌는
+        화면에는 그것을 제어할 수단을 두라고 정한다 — 과정이 궁금하지 않은 사람에게
+        기다리라고 할 이유가 없다. 계산은 이미 끝나 있으므로 눌러도 결과는 같다.
+      */}
+      <div className="flex justify-center">
+        <Button variant="quiet" size="sm" iconRight={ArrowRight} onClick={handleComplete}>
+          결과 바로 보기
+        </Button>
+      </div>
     </div>
   );
 }

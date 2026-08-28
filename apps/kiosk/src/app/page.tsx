@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { IDLE_TIMEOUTS_MS } from '@namdo-prism/core/config';
 import { useIdleReset } from '@namdo-prism/core/hooks';
-import { Button, FailureNotice } from '@namdo-prism/core/ui';
+import { House } from 'lucide-react';
+import { Button, FailureNotice, Sheet } from '@namdo-prism/core/ui';
 import { usePresentationSync } from '@namdo-prism/core/state';
 import { AnalysisScreen } from '@/components/AnalysisScreen';
 import { AttractScreen } from '@/components/AttractScreen';
@@ -54,6 +55,16 @@ export default function KioskPage() {
     reset();
   }, [toSessionLog, uiMode, theme, contrast, upsertLog, reset]);
 
+  /*
+    처음으로 돌아가기.
+
+    되돌릴 수 없는 조작이라 곧바로 실행하지 않고 한 번 되묻는다 —
+    지침도 «중요한 동작에 대한 경고를 명확하게 표시»하라고 정한다.
+    결과화면까지 간 세션은 돌아갈 때 로그로 굳히고, 조건을 고르다 그만둔 세션은
+    연구 자료가 되지 못하므로 그냥 버린다(`endSession` 이 그 판단을 갖고 있다).
+  */
+  const [confirmHome, setConfirmHome] = useState(false);
+
   const { isWarning, secondsRemaining, keepAlive } = useIdleReset({
     warnAfterMs:
       phase === 'result' ? IDLE_TIMEOUTS_MS.resultWarnAfter : IDLE_TIMEOUTS_MS.warnAfter,
@@ -68,6 +79,8 @@ export default function KioskPage() {
       onResearcherUnlock={() => setPresenterOpen(true)}
       // 대기화면의 안내도만 화면 폭을 전부 쓴다. 나머지 화면은 읽기 좋은 폭을 유지한다.
       fullWidth={!failure && phase === 'attract'}
+      // 이미 처음인 대기화면에는 두지 않는다. 오류 안내에는 자체 복구 단추가 있다.
+      onHome={!failure && phase !== 'attract' ? () => setConfirmHome(true) : undefined}
     >
       {failure ? (
         <div className="flex flex-1 items-center">
@@ -87,6 +100,34 @@ export default function KioskPage() {
       ) : null}
       {!failure && phase === 'result' ? <ResultScreen /> : null}
       {!failure && phase === 'handoff' ? <HandoffScreen /> : null}
+
+      <Sheet
+        open={confirmHome}
+        onClose={() => setConfirmHome(false)}
+        placement="center"
+        title="처음 화면으로"
+        footer={
+          <span className="flex justify-end gap-sm">
+            <Button variant="quiet" onClick={() => setConfirmHome(false)}>
+              계속하기
+            </Button>
+            <Button
+              variant="accent"
+              iconLeft={House}
+              onClick={() => {
+                setConfirmHome(false);
+                endSession();
+              }}
+            >
+              처음으로
+            </Button>
+          </span>
+        }
+      >
+        <p className="text-body text-content-secondary">
+          지금까지 고른 조건과 만들어진 일정이 지워집니다.
+        </p>
+      </Sheet>
 
       {isWarning ? (
         <div

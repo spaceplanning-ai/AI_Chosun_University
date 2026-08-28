@@ -30,6 +30,7 @@
     "check:crud": "node scripts/check-admin-crud.mjs",
     "check:logs": "node scripts/check-admin-logs.mjs",
     "check:kakao": "node scripts/check-kakao.mjs",
+    "check:size": "node scripts/check-kiosk-size.mjs",
     "map:worker": "node scripts/copy-map-worker.mjs",
     "fonts:build": "node scripts/build-fonts.mjs",
     "shots": "node scripts/screenshots.mjs",
