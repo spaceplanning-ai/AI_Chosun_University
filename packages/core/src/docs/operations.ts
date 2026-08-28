@@ -215,4 +215,28 @@ export const DOC_OPERATION_RULES: readonly DocOperationRule[] = [
       '삭제는 대상의 이름을 확인 문구에 넣어 되묻는다. 되돌릴 수 없는 조작이 한 번의 잘못된 터치로 실행되지 않게 한다.',
     related: ['ZONE-001', 'FIELD-003', 'SYSTEM-002'],
   },
+  {
+    id: 'REQ-OP-26',
+    topic: '접근성',
+    target: '반복 영역',
+    requirement:
+      '모든 화면에 그대로 반복되는 영역은 건너뛸 수 있어야 한다. 어드민 좌측 메뉴는 화면마다 같은 열여덟 항목을 되풀이하므로, 키보드 초점이 가장 먼저 닿는 자리에 본문으로 건너뛰는 길을 둔다.',
+    related: ['DASHBOARD-001', 'POI-001', 'LOG-001'],
+  },
+  {
+    id: 'REQ-OP-27',
+    topic: '접근성',
+    target: '표시 모드',
+    requirement:
+      '큰 글씨와 고대비는 관람객이 화면에서 직접 켤 수 있어야 하며, 세션이 끝나면 기본으로 되돌린다. 켠 채로 남으면 다음 관람객이 이유를 모르는 화면을 만나고, 로그에도 앞사람의 설정으로 기록된다.',
+    related: ['CONDITION-001', 'RESULT-001', 'LOG-001'],
+  },
+  {
+    id: 'REQ-OP-28',
+    topic: '접근성',
+    target: '채워지는 막대',
+    requirement:
+      '단계 표시와 진행 막대의 빈 칸은 어느 표시 모드에서도 바탕과 구분되어야 한다. 같은 색이면 남은 분량이 통째로 사라져, 다 끝난 것으로 읽힌다.',
+    related: ['CONDITION-001', 'ANALYSIS-001', 'LINK-001'],
+  },
 ];

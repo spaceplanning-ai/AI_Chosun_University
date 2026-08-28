@@ -115,6 +115,33 @@
     border-width: 0;
   }
 
+  /*
+    본문 바로가기.
+
+    평소에는 스크린리더에만 있다가 초점을 받으면 화면 왼쪽 위에 나타난다.
+    어드민의 좌측 메뉴는 모든 화면에 그대로 반복되므로, 키보드로 다니는 사람은
+    화면을 옮길 때마다 메뉴 열여덟 항목을 지나야 본문에 닿는다.
+    웹 접근성의 «반복 영역 건너뛰기»가 요구하는 것이 이 길이다.
+  */
+  .skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translateY(-120%);
+    padding: 0.6rem 1rem;
+    border-radius: var(--shape-control);
+    background: var(--accent-solid);
+    color: var(--accent-on-solid);
+    font-size: var(--text-label);
+    font-weight: 600;
+    transition: transform var(--motion-fast) var(--ease-out-kiosk);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0.5rem) translateX(0.5rem);
+  }
+
   /** 제목의 줄바꿈을 고르게 나눈다. 브라우저가 6~10줄까지만 지원하므로 제목 전용이다. */
   .text-balance-safe {
     text-wrap: balance;

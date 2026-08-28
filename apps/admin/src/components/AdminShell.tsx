@@ -112,6 +112,13 @@ export function AdminShell({ view }: AdminShellProps) {
     // 알림은 화면 전체를 덮는 자리에 뜨므로 가장 바깥에서 공급한다.
     <ToastProvider>
     <div className="flex min-h-svh bg-surface-page">
+      {/*
+        본문 바로가기. 키보드 초점이 가장 먼저 닿는 자리에 둔다 —
+        그래야 메뉴를 지나지 않고 본문으로 건너뛸 수 있다.
+      */}
+      <a href="#admin-main" className="skip-link">
+        본문 바로가기
+      </a>
       <AdminSidebar current={view} onSelect={navigate} />
 
       <div className="flex min-w-0 flex-1 flex-col">
@@ -144,7 +151,7 @@ export function AdminShell({ view }: AdminShellProps) {
           </div>
         </header>
 
-        <main className="min-w-0 flex-1 bg-surface-page px-xl py-xl">
+        <main id="admin-main" tabIndex={-1} className="min-w-0 flex-1 bg-surface-page px-xl py-xl">
           <AdminChromeProvider navigate={navigate}>
           {/*
             화면을 고르는 순서.
