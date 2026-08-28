@@ -217,7 +217,7 @@ export function LinkageRegionView({ referenceDate, itineraries }: LinkageStatsFi
               onClick={() => navigate('poi-region')}
               className="font-semibold text-brand underline underline-offset-2"
             >
-              2.3 지역/권역 관리
+              초광역 연계지수 › 권역
             </button>{' '}
             에서 시군구를 묶어 두면 여기서 그 단위로 집계됩니다.
           </Callout>

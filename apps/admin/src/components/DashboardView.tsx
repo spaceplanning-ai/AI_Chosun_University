@@ -316,8 +316,8 @@ export function DashboardView() {
         {hasSessions ? null : (
           <Callout className="mt-md" tone="caution" icon={TriangleAlert}>
             아직 가져온 로그가 없어 <strong>«—» 로 비워 두었습니다.</strong> 0 으로 적으면
-            «실적이 0이었다»로 읽히기 때문입니다. 키오스크에서 로그를 내보낸 뒤{' '}
-            <strong>8.1 세션 로그</strong>에서 불러오면 이 칸들이 채워집니다.
+            «실적이 0이었다»로 읽히기 때문입니다. <strong>로그 › 세션 로그</strong>에 키오스크
+            세션이 들어오면 이 칸들이 채워집니다.
           </Callout>
         )}
       </Panel>
