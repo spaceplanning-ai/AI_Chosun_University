@@ -108,9 +108,18 @@ export function KioskShell({
 
         <div className="flex items-center gap-sm">
           <KioskClock />
-          {/* 테마 토글은 감춘다. 전시장에서 관람객이 화면 색을 바꿀 이유가 없고,
-              바뀐 채로 남으면 다음 관람객이 다른 화면을 보게 된다. */}
-          <AccessibilityControls useStore={usePresentation} showTheme={false} />
+          {/*
+            큰 글씨와 고대비를 관람객이 직접 켠다.
+
+            고대비는 만들어 두고도 화면에서 켤 수 없었다 — 지침은 «고대비 화면을 제공하며
+            사용자가 이를 쉽게 활성화할 수 있도록» 정한다. 색 조합은 대비검사(npm run contrast)가
+            일반·고대비 네 조합 모두 기준을 넘는 것으로 확인한 값이다.
+
+            테마(밝은/어두운)는 감춘다. 접근성 요구가 아니고, 전시장에서 관람객이 화면 색을
+            바꿀 이유가 없다. 켜 둔 채 떠나도 다음 사람이 이어받지 않도록, 대기화면으로
+            돌아갈 때 표시 모드를 기본으로 되돌린다(page.tsx).
+          */}
+          <AccessibilityControls useStore={usePresentation} showTheme={false} showContrast />
         </div>
       </header>
 

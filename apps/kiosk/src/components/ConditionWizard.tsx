@@ -82,7 +82,7 @@ export function ConditionWizard() {
 
   return (
     <div className="flex flex-1 flex-col gap-lg py-md">
-      <StepProgress currentStep={stepIndex} totalSteps={WIZARD_STEPS.length} />
+      <StepProgress currentStep={stepIndex} totalSteps={WIZARD_STEPS.length} stepLabel={step.name} />
 
       <header>
         <h2

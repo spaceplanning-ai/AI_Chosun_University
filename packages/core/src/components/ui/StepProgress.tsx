@@ -11,10 +11,12 @@ export interface StepProgressProps {
   /** 0부터 시작하는 현재 단계. */
   currentStep: number;
   totalSteps: number;
+  /** 지금 단계의 짧은 이름. 숫자 옆에 함께 적어 «무엇을 묻는 단계인지»를 남긴다. */
+  stepLabel?: string;
   className?: string;
 }
 
-export function StepProgress({ currentStep, totalSteps, className }: StepProgressProps) {
+export function StepProgress({ currentStep, totalSteps, stepLabel, className }: StepProgressProps) {
   const safeTotal = Math.max(1, totalSteps);
   const stepNumber = Math.min(currentStep + 1, safeTotal);
 
@@ -24,10 +26,15 @@ export function StepProgress({ currentStep, totalSteps, className }: StepProgres
         <span className="text-accent">{stepNumber}</span>
         <span className="mx-[0.2em]">/</span>
         {safeTotal}
+        {stepLabel === undefined ? null : (
+          <span className="ms-xs font-semibold text-content" data-numeric={undefined}>
+            {stepLabel}
+          </span>
+        )}
       </p>
       <ol
         className="flex flex-1 items-center gap-2xs"
-        aria-label={`전체 ${safeTotal}단계 중 ${stepNumber}단계`}
+        aria-label={`전체 ${safeTotal}단계 중 ${stepNumber}단계${stepLabel === undefined ? '' : ` — ${stepLabel}`}`}
       >
         {Array.from({ length: safeTotal }, (_, index) => (
           <li
@@ -37,7 +44,7 @@ export function StepProgress({ currentStep, totalSteps, className }: StepProgres
               'h-[0.375rem] flex-1 rounded-pill transition-colors duration-(--motion-normal) ease-out-kiosk',
               index < currentStep && 'bg-accent',
               index === currentStep && 'bg-accent',
-              index > currentStep && 'bg-surface-sunken',
+              index > currentStep && 'bg-track',
             )}
           />
         ))}

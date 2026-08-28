@@ -83,7 +83,7 @@ export function BarList({
               </span>
             </div>
 
-            <div className="mt-2xs h-[0.5rem] w-full overflow-hidden rounded-pill bg-surface-sunken">
+            <div className="mt-2xs h-[0.5rem] w-full overflow-hidden rounded-pill bg-track">
               <div
                 className={cn('h-full rounded-pill', TONE_FILL[item.tone ?? tone])}
                 style={{ width: `${ratio * 100}%` }}

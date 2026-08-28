@@ -324,6 +324,13 @@ export const DISTINCT_COLOR_PAIRS: readonly DistinctColorPair[] = [
     minimum: LABELLED_COLOR_DISTANCE,
     rationale: '뱃지에 지역명이 함께 표시되므로 색은 보조 단서다.',
   },
+  {
+    label: '막대의 빈 칸 — 바탕과 구분',
+    tokens: ['--track', '--surface-page'],
+    minimum: LABELLED_COLOR_DISTANCE,
+    rationale:
+      '단계 표시·진행 막대의 빈 칸이 바탕과 같은 색이면 남은 단계가 통째로 사라진다. 실제로 고대비 화면에서 5단계 중 3칸만 보이던 적이 있다. 옆에 숫자가 함께 적히므로 색만이 유일한 단서는 아니다.',
+  },
 ];
 
 /* ── 검사 대상 조합 ───────────────────────────────────────────────── */

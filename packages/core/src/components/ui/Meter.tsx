@@ -63,7 +63,7 @@ export function Meter({
 
       <div
         className={cn(
-          'relative mt-2xs w-full overflow-hidden rounded-pill bg-surface-sunken',
+          'relative mt-2xs w-full overflow-hidden rounded-pill bg-track',
           size === 'sm' ? 'h-[0.4rem]' : 'h-[0.6rem]',
         )}
         role="meter"

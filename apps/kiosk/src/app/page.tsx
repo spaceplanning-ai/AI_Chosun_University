@@ -35,6 +35,7 @@ export default function KioskPage() {
   const uiMode = usePresentation((state) => state.uiMode);
   const theme = usePresentation((state) => state.theme);
   const contrast = usePresentation((state) => state.contrast);
+  const resetPresentation = usePresentation((state) => state.reset);
   const upsertLog = useKioskLog((state) => state.upsert);
 
   const failure = useKiosk((state) => state.failure);
@@ -53,7 +54,15 @@ export default function KioskPage() {
     const log = toSessionLog({ uiMode, theme, contrast });
     if (log) upsertLog(log);
     reset();
-  }, [toSessionLog, uiMode, theme, contrast, upsertLog, reset]);
+    /*
+      표시 모드도 함께 되돌린다.
+
+      큰 글씨나 고대비는 그 사람에게 필요해서 켠 것이다. 켜 둔 채 떠나면 다음 관람객이
+      이유를 모르는 화면을 만난다 — 로그에는 앞사람의 설정으로 기록되기까지 한다.
+      세션이 끝나는 자리에서 함께 정리한다.
+    */
+    resetPresentation();
+  }, [toSessionLog, uiMode, theme, contrast, upsertLog, reset, resetPresentation]);
 
   /*
     처음으로 돌아가기.

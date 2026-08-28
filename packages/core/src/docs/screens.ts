@@ -121,6 +121,11 @@ const KIOSK_SCREENS: readonly DocScreen[] = [
         source: 'packages/core/src/domain/labels.ts',
       },
       { name: '이동 단추', content: '이전 단계·다음 단계.', source: '고정 문구' },
+      {
+        name: '접근성 조작',
+        content: '큰 글씨와 고대비를 관람객이 직접 켠다. 진행 표시에는 단계 번호와 함께 그 단계의 이름을 적는다.',
+        source: '표시 모드 상태 · packages/core/src/config/wizard.ts',
+      },
     ],
     features: [
       {
@@ -146,6 +151,12 @@ const KIOSK_SCREENS: readonly DocScreen[] = [
         action: '관람객이 마지막 단계에서 「다음」을 선택한다.',
         process: '모인 조건으로 추천 엔진을 돌려 후보·점수·제외 사유·근거 문서를 만든다.',
         result: 'AI 분석화면으로 이동한다.',
+      },
+      {
+        id: 'KIO-WIZ-06',
+        action: '관람객이 큰 글씨 또는 고대비 단추를 선택한다.',
+        process: '표시 모드를 바꾸고 모든 화면에 적용한다.',
+        result: '글자와 조작부가 커지거나 화면이 고대비로 바뀐다.',
       },
       {
         id: 'KIO-WIZ-05',

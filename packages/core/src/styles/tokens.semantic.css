@@ -27,6 +27,13 @@
   --surface-card: var(--np-mono-0);
   --surface-raised: var(--np-mono-0);
   --surface-sunken: var(--np-mono-100);
+  /*
+    채워지는 막대의 빈 칸.
+
+    한 단계 진한 mono-200 으로는 바탕(mono-50)과 ΔE 5.5 밖에 벌어지지 않아
+    막대가 있는지조차 알기 어렵다. 두 단계 내려 눈에 걸리게 한다.
+  */
+  --track: var(--np-mono-300);
   --surface-inverse: var(--np-brand-ink);
 
   --line-subtle: var(--np-mono-200);
@@ -226,6 +233,8 @@
   --surface-card: var(--np-navy-850);
   --surface-raised: var(--np-navy-800);
   --surface-sunken: var(--np-navy-950);
+  /* 채워지는 막대의 빈 칸. 전시용 어두운 화면 — 바탕보다 밝게. */
+  --track: var(--np-navy-700);
   --surface-inverse: var(--np-ivory-100);
 
   --line-subtle: color-mix(in oklab, var(--np-ink-100) 12%, transparent);
@@ -358,6 +367,8 @@
   --surface-card: var(--np-mono-0);
   --surface-page: var(--np-mono-0);
   --surface-sunken: var(--np-mono-0);
+  /* 채워지는 막대의 빈 칸. 고대비 — 바탕이 흰색이므로 회색으로 또렷하게. */
+  --track: var(--np-mono-600);
   --brand-soft: var(--np-mono-0);
   --accent-soft: var(--np-mono-0);
   /* 채움 위 흰 글자도 한 단계 더 어둡게 받쳐 4.5:1 을 넉넉히 넘긴다. */
@@ -388,6 +399,8 @@
   --surface-page: #000000;
   --surface-raised: #05101f;
   --surface-sunken: #000205;
+  /* 채워지는 막대의 빈 칸. 전시용 고대비 — 바탕이 검정이므로 밝은 회색으로. */
+  --track: #4a5a6a;
   --brand-soft: #000205;
   --accent-soft: #000205;
   /* 채움색은 어두운 배경에서 밝아야 한다. 밝은 테마용 진한 파랑을 그대로 두면 글자가 묻힌다. */

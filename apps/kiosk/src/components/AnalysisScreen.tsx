@@ -65,7 +65,7 @@ export function AnalysisScreen({ onComplete }: AnalysisScreenProps) {
         </h2>
       </header>
 
-      <div className="h-[0.5rem] w-full overflow-hidden rounded-pill bg-surface-sunken">
+      <div className="h-[0.5rem] w-full overflow-hidden rounded-pill bg-track">
         <div
           className="h-full rounded-pill bg-prism transition-[width] duration-(--motion-normal) ease-out-kiosk"
           style={{ width: `${Math.round(progress * 100)}%` }}

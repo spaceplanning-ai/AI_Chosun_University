@@ -37,6 +37,13 @@
   --color-brand-ring: var(--brand-ring);
   --color-brand-strong: var(--brand-strong);
   --color-brand-text: var(--brand-text);
+  /*
+    채워지는 막대의 빈 칸.
+
+    `surface-sunken` 을 쓰면 고대비 화면에서 바탕과 같은 색이 되어 막대가 통째로
+    사라진다 — 5단계 중 3단계를 지났는데 3칸만 보이던 까닭이 이것이다.
+  */
+  --color-track: var(--track);
   --color-accent: var(--accent-solid);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);

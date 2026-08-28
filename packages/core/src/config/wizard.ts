@@ -62,6 +62,14 @@ export interface WizardOption<TValue extends string> {
 
 interface WizardStepBase {
   id: WizardStepId;
+  /**
+   * 진행 표시에 적는 짧은 이름.
+   *
+   * 지침은 «단계는 숫자와 글자로 표현한다»고 정한다. 「1 / 5」만으로는 남은 단계에
+   * 무엇이 오는지 알 수 없어, 끝까지 갈지 판단할 근거가 되지 못한다.
+   * 질문 문장은 길어 진행 표시에 들어가지 않으므로 두 글자 안팎으로 따로 둔다.
+   */
+  name: string;
   question: string;
   helper: string;
 }
@@ -157,6 +165,7 @@ function toOptions<TValue extends string>(
 export const WIZARD_STEPS: readonly WizardStep[] = [
   {
     id: 'companion',
+    name: '동행',
     kind: 'single',
     field: 'companion',
     question: '누구와 여행하나요?',
@@ -173,6 +182,7 @@ export const WIZARD_STEPS: readonly WizardStep[] = [
   },
   {
     id: 'duration',
+    name: '기간',
     kind: 'single',
     field: 'duration',
     question: '여행기간은 어떻게 되나요?',
@@ -184,6 +194,7 @@ export const WIZARD_STEPS: readonly WizardStep[] = [
   },
   {
     id: 'interests',
+    name: '관심사',
     kind: 'multiple',
     field: 'interests',
     maxSelections: 3,
@@ -197,6 +208,7 @@ export const WIZARD_STEPS: readonly WizardStep[] = [
   },
   {
     id: 'transport',
+    name: '이동수단',
     kind: 'single',
     field: 'transport',
     question: '어떻게 이동하나요?',
@@ -210,6 +222,7 @@ export const WIZARD_STEPS: readonly WizardStep[] = [
   },
   {
     id: 'specialNeeds',
+    name: '특별조건',
     kind: 'multiple',
     field: 'specialNeeds',
     maxSelections: 3,
