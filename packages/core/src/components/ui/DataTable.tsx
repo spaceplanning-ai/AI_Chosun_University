@@ -153,7 +153,29 @@ export function DataTable<TRow>({
                     )}
                     {...(column.numeric ? { 'data-numeric': '' } : {})}
                   >
-                    {column.cell(row, index)}
+                    {/*
+                      줄을 눌러 상세로 가는 표에서는 행 머리글을 단추로 감싼다.
+
+                      줄 전체에 걸린 `onClick` 은 마우스에만 닿는다 — 키보드로 다니는
+                      사람은 `<tr>` 에 초점이 가지 않아 상세를 열 방법이 아예 없었다.
+                      `<tr role="button">` 로 만들면 표의 «줄»이라는 뜻이 사라지므로,
+                      이름 칸에 진짜 단추를 두어 표는 표대로 두고 길만 낸다.
+
+                      머리글 칸이 이름을 그리는 자리라는 전제를 둔다. 지금 모든 표가
+                      그렇다. 그 칸에 단추나 링크를 그리게 되면 단추가 겹치므로,
+                      그때는 `rowHeader` 를 다른 칸으로 옮긴다.
+                    */}
+                    {isRowHeader && onRowClick !== undefined ? (
+                      <button
+                        type="button"
+                        className="w-full rounded-control text-left"
+                        onClick={() => onRowClick(row)}
+                      >
+                        {column.cell(row, index)}
+                      </button>
+                    ) : (
+                      column.cell(row, index)
+                    )}
                   </Cell>
                 );
               })}

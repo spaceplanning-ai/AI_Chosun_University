@@ -239,4 +239,12 @@ export const DOC_OPERATION_RULES: readonly DocOperationRule[] = [
       '단계 표시와 진행 막대의 빈 칸은 어느 표시 모드에서도 바탕과 구분되어야 한다. 같은 색이면 남은 분량이 통째로 사라져, 다 끝난 것으로 읽힌다.',
     related: ['CONDITION-001', 'ANALYSIS-001', 'LINK-001'],
   },
+  {
+    id: 'REQ-OP-29',
+    topic: '접근성',
+    target: '목록에서 상세로',
+    requirement:
+      '표에서 상세로 들어가는 길은 키보드로도 닿아야 한다. 줄 전체에 걸린 누르기는 마우스에만 닿으므로, 이름 칸에 실제 단추를 두어 초점이 가고 Enter 로 열리게 한다. 줄을 단추로 바꾸지는 않는다 — 표의 «줄»이라는 뜻이 사라진다.',
+    related: ['DOC-001', 'POI-001', 'LOG-001', 'FIELD-001'],
+  },
 ];
